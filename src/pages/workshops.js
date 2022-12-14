@@ -1,21 +1,18 @@
-import * as React from 'react';
+import React from 'react';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
 
-const pageTitle = 'Home';
+const pageTitle = 'Workshops';
 
-const HomePage = () => {
-
+const Workshops = () => {
     return (
         <Page>
-            <h1>
-                Home Page
-            </h1>
+            <h1>Workshops Page</h1>
         </Page>
-    );
-};
+    )
+}
 
 export const Head = () => <PageHead pageTitle={ pageTitle } />
 
-export default HomePage;
+export default Workshops;
