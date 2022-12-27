@@ -1,10 +1,4 @@
 import React, { useState } from 'react';
-// import {
-//     AppBar,
-//     Toolbar,
-//     Typography,
-//     Button,
-// } from '@mui/material';
 import {
     Navbar,
     NavbarBrand,
@@ -34,7 +28,7 @@ const Header = () => {
         <Navbar color='dark' expand='md' style={{padding: '1em'}}>
             <div style={{display: 'flex', flexFlow: 'row'}}>
                 <NavbarToggler onClick={() => toggleNav(!navToggle)} className='me-2' />
-                <NavbarBrand>
+                <NavbarBrand tag='div'>
                     <Link to='/' style={{ color: `inherit`, textDecoration: `none` }}>
                         <StaticImage style={{ width: `50%` }} src='../images/tedxntua_logo_whitetext.png' alt='TEDxNTUA Logo' />
                     </Link>
@@ -53,7 +47,7 @@ const Header = () => {
                         toggle={() => toggleDropdown(!dropdownOpen)} direction='down'
                         style={{cursor: 'pointer'}}>
                             <DropdownToggle tag='span' data-toggle='dropdown' style={LinkStyle} className='pe-2'>
-                                EVENTS&nbsp;<i class='fa fa-caret-down' aria-hidden='true'></i>
+                                EVENTS&nbsp;<i className='fa fa-caret-down' aria-hidden='true'></i>
                             </DropdownToggle>
                             <DropdownMenu dark>
                                 <DropdownItem>
