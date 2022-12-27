@@ -4,18 +4,21 @@ import { useSpeakersData } from '../hooks';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
+import Speaker from '../components/Speaker';
 
 const pageTitle = 'Speakers';
 
 const Speakers = () => {
-
     const speakersData = useSpeakersData();
+    console.dir(speakersData);
 
-    // TODO: create Speaker component and map each speaker's data to a Speaker component  
+    const speakers = speakersData.map(s => (
+        <Speaker key={s.id} fullName={s.name} picture={s.image} biography={s.bio} />
+    ));
 
     return (
         <Page>
-            <h1>Speakers Page</h1>
+            {speakers}
         </Page>
     )
 }

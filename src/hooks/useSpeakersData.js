@@ -9,6 +9,9 @@ const useSpeakersData = () => {
             name
             socialMediaUrl
             speciality
+            bio {
+              raw
+            }
             image {
               gatsbyImageData(width: 200)
             }
