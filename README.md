@@ -3,7 +3,7 @@
  
 ### How to use
   - clone the repository:<br />
-  ```git clone git@github.com:yiannisha/tedxntua-2023.git```
+  ```git clone git@github.com:TEDxNTUA/tedxntua-2023.git```
   
   - install dependencies:<br />
   ```npm install -r```
