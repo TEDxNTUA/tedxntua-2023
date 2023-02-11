@@ -1,14 +1,16 @@
 import React from 'react';
-
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
+import { PartnerComp } from '../components/partnerComp';
 
 const pageTitle = 'Partners';
 
 const Partners = () => {
     return (
         <Page>
-            <h1>Partners Page</h1>
+            <div>
+                <PartnerComp/>
+            </div>
         </Page>
     )
 }
