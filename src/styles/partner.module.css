@@ -1,0 +1,14 @@
+
+.button:hover span{
+    opacity: 1;
+    color: yellowgreen;
+}
+
+.button{
+    width: fit-content;
+}
+
+.learn-more{
+    position: absolute;
+    opacity: 0;
+}
