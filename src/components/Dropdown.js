@@ -12,21 +12,25 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
             <Link
             key={key}
             to={paths[key]}
-            className={`text-reset text-decoration-none ${styles.textShadowPrimary}`}>
+            className={`text-reset text-decoration-none ${styles.textShadowPrimary} ${dropdownStyles.link}`}>
                 {key.toUpperCase()}
             </Link>
         );
     });
 
+    const backgroundStyle = { backgroundColor: (open) ? "var(--primary-bg)":"rgba(30, 30, 30, .8)" };
+
     return (
         <div onClick={() => setOpen(!open)} style={style} className={className}>
-            <div className={dropdownStyles.header}>
+            <div className={`${dropdownStyles.header} ${dropdownStyles.link}`}>
                 { children }
             </div>
-            <div style={{opacity: (open || permanentActive) ? 1:0}} className={`${(!permanentActive) ? dropdownStyles.dropdownContainer:dropdownStyles.activeContainer}`}>
+            <div style={{opacity: (open || permanentActive) ? 1:0, ...backgroundStyle}} className={`${(!permanentActive) ? dropdownStyles.dropdownContainer:dropdownStyles.activeContainer}`}>
                 <div
-                className={dropdownStyles.linksContainer}
-                style={{opacity: (open || permanentActive) ? 1:0}}
+                className={`
+                ${dropdownStyles.linksContainer}
+                ${(open || permanentActive) ? "":styles.hideLink}
+                `}
                 >
                     { links }
                 </div>

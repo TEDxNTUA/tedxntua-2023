@@ -10,7 +10,7 @@ import Flower from './Flower';
 import * as styles from "../styles/main.module.css";
 import * as headerStyles from "../styles/header.module.css";
 
-const Header = () => {
+const Header = ({ currentPage }) => {
 
     const [open, setOpen] = useState(false);
 
@@ -31,16 +31,22 @@ const Header = () => {
             <Link
             key={key}
             to={paths[key]}
-            className={`text-reset text-decoration-none ${styles.textShadowPrimary} ${headerStyles.link}`}
-            style={{opacity: (open) ? 1:0}}
+            className={`
+            text-reset text-decoration-none
+            ${styles.textShadowPrimary}
+            ${headerStyles.link}
+            ${(!open) ? styles.hideLink:""}
+            `}
             >
                 {key.toUpperCase()}
             </Link>
         );
     });
 
+    const backgroundStyle = { backgroundColor: (open) ? "var(--primary-bg)":"rgba(30, 30, 30, .8)" };
+
     return (
-        <div className={headerStyles.headerContainer}>
+        <div className={headerStyles.headerContainer} style={backgroundStyle}>
             <Row className={headerStyles.itemContainer}>
                 <Col xs={{size: 0}} md={{size: 3}} className={headerStyles.imageContainer}>
                     <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
@@ -50,7 +56,7 @@ const Header = () => {
                     <Col style={{display: (!isMobile) ? "flex":"none"}} className={headerStyles.linkContainer}>
                         <>
                             { links[0] }
-                            <DropDownLinks paths={dropdownPaths} style={{opacity: (open) ? 1:0}}>
+                            <DropDownLinks paths={dropdownPaths} style={{opacity: (open) ? 1:0, ...backgroundStyle}}>
                                 <span className={`${styles.textShadowPrimary} ${headerStyles.link}`}>
                                     EVENT&nbsp;
                                     <i className='fa fa-caret-down'></i>
@@ -76,8 +82,9 @@ const Header = () => {
                     style={{
                         display: (isMobile) ? "flex":"none",
                         opacity: (open) ? 1:0,
+                        ...backgroundStyle
                     }}
-                    className={headerStyles.mobileLinkContainer}>
+                    className={`${headerStyles.mobileLinkContainer}`}>
                         <>
                             { links[0] }
                             <DropDownLinks

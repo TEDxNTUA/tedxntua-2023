@@ -9,6 +9,14 @@
     flex-direction: column;
 }
 
+.link {
+    transition: all .2s ease-in-out;
+}
+
+.link:hover {
+    transform: scale(1.1);
+}
+
 .dropdown-container {
     position: absolute;
 

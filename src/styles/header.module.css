@@ -1,9 +1,16 @@
 .header-container {
-    display: fixed;
+    position: fixed;
+    
     background-color: rgba(30, 30, 30, .8);
 
     padding: 0 .5em;
-    margin-bottom: 1.5em; 
+    margin-bottom: 1.5em;
+
+    width: 100%;
+    height: 100px;
+
+    top: 0;
+    z-index: 1;
 }
 
 .item-container {
@@ -32,6 +39,10 @@
 .link-container .link {
     margin: 0 .2em;
     transition: all .2s;
+}
+
+.link:hover {
+    transform: scale(1.1);
 }
 
 .image-container {
@@ -72,9 +83,11 @@
         flex-direction: column;
         align-items: flex-end;
         white-space: nowrap;
-        margin-top: 1em;
+        margin-top: .5em;
         position: absolute;
         top: 100%;
+
+        border-radius: 5px;
 
         font-size: 32px;
         font-weight: bold;
