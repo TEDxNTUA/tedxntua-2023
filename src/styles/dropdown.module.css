@@ -1,0 +1,20 @@
+.header {
+    cursor: pointer;
+}
+
+.links-container {
+    transition: all .2s;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-container {
+    position: absolute;
+}
+
+.active-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

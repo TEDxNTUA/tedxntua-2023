@@ -1,0 +1,21 @@
+.container {
+    height: 60px;
+    width: 60px;
+    position: relative;
+}
+
+.front {
+    display: block;
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    z-index: 1;
+}
+
+.shadow {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 2px;
+    left: 2px;
+}

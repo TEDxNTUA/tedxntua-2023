@@ -1,80 +1,93 @@
 import React, { useState } from 'react';
-import {
-    Navbar,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavbarToggler,
-    Collapse,
-    Dropdown,
-    DropdownToggle,
-    DropdownItem,
-    DropdownMenu
-} from 'reactstrap';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Row, Col } from "reactstrap";
+import { isMobile } from 'react-device-detect';
+
+import DropDownLinks from './Dropdown';
+import Flower from './Flower';
+
+import * as styles from "../styles/main.module.css";
+import * as headerStyles from "../styles/header.module.css";
 
 const Header = () => {
-    
-    const LinkStyle = {
-        color: 'white',
-        textDecoration: 'none'
+
+    const [open, setOpen] = React.useState(false);
+
+    const paths = {
+        Home: "/",
+        Partners: "/partners",
+        About: "/about",
     };
 
-    const [navToggle, toggleNav] = useState(false);
-    const [dropdownOpen, toggleDropdown] = useState(false);
+    const dropdownPaths = {
+        Speakers: "/speakers",
+        Workshops: "/workshops",
+        Performers: "/performers",
+    };
+
+    const links = Object.keys(paths).map(key => {
+        return (
+            <Link
+            key={key}
+            to={paths[key]}
+            className={`text-reset text-decoration-none ${styles.textShadowPrimary} ${headerStyles.link}`}
+            style={{opacity: (open) ? 1:0}}
+            >
+                {key.toUpperCase()}
+            </Link>
+        );
+    });
 
     return (
-        <Navbar color='dark' expand='md' style={{padding: '1em'}}>
-            <div style={{display: 'flex', flexFlow: 'row'}}>
-                <NavbarToggler onClick={() => toggleNav(!navToggle)} className='me-2' />
-                <NavbarBrand tag='div'>
-                    <Link to='/' style={{ color: `inherit`, textDecoration: `none` }}>
-                        <StaticImage style={{ width: `50%` }} src='../images/tedxntua_logo_whitetext.png' alt='TEDxNTUA Logo' />
-                    </Link>
-                </NavbarBrand>
-            </div>
-            <Collapse isOpen={navToggle} navbar className='justify-content-end' style={{ width: '100%' }}>
-                <Nav navbar>
-                    <NavItem className='mt-2 mt-md-0'>
-                        <Link to='/' style={LinkStyle} className='pe-2'>
-                            HOME
-                        </Link>
-                    </NavItem>
-                    <NavItem className='mt-2 mt-md-0'>
-                        <Dropdown
-                        isOpen={dropdownOpen}
-                        toggle={() => toggleDropdown(!dropdownOpen)} direction='down'
-                        style={{cursor: 'pointer'}}>
-                            <DropdownToggle tag='span' data-toggle='dropdown' style={LinkStyle} className='pe-2'>
-                                EVENTS&nbsp;<i className='fa fa-caret-down' aria-hidden='true'></i>
-                            </DropdownToggle>
-                            <DropdownMenu dark>
-                                <DropdownItem>
-                                    <Link to='/speakers' style={LinkStyle}>SPEAKERS</Link>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <Link to='/workshops' style={LinkStyle}>WORKSHOPS</Link>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <Link to='/performers' style={LinkStyle}>PERFORMERS</Link>
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
-                    </NavItem>
-                    <NavItem className='mt-2 mt-md-0'>
-                        <Link to='/partners' style={LinkStyle} className='pe-2' >
-                            PARTNERS
-                        </Link>
-                    </NavItem>
-                    <NavItem className='mt-2 mt-md-0'>
-                        <Link to='/about' style={LinkStyle} className='pe-2' >
-                            ABOUT US
-                        </Link>
-                    </NavItem>
-                </Nav>
-            </Collapse>
-        </Navbar>
+        <div className={headerStyles.headerContainer}>
+            <Row className={headerStyles.itemContainer}>
+                <Col xs={{size: 0}} md={{size: 3}} className={headerStyles.imageContainer}>
+                    <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
+                </Col>
+                    {
+                    !isMobile &&
+                    <Col style={{display: (!isMobile) ? "flex":"none"}} className={headerStyles.linkContainer}>
+                        <>
+                            { links[0] }
+                            <DropDownLinks paths={dropdownPaths} style={{opacity: (open) ? 1:0}}>
+                                <span className={`${styles.textShadowPrimary} ${headerStyles.link}`}>
+                                    EVENT&nbsp;
+                                    <i className='fa fa-caret-down'></i>
+                                </span>
+                            </DropDownLinks>
+                            { links.slice(1) }
+                        </>
+                    </Col>
+                    }
+                <Col xs={{size: 3}} md={{size: 1}} className={headerStyles.mobileMenuContainer}>
+                    <Flower
+                    onClick={() => setOpen(!open)}
+                    style={{ transition: "all .2s", transform: (open) ? "rotate(360deg)":"rotate(0deg)" }}
+                    className={headerStyles.toggler}
+                    stroke="#F6E9C7"
+                    shadow="#C51731"
+                    strokeWidth={12}
+                    />
+
+                    {
+                    isMobile &&
+                    <Col style={{display: (isMobile) ? "flex":"none"}} className={headerStyles.mobileLinkContainer}>
+                        <>
+                            { links[0] }
+                            <DropDownLinks
+                            paths={dropdownPaths}
+                            style={{opacity: (open) ? 1:0}}
+                            permanentActive={true}
+                            />
+                            { links.slice(1) }
+                        </>
+                    </Col>
+                    }
+
+                </Col>
+            </Row>
+        </div>
     );
 }
 
