@@ -23,7 +23,7 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
             <div className={dropdownStyles.header}>
                 { children }
             </div>
-            <div className={`${(!permanentActive) ? dropdownStyles.dropdownContainer:dropdownStyles.activeContainer}`}>
+            <div style={{opacity: (open || permanentActive) ? 1:0}} className={`${(!permanentActive) ? dropdownStyles.dropdownContainer:dropdownStyles.activeContainer}`}>
                 <div
                 className={dropdownStyles.linksContainer}
                 style={{opacity: (open || permanentActive) ? 1:0}}

@@ -4,25 +4,56 @@ import { useMembersData } from '../hooks';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
-import Member from '../components/Member';
+import AboutTeamLayout from '../containers/AboutTeamLayout';
 
 const pageTitle = 'About Us';
 
 const About = () => {
     
     const membersData = useMembersData();
+    const teams = [
+        {
+            code: "DEV",
+            name: "DEVELOPER",
+        },
+        {
+            code: "MEDIA",
+            name: "MEDIA",
+        },
+        {
+            code: "DESIGN",
+            name: "DESIGN",
+        },
+        {
+            code: "PRODUCTION",
+            name: "VENUE & PRODUCTION",
+        },
+        {
+            code: "FUNDRAISING",
+            name: "FUNDRAISING",
+        },
+        {
+            code: "SPEAKERS",
+            name: "SPEAKERS",
+        },
+        {
+            code: "EXPERIENCE",
+            name: "EXPERIENCE"
+        },
+    ];
 
-    const members = membersData.map(member => {        
+    const layouts = teams.map(team => {
+        
+        const members = membersData.filter(member => member.team === team.code);
+        members.sort((a, b) => a.order - b.order);
         return (
-            <Member key={ member.id } name={ member.name } team={ member.team }
-            image={ member.image } linkedInUrl={ member.linkedInUrl } />
+            <AboutTeamLayout key={team.code} members={members} teamName={team.name} />
         );
     });
 
     return (
         <Page>
-            <h1>About Page</h1>
-            { members }
+            { layouts }
         </Page>
     )
 }

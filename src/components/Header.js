@@ -12,7 +12,7 @@ import * as headerStyles from "../styles/header.module.css";
 
 const Header = () => {
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const paths = {
         Home: "/",
@@ -72,7 +72,12 @@ const Header = () => {
 
                     {
                     isMobile &&
-                    <Col style={{display: (isMobile) ? "flex":"none"}} className={headerStyles.mobileLinkContainer}>
+                    <Col
+                    style={{
+                        display: (isMobile) ? "flex":"none",
+                        opacity: (open) ? 1:0,
+                    }}
+                    className={headerStyles.mobileLinkContainer}>
                         <>
                             { links[0] }
                             <DropDownLinks
