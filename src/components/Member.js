@@ -1,6 +1,8 @@
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
+import LinkedInIcon from './linkedInIcon';
+
 import * as styles from "../styles/main.module.css";
 import * as memberStyles from "../styles/member.module.css";
 
@@ -17,9 +19,13 @@ const Member = ({ imageData, name="", linkedInUrl="", style, className, onMouseE
             <a href={ linkedInUrl } >
                 <GatsbyImage alt={ name } image={ image } />
             </a>
-            <h5 className={`${styles.textShadowPrimary} ${memberStyles.name}`}>
-                { name }
-            </h5>
+            <div className={memberStyles.caption}>
+                <h5 className={`${styles.textShadowPrimary} ${memberStyles.name}`}>
+                    { name }
+                </h5>
+                {linkedInUrl && <LinkedInIcon />}
+            </div>
+
         </div>
     );
 }
