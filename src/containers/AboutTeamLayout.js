@@ -2,6 +2,7 @@ import * as React from "react";
 import { Container, Row, Col } from "reactstrap";
 
 import Member from "../components/Member";
+import DissapearingText from "../components/DissapearringText";
 
 import * as styles from "../styles/main.module.css";
 import * as teamLayoutStyles from "../styles/teamLayout.module.css";
@@ -36,9 +37,10 @@ const AboutTeamLayout = ({ teamName, members }) => {
             <Row className={teamLayoutStyles.row}>
                 { memberComponents.slice(0, max) }
             </Row>
-            <h1 className={ `${styles.textShadowPrimary} ${teamLayoutStyles.teamName}` }>
-                { teamName } TEAM
-            </h1>
+            <DissapearingText
+            className={ `${styles.textShadowPrimary} ${teamLayoutStyles.teamName}`}
+            text={`${teamName} TEAM`}
+            />
             <Row className={teamLayoutStyles.row}>
                 { memberComponents.slice(max) }
             </Row>

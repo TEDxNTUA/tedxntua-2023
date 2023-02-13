@@ -9,16 +9,18 @@
     align-items: center;
     justify-content: center;
     height: 90vh;
-
-    /* border: solid white 2px; */
 }
 
-.container:nth-child(2) {
-    margin-top: 2em;
+.container:nth-child(1) {
+    margin-top: calc(var(--header-height) - 1em);
+}
+
+.container:nth-child(even) {
+    background-color: var(--primary-highlight);
 }
 
 .container:nth-child(odd) {
-    background-color: var(--secondary-bg);
+    background-color: var(--primary-orange);
 }
 
 .row {
@@ -42,6 +44,10 @@
 
 .scale {
     transform: scale(1.25);
+}
+
+.scale a {
+    box-shadow: 0 25px 40px rgba(0,0,0,0.5);
 }
 
 .team-name {

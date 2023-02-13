@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=GFS+Neohellenic:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --primary-bg: #1E1E1E;
-    --secondary-bg: #232323;
+    --primary-bg: #0B0B0B;
+    --secondary-bg: #1e1e1e;
     --primary-shadow: #C51731;
     --secondary-shadow: #546EA0;
     --primary-text: #F6E9C7;
     --primary-highlight: #7FB1BC;
     --primary-orange: #F06427;
+
+    --header-height: 100px;
 }
 
 h1, h2, h3, h4, h5, div, a, span, p {

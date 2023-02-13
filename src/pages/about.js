@@ -26,7 +26,7 @@ const About = () => {
         },
         {
             code: "PRODUCTION",
-            name: "VENUE & PRODUCTION",
+            name: "VENUE_&_PRODUCTION",
         },
         {
             code: "FUNDRAISING",

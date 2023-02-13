@@ -26,16 +26,24 @@ const Header = ({ currentPage }) => {
         Performers: "/performers",
     };
 
-    const links = Object.keys(paths).map(key => {
+    const links = Object.keys(paths).map((key, index) => {
+        if (index > 0) {
+            index += 3;
+        }
+
         return (
             <Link
             key={key}
             to={paths[key]}
+            style={{
+                animationDelay: `${index*.1}s`
+            }}
             className={`
             text-reset text-decoration-none
             ${styles.textShadowPrimary}
             ${headerStyles.link}
             ${(!open) ? styles.hideLink:""}
+            ${(open) ? headerStyles.slideInLeft:""}
             `}
             >
                 {key.toUpperCase()}
@@ -43,10 +51,8 @@ const Header = ({ currentPage }) => {
         );
     });
 
-    const backgroundStyle = { backgroundColor: (open) ? "var(--primary-bg)":"rgba(30, 30, 30, .8)" };
-
     return (
-        <div className={headerStyles.headerContainer} style={backgroundStyle}>
+        <div className={headerStyles.headerContainer}>
             <Row className={headerStyles.itemContainer}>
                 <Col xs={{size: 0}} md={{size: 3}} className={headerStyles.imageContainer}>
                     <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
@@ -56,7 +62,7 @@ const Header = ({ currentPage }) => {
                     <Col style={{display: (!isMobile) ? "flex":"none"}} className={headerStyles.linkContainer}>
                         <>
                             { links[0] }
-                            <DropDownLinks paths={dropdownPaths} style={{opacity: (open) ? 1:0, ...backgroundStyle}}>
+                            <DropDownLinks paths={dropdownPaths} style={{opacity: (open) ? 1:0}} className={`${(open) ? "":styles.hideLink}`}>
                                 <span className={`${styles.textShadowPrimary} ${headerStyles.link}`}>
                                     EVENT&nbsp;
                                     <i className='fa fa-caret-down'></i>
@@ -82,7 +88,6 @@ const Header = ({ currentPage }) => {
                     style={{
                         display: (isMobile) ? "flex":"none",
                         opacity: (open) ? 1:0,
-                        ...backgroundStyle
                     }}
                     className={`${headerStyles.mobileLinkContainer}`}>
                         <>
@@ -90,7 +95,7 @@ const Header = ({ currentPage }) => {
                             <DropDownLinks
                             paths={dropdownPaths}
                             style={{opacity: (open) ? 1:0}}
-                            permanentActive={true}
+                            permanentActive={open}
                             />
                             { links.slice(1) }
                         </>
