@@ -4,7 +4,7 @@ import { useSpeakersData } from '../hooks';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
-import Speaker from '../components/Speaker';
+import SpeakerLayout from '../containers/SpeakerLayout';
 
 const pageTitle = 'Speakers';
 
@@ -12,13 +12,10 @@ const Speakers = () => {
     const speakersData = useSpeakersData();
     console.dir(speakersData);
 
-    const speakers = speakersData.map(s => (
-        <Speaker key={s.id} fullName={s.name} picture={s.image} biography={s.bio} />
-    ));
 
     return (
         <Page>
-            {speakers}
+            <SpeakerLayout speakerData={speakersData} />
         </Page>
     )
 }

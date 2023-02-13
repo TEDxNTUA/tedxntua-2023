@@ -13,7 +13,7 @@ const useSpeakersData = () => {
               raw
             }
             image {
-              gatsbyImageData(width: 200)
+              gatsbyImageData(width: 450, height: 450)
             }
           }
         }
