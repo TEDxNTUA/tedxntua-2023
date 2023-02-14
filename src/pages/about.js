@@ -1,15 +1,18 @@
 import React from 'react';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import { useMembersData } from '../hooks';
+import { useMembersData, useAboutInfo } from '../hooks';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
 import AboutTeamLayout from '../containers/AboutTeamLayout';
+import InfoPanel from '../components/InfoPanel';
 
 const pageTitle = 'About Us';
 
 const About = () => {
     
+    const aboutInfo = useAboutInfo();
     const membersData = useMembersData();
     const teams = [
         {
@@ -51,9 +54,12 @@ const About = () => {
         );
     });
 
+    const infoPanels = aboutInfo.map(info => <InfoPanel header={info.header} formattedText={documentToReactComponents(JSON.parse(info.info.raw))} />);
+
     return (
         <Page>
             { layouts }
+            { infoPanels }
         </Page>
     )
 }
