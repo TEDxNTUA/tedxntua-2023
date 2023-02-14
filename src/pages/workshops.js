@@ -11,7 +11,6 @@ const pageTitle = 'Workshops';
 const Workshops = () => {
 
     const workshopData = useWorkshopData();
-    console.log(workshopData);
 
     return (
         <Page currentPage={`workshops`}>

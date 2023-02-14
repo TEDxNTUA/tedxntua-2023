@@ -11,8 +11,7 @@ const pageTitle = 'Performers';
 const Performers = () => {
     
     const performerData = usePerformerData();
-    console.log(performerData);
-
+    
     return (
         <Page currentPage={`performers`}>
             <SpeakerLayout speakerData={performerData} />

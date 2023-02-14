@@ -10,8 +10,6 @@ const pageTitle = 'Speakers';
 
 const Speakers = () => {
     const speakersData = useSpeakersData();
-    console.dir(speakersData);
-
 
     return (
         <Page currentPage={`speakers`}>
