@@ -34,7 +34,7 @@ body {
 }
 
 .hide-link {
-    opacity: 0;
+    opacity: 0 !important;
     pointer-events: none;
 }
 

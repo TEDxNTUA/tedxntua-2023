@@ -53,6 +53,10 @@
     width: fit-content !important;
 }
 
+.image-container div {
+    height: 250px;
+}
+
 .image img {
     height: 60px;
     width: auto;
