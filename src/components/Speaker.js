@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from "../styles/main.module.css";
 import * as speakerStyles from "../styles/speaker.module.css";
 
-const Speaker = ({ fullName, picture, slug }) => {
+const Speaker = ({ fullName, picture, slug, speciality }) => {
 
     const image = getImage(picture);
     
@@ -31,6 +31,12 @@ const Speaker = ({ fullName, picture, slug }) => {
                 `}>
                     { fullName }
                 </h1>
+                <h4 className={`
+                ${styles.textShadowPrimary}
+                ${speakerStyles.caption}
+                `}>
+                    { speciality }
+                </h4>
             </div>
         </Link>
     );

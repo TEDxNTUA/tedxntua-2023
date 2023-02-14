@@ -7,9 +7,8 @@ import * as layoutStyles from "../styles/speakerLayout.module.css";
 
 const SpeakerLayout = ({ speakerData }) => {
 
-
     const speakers = speakerData.map(s => (
-        <Speaker key={s.id} fullName={s.name} picture={s.image} />
+        <Speaker key={s.id} fullName={s.name} picture={s.image} speciality={s.speciality} />
     ));
     
     const max = 3;

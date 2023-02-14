@@ -1,14 +1,21 @@
 import React from 'react';
 
+import { usePerformerData } from '../hooks';
+
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
+import SpeakerLayout from '../containers/SpeakerLayout';
 
 const pageTitle = 'Performers';
 
 const Performers = () => {
+    
+    const performerData = usePerformerData();
+    console.log(performerData);
+
     return (
         <Page>
-            <h1>Performers Page</h1>
+            <SpeakerLayout speakerData={performerData} />
         </Page>
     )
 }
