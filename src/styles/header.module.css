@@ -1,0 +1,135 @@
+.header-container {
+    position: fixed;
+    
+    /* background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(27,27,27,0.6776291167664671) 53%, rgba(27,27,27,0.6506830089820359) 100%); */
+    background-color: rgba(30, 30, 30, .8);
+
+    padding: 0 .5em;
+    margin-bottom: 1.5em;
+
+    width: 100%;
+    height: var(--header-height);
+
+    top: 0;
+    z-index: 1;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    padding-top: 1em;
+}
+
+.link-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    font-size: 40px;
+    font-weight: bold;
+    white-space: nowrap;
+
+    transition: all .2s;
+}
+
+.link-container .link {
+    margin: 0 .2em;
+    transition: all .2s;
+}
+
+.link:hover {
+    transform: scale(1.1);
+    opacity: 1 !important;
+}
+
+.image-container {
+    padding-top: .5em;
+    height: 60px;
+    width: fit-content !important;
+}
+
+.image img {
+    height: 60px;
+    width: auto;
+}
+
+.toggler svg:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1049px) {
+
+    .link-container {
+        font-size: 32px;
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+    .mobile-menu-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: relative;
+
+    }
+
+    .mobile-link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        white-space: nowrap;
+
+        position: absolute;
+        top: calc(var(--header-height) - 0.5em);
+
+        font-size: 32px;
+        font-weight: bold;
+        white-space: nowrap;
+        z-index: 1;
+
+        transition: all .2s;
+        right: 0;
+        width: fit-content;
+
+        padding: .5em .5em .5em .5em;
+
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(27,27,27,0.6027788173652695) 57%, rgba(27,27,27,0.6506830089820359) 100%);
+    }
+
+    .mobile-link-container .link {
+        margin: .2em;
+        transition: all .2s;
+    }
+
+    .link-container { 
+        font-size: 22px;
+    }
+
+    .link {
+        transform: translateX(100vw)
+    }
+
+    .slide-in-left {
+        animation: .3s slide-in-left-animation ease-in-out forwards;
+    }
+
+}
+
+@keyframes slide-in-left-animation {
+    0% {
+        transform: translateX(100vw);
+    }
+    80% {
+        transform: translateX(-10vw);
+    }
+    100% {
+        transform: translateX(0vw);
+    }
+}

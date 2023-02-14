@@ -7,7 +7,7 @@ const pageTitle = 'Partners';
 
 const Partners = () => {
     return (
-        <Page>
+        <Page currentPage={`partners`}>
             <h1>Partners Page</h1>
         </Page>
     )
