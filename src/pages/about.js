@@ -54,10 +54,10 @@ const About = () => {
         );
     });
 
-    const infoPanels = aboutInfo.map(info => <InfoPanel header={info.header} formattedText={documentToReactComponents(JSON.parse(info.info.raw))} />);
+    const infoPanels = aboutInfo.map(info => <InfoPanel key={info.id} header={info.header} formattedText={documentToReactComponents(JSON.parse(info.info.raw))} />);
 
     return (
-        <Page>
+        <Page currentPage={`about`}>
             { layouts }
             { infoPanels }
         </Page>

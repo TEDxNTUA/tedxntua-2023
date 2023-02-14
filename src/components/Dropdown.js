@@ -1,11 +1,13 @@
 import * as React from "react";
 import { Link } from "gatsby";
 
+import { capitalize } from "../utils";
+
 import * as styles from "../styles/main.module.css";
 import * as dropdownStyles from "../styles/dropdown.module.css";
 import * as headerStyles from "../styles/header.module.css";
 
-const DropDownLinks = ({ paths, children, style, className, permanentActive = false }) => {
+const DropDownLinks = ({ paths, children, style, className, permanentActive = false, currentPage='', onClick=null }) => {
     const [open, setOpen] = React.useState(false);
     
     const links = Object.keys(paths).map((key, index) => {
@@ -16,7 +18,7 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
             key={key}
             to={paths[key]}
             style={{
-                opacity: (open || permanentActive) ? 1:0,
+                opacity: (open || permanentActive) ? ((capitalize(currentPage) === key) ? 1:.6):0,
                 height: (open || permanentActive) ? `100%`:`0`,
                 animationDelay: `${index*.1}s`,
             }}
@@ -36,7 +38,12 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
     const backgroundStyle = { backgroundColor: (open) ? "var(--secondary-bg)":"rgba(30, 30, 30, .8)" };
 
     return (
-        <div onClick={() => setOpen(!open)} style={style} className={className}>
+        <div onClick={() => {
+            if (onClick) {onClick()};
+            setOpen(!open);
+            }}
+            style={style}
+            className={className} >
             <div className={`
             ${dropdownStyles.header}
             ${dropdownStyles.link}

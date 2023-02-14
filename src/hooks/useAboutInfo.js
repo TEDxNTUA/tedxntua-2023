@@ -5,6 +5,7 @@ const useAboutInfo = () => {
     query {
       allContentfulAboutInfo(sort: {order: ASC}) {
         nodes {
+          id
           header
           info {
             raw

@@ -14,7 +14,7 @@ const Workshops = () => {
     console.log(workshopData);
 
     return (
-        <Page>
+        <Page currentPage={`workshops`}>
             <SpeakerLayout speakerData={workshopData} />
         </Page>
     )

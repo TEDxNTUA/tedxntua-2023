@@ -6,13 +6,15 @@ import { isMobile } from 'react-device-detect';
 
 import DropDownLinks from './Dropdown';
 import Flower from './Flower';
+import { capitalize } from '../utils';
 
 import * as styles from "../styles/main.module.css";
 import * as headerStyles from "../styles/header.module.css";
 
 const Header = ({ currentPage }) => {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(!isMobile);
+    const [dropClicked, setDropClicked] = useState(false);
 
     const paths = {
         Home: "/",
@@ -21,9 +23,9 @@ const Header = ({ currentPage }) => {
     };
 
     const dropdownPaths = {
-        Speakers: "/speakers",
-        Workshops: "/workshops",
-        Performers: "/performers",
+        Speakers: `/speakers`,
+        Workshops: `/workshops`,
+        Performers: `/performers`,
     };
 
     const links = Object.keys(paths).map((key, index) => {
@@ -34,8 +36,9 @@ const Header = ({ currentPage }) => {
         return (
             <Link
             key={key}
-            to={paths[key]}
+            to={`${paths[key]}`}
             style={{
+                opacity: (key.toLowerCase() === currentPage ) ? 1:.6,
                 animationDelay: `${index*.1}s`
             }}
             className={`
@@ -62,8 +65,20 @@ const Header = ({ currentPage }) => {
                     <Col style={{display: (!isMobile) ? "flex":"none"}} className={headerStyles.linkContainer}>
                         <>
                             { links[0] }
-                            <DropDownLinks paths={dropdownPaths} style={{opacity: (open) ? 1:0}} className={`${(open) ? "":styles.hideLink}`}>
-                                <span className={`${styles.textShadowPrimary} ${headerStyles.link}`}>
+                            <DropDownLinks
+                            onClick={() => setDropClicked(!dropClicked)}
+                            paths={dropdownPaths}
+                            style={{opacity: (open) ? 1:0}}
+                            className={`${(open) ? "":styles.hideLink}`}
+                            currentPage={currentPage}
+                            >
+                                <span
+                                className={`
+                                ${styles.textShadowPrimary}
+                                ${headerStyles.link}
+                                `}
+                                style={{opacity: (capitalize(currentPage) in dropdownPaths || dropClicked) ? 1:.6}}
+                                >
                                     EVENT&nbsp;
                                     <i className='fa fa-caret-down'></i>
                                 </span>
@@ -96,6 +111,7 @@ const Header = ({ currentPage }) => {
                             paths={dropdownPaths}
                             style={{opacity: (open) ? 1:0}}
                             permanentActive={open}
+                            currentPage={currentPage}
                             />
                             { links.slice(1) }
                         </>

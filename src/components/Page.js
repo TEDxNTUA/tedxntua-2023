@@ -7,10 +7,10 @@ import 'font-awesome/css/font-awesome.min.css';
 
 import * as styles from "../styles/main.module.css";
 
-const Page = ({ children }) => {
+const Page = ({ currentPage, children }) => {
     return (
         <main>
-            <Header />
+            <Header currentPage={currentPage} />
 
             <div className={styles.globalContainer}>
                 { children }
