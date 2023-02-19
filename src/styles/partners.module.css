@@ -5,12 +5,19 @@
 
 .title{
     text-align: center;
-    font-weight: 600;
+    font-size: 72px;
+    font-weight: 800;
 }
 
 .section{
+    margin-top: 2em;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    gap: 2em;
+}
+
+.container{
+    margin-top: 20vh;
 }
