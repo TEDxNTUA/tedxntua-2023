@@ -1,8 +1,9 @@
 import React from "react";
 import { Grid, Typography, Modal, Button, Box} from "@mui/material";
-import * as partnerStyles from "../styles/partner.module.css"
+import * as partnerStyles from "../styles/partner.module.css";
+import * as partnersStyles from "../styles/partners.module.css";
 import { StaticImage } from "gatsby-plugin-image";
-import * as Styles from "../styles/main.module.css"
+import * as Styles from "../styles/main.module.css";
 
 
 export const Partner = ({trigger}) => {
@@ -15,10 +16,13 @@ export const Partner = ({trigger}) => {
         <StaticImage className={partnerStyles.image} src="../images/example.jpg"/> 
         <span className={`${partnerStyles.learnMore} ${Styles.textShadowPrimary}`}>Learn More</span>
     </Button>
-    <Modal open={open} onclose={handleClose}>
+    <Modal open={open} onClose={handleClose}>
         <div className={partnerStyles.modalContainer}>
           <div className={partnerStyles.modal}>
-            <div className={partnerStyles.modalDetails}>
+            <div className={partnersStyles.modal}>
+              <span onClick={handleClose} className={partnerStyles.closeButton}>
+                &times;
+              </span>
               <StaticImage  src="../images/example.jpg"/> 
               <Typography variant="h4" component="h2" textAlign="center" className={Styles.textShadowPrimary} sx={{color:"white"}}>ΜΠΟΜΑΤ</Typography>
               <Typography sx={{ mt: 2, color:"white" }} textAlign="center">
