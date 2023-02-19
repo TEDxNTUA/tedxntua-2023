@@ -1,0 +1,15 @@
+.container {
+    border-radius: 100%;
+    background-color: #7B9EE2;
+    width: fit-content;
+
+    padding: .2em .5em;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .container {
+        padding: 0 .3em;
+    }
+
+}

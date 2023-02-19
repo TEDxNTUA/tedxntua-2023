@@ -1,0 +1,41 @@
+.text-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter {
+    /* transition: all .5s ease-in; */
+}
+
+.hide {
+    animation: 2s fade-out .2s ease-in-out alternate infinite;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1; 
+        font-size: 75px;
+    }
+    100% {
+        opacity: 0.6;
+        font-size: 78px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    @keyframes fade-out {
+        0% {
+            opacity: 1; 
+            /* font-size: 65px; */
+        }
+        100% {
+            opacity: 0.6;
+            /* font-size: 66px; */
+        }   
+    }
+
+}

@@ -1,0 +1,36 @@
+.header {
+    cursor: pointer;
+}
+
+.links-container {
+    transition: all .2s;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    transition: all .2s ease-in-out;
+}
+
+.link:hover {
+    transform: scale(1.1);
+}
+
+.dropdown-container {
+    position: absolute;
+    top: var(--header-height);
+
+    z-index: 1;
+    background-color: rgba(30, 30, 30, .8);
+    padding: 0 0.5em;
+    border-radius: 0 0 5px 5px;
+
+    transition: all .4s ease-in-out;
+}
+
+.active-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
