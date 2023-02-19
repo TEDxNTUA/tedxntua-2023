@@ -8,22 +8,20 @@ const pageTitle = 'Partners';
 
 const Partners = () => {
 const [open, setOpen] = React.useState(false);
-// const handleOpen = () => setOpen(true);
-// const handleClose = () => setOpen(false);
-console.log(open);
+const handleOpen = () => setOpen(true);
+const handleClose = () => setOpen(false);
     return (
         <Page>
             <div className={PartnersStyles.titles}>
                 <h2 className={PartnersStyles.title}>Knowledge Partner</h2>
                 <div className={PartnersStyles.section}>
-                    <Partner trigger={() => setOpen(true)}/>
-                    <Partner trigger={() => setOpen(true)}/>
-                    <Partner trigger={() => setOpen(true)}/>
-                    <Partner trigger={() => setOpen(true)}/>
-                    <Partner trigger={() => setOpen(true)}/>
-                    <Partner trigger={() => setOpen(true)}/>
-                </div>
-                
+                    <Partner />
+                    <Partner />
+                    <Partner />
+                    <Partner/>
+                    <Partner/>
+                    <Partner />
+                </div>               
             </div>
         </Page>
     )
