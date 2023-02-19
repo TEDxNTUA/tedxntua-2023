@@ -1,24 +1,27 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const useSpeakersData = () => {
+const useWorkshopData = () => {
     return useStaticQuery(graphql`
     query {
-        allContentfulSpeakers {
+        allContentfulWorkshops {
           nodes {
             id
             name
-            socialMediaUrl
-            speciality
+            applicationFormUrl
             bio {
               raw
             }
+            websiteUrl
             image {
               gatsbyImageData(width: 450, height: 450)
             }
+            sideEventDescription {
+              raw
+            }
           }
         }
-      }`
-    ).allContentfulSpeakers.nodes;
+      }
+    `).allContentfulWorkshops.nodes;
 }
 
-export default useSpeakersData;
+export default useWorkshopData;

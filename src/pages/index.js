@@ -8,7 +8,7 @@ const pageTitle = 'Home';
 const HomePage = () => {
 
     return (
-        <Page>
+        <Page currentPage={`home`}>
             <h1>
                 Home Page
             </h1>

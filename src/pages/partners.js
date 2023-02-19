@@ -11,7 +11,7 @@ const [open, setOpen] = React.useState(false);
 const handleOpen = () => setOpen(true);
 const handleClose = () => setOpen(false);
     return (
-        <Page>
+        <Page currentPage={`partners`}>
             <div className={PartnersStyles.titles}>
                 <h2 className={PartnersStyles.title}>Knowledge Partner</h2>
                 <div className={PartnersStyles.section}>
@@ -24,7 +24,7 @@ const handleClose = () => setOpen(false);
                 </div>               
             </div>
         </Page>
-    )
+    );
 }
 
 export const Head = () => <PageHead pageTitle={ pageTitle } />

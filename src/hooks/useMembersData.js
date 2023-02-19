@@ -5,12 +5,13 @@ const useMembersData = () => {
     query {
         allContentfulMembers {
           nodes {
+            order
             id
             name
             linkedInUrl
             team
             image {
-              gatsbyImageData(width:200)
+              gatsbyImageData(width: 250, height: 250)
             }
           }
         }

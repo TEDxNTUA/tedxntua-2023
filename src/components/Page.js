@@ -5,12 +5,16 @@ import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-const Page = ({ children }) => {
+import * as styles from "../styles/main.module.css";
+
+const Page = ({ currentPage, children }) => {
     return (
         <main>
-            <Header />
+            <Header currentPage={currentPage} />
 
-            { children }
+            <div className={styles.globalContainer}>
+                { children }
+            </div>
             
             {/* <Footer /> */}
         </main>

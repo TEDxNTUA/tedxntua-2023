@@ -1,28 +1,65 @@
 import React from 'react';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import { useMembersData } from '../hooks';
+import { useMembersData, useAboutInfo } from '../hooks';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
-import Member from '../components/Member';
+import AboutTeamLayout from '../containers/AboutTeamLayout';
+import InfoPanel from '../components/InfoPanel';
 
 const pageTitle = 'About Us';
 
 const About = () => {
     
+    const aboutInfo = useAboutInfo();
     const membersData = useMembersData();
+    const teams = [
+        {
+            code: "DEV",
+            name: "DEVELOPER",
+        },
+        {
+            code: "MEDIA",
+            name: "MEDIA",
+        },
+        {
+            code: "DESIGN",
+            name: "DESIGN",
+        },
+        {
+            code: "PRODUCTION",
+            name: "PRODUCTION",
+        },
+        {
+            code: "FUNDRAISING",
+            name: "FUNDRAISING",
+        },
+        {
+            code: "SPEAKERS",
+            name: "SPEAKERS",
+        },
+        {
+            code: "EXPERIENCE",
+            name: "EXPERIENCE"
+        },
+    ];
 
-    const members = membersData.map(member => {        
+    const layouts = teams.map(team => {
+        
+        const members = membersData.filter(member => member.team === team.code);
+        members.sort((a, b) => a.order - b.order);
         return (
-            <Member key={ member.id } name={ member.name } team={ member.team }
-            image={ member.image } linkedInUrl={ member.linkedInUrl } />
+            <AboutTeamLayout key={team.code} members={members} teamName={team.name} />
         );
     });
 
+    const infoPanels = aboutInfo.map(info => <InfoPanel key={info.id} header={info.header} formattedText={documentToReactComponents(JSON.parse(info.info.raw))} />);
+
     return (
-        <Page>
-            <h1>About Page</h1>
-            { members }
+        <Page currentPage={`about`}>
+            { layouts }
+            { infoPanels }
         </Page>
     )
 }
