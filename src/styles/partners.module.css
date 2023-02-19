@@ -1,0 +1,16 @@
+.titles{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    text-align: center;
+    font-weight: 600;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
