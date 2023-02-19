@@ -3,15 +3,29 @@
     opacity: 1;
     color: #F06427;
 }
+.button:hover .image{
+    opacity: 1;
+    color: #F06427;
+    filter: blur(8px);  
+}
+.button:hover{
+  border:solid #F06427 5px;
+}
+
+.button .image{
+  width: 100%;
+}
 
 .button{
     width: fit-content;
-    background-color: #F06427;
 }
 
 .learn-more{
     position: absolute;
     opacity: 0;
+    font-size: 30px;
+    font-family: "GFS Neohellenic", sans-serif;
+    color: var(--primary-text);
 }
 
 .modal-container {
