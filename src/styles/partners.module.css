@@ -27,3 +27,10 @@
 .container{
     margin-top: 20vh;
 }
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
