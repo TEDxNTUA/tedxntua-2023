@@ -50,6 +50,7 @@
 .image-container {
     padding-top: .5em;
     height: 60px;
+    width: 258px;
     width: fit-content !important;
 }
 
