@@ -8,6 +8,7 @@ import {
     CarouselIndicators,
     CarouselCaption,
  } from "reactstrap";
+ import { Link } from "gatsby";
  import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
  
  import { usePrevEventsData } from "../hooks";
@@ -81,6 +82,20 @@ const Footer = () => {
                 <h4>
                     Find us on social
                 </h4>
+                <div className={footerStyles.socialContainer}>
+                    <Link to="https://www.instagram.com/tedxntua/">
+                        <i className="fa fa-instagram fa-3x"></i>
+                    </Link>
+                    <Link to="https://www.facebook.com/tedxntua/">
+                        <i className="fa fa-facebook fa-3x"></i>
+                    </Link>
+                    <Link to="https://www.facebook.com/tedxntua/">
+                        <i className="fa fa-linkedin fa-3x"></i>
+                    </Link>
+                    <Link to="https://www.youtube.com/channel/UCVtjgrrBdSPZERmdso2o0dw/featured">
+                        <i className="fa fa-youtube fa-3x"></i>
+                    </Link>
+                </div>
                 <h4>
                     Newsletter
                 </h4>
@@ -89,6 +104,22 @@ const Footer = () => {
                 <h4>
                     More stuff from Us
                 </h4>
+                <div className={footerStyles.actionContainer}>
+                    <Link to="https://blog.tedxntua.com/">
+                        <StaticImage src="../images/blog.png" alt="Blog" className={footerStyles.actionImage} />
+                    </Link>
+                    <div className={footerStyles.actionBorder}>
+                        <h4 className={styles.textShadowPrimary}>Blog</h4>
+                    </div>
+                </div>
+                <div className={footerStyles.actionContainer}>
+                    <Link to="https://www.youtube.com/watch?v=IzTNuWGnKrs&list=PLd7-PjFC85gxOG7Ou-H_DjIFGLHpPYqy2">
+                        <StaticImage src="../images/dialogues.png" alt="Dialogues"  className={footerStyles.actionImage} />
+                    </Link>
+                    <div className={footerStyles.actionBorder}>
+                        <h4 className={styles.textShadowPrimary}>Dialogues</h4>
+                    </div>
+                </div>
             </Col>
         </Row>
     );
