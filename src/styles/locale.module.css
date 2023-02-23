@@ -1,0 +1,27 @@
+.container {
+    width: fit-content !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1em;
+}
+
+.text {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 0.1em 0.3em;
+    font-size: 18px;
+    font-weight: 600;
+    color: white !important;
+
+    transition: all .2s ease-in-out;
+}
+
+.container:hover {
+    cursor: pointer;
+}
+
+.container:hover .text {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange) !important;
+}

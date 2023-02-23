@@ -6,6 +6,7 @@ import { isMobile } from 'react-device-detect';
 
 import DropDownLinks from './Dropdown';
 import Flower from './Flower';
+import LocaleButton from './LocaleButton';
 import { capitalize } from '../utils';
 
 import * as styles from "../styles/main.module.css";
@@ -60,6 +61,7 @@ const Header = ({ currentPage }) => {
                 <Col xs={{size: 0}} md={{size: 3}} className={headerStyles.imageContainer}>
                     <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
                 </Col>
+                <LocaleButton />
                     {
                     !isMobile &&
                     <Col style={{display: (!isMobile) ? "flex":"none"}} className={headerStyles.linkContainer}>

@@ -16,11 +16,13 @@ const KnowledgePartners = partnersData.map(type=>{
     if(type.sponsorLevel === "knowledge"){
         return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerUrl} image={type.image}/>
     }
+    return;
 })
 const PlatinumSponsors = partnersData.map(type=>{
     if(type.sponsorLevel === "platinum"){
         return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerUrl} image={type.image}/>
     }
+    return;
 })
 const GrandSponsors = partnersData.map(type=>{
     if(type.sponsorLevel === "grand"){
@@ -31,11 +33,13 @@ const Partners = partnersData.map(type=>{
     if(type.sponsorLevel === "partners"){
         return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerUrl} image={type.image}/>
     }
+    return;
 })
 const Supporters = partnersData.map(type=>{
     if(type.sponsorLevel === "supporters"){
         return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerUrl} image={type.image}/>
     }
+    return;
 })
     return (
         <Page currentPage={`partners`}>
