@@ -6,11 +6,13 @@ import * as PartnersStyles from "../styles/partners.module.css"
 import { Container } from 'reactstrap';
 import * as Styles from "../styles/main.module.css"
 import { usePartnersData } from '../hooks';
+import { useLocaleContext } from '../contexts/LanguageContext';
 
 const pageTitle = 'Partners';
 
 const Partners = () => {
-const partnersData = usePartnersData();
+    const {locale, _} = useLocaleContext();
+const partnersData = usePartnersData(locale);
 
 const KnowledgePartners = partnersData.map(type=>{
     if(type.sponsorLevel === "knowledge"){

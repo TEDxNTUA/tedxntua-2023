@@ -11,22 +11,42 @@ import { capitalize } from '../utils';
 
 import * as styles from "../styles/main.module.css";
 import * as headerStyles from "../styles/header.module.css";
+import { useLocaleContext } from '../contexts/LanguageContext';
 
 const Header = ({ currentPage }) => {
 
+    const { locale, _ } = useLocaleContext();
     const [open, setOpen] = useState(!isMobile);
     const [dropClicked, setDropClicked] = useState(false);
 
     const paths = {
-        Home: "/",
-        Partners: "/partners",
-        About: "/about",
+        Home: {
+            path: "/",
+            name: (locale === "el-GR") ? "ΑΡΧΙΚΗ":"HOME",
+        },
+        Partners: {
+            path: "/partners",
+            name: (locale === "el-GR") ? "ΣΥΝΕΡΓΑΤΕΣ":"PARTNERS",
+        },
+        About: {
+            path: "/about",
+            name: (locale === "el-GR") ? "ΣΧΕΤΙΚΑ":"ABOUT",
+        },
     };
 
     const dropdownPaths = {
-        Speakers: `/speakers`,
-        Workshops: `/workshops`,
-        Performers: `/performers`,
+        Speakers: {
+            path: "/speakers",
+            name: (locale === "el-GR") ? "ΟΜΙΛΗΤΕΣ":"SPEAKERS",
+        },
+        Workshops: {
+            path: "/workshops",
+            name: "WORKSHOPS",
+        },
+        Performers: {
+            path: "/performers",
+            name: "PERFORMERS",
+        },
     };
 
     const links = Object.keys(paths).map((key, index) => {
@@ -37,7 +57,7 @@ const Header = ({ currentPage }) => {
         return (
             <Link
             key={key}
-            to={`${paths[key]}`}
+            to={`${paths[key].path}`}
             style={{
                 opacity: (key.toLowerCase() === currentPage ) ? 1:.6,
                 animationDelay: `${index*.1}s`
@@ -50,7 +70,7 @@ const Header = ({ currentPage }) => {
             ${(open) ? headerStyles.slideInLeft:""}
             `}
             >
-                {key.toUpperCase()}
+                {paths[key].name}
             </Link>
         );
     });
@@ -81,7 +101,7 @@ const Header = ({ currentPage }) => {
                                 `}
                                 style={{opacity: (capitalize(currentPage) in dropdownPaths || dropClicked) ? 1:.6}}
                                 >
-                                    EVENT&nbsp;
+                                    {(locale === "el-GR") && "ΕΚΔΗΛΩΣΗ" || "EVENT"}&nbsp;
                                     <i className='fa fa-caret-down'></i>
                                 </span>
                             </DropDownLinks>

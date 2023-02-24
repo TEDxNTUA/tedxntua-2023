@@ -13,9 +13,8 @@ const pageTitle = 'About Us';
 
 const About = () => {
     const { locale, _ } = useLocaleContext();
-    console.log(locale);
     const aboutInfo = useAboutInfo(locale);
-    const membersData = useMembersData();
+    const membersData = useMembersData(locale);
     const teams = [
         {
             code: "DEV",

@@ -27,9 +27,6 @@ const LocaleContextProvider = ({ children }) => {
 
     React.useEffect(() => {
         localStorage.setItem("locale", locale);
-        console.log(localStorage.getItem("locale"));
-        // window.location.reload();
-        return () => window.location.reload();
     }, [locale]);
 
     return (

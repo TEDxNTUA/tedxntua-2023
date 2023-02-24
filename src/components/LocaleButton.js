@@ -9,7 +9,7 @@ const LocaleButton = () => {
     const { locale, changeLocale } = useLocaleContext();
     const changeLanguage = () => {
         changeLocale();
-        // window.location.reload();
+        window.location.reload();
     }
 
     return (

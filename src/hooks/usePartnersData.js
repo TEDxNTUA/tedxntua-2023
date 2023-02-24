@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const usePartnersData = () => {
+const usePartnersData = (locale) => {
     return useStaticQuery(graphql`
     query {
         allContentfulPartners {
@@ -16,10 +16,11 @@ const usePartnersData = () => {
                 name
                 websiteUrl
                 sponsorLevel
+                node_locale
                 }
         }
       }`
-    ).allContentfulPartners.nodes;
+    ).allContentfulPartners.nodes.filter(node => node.node_locale === locale);
 }
 
 export default usePartnersData;
