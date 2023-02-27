@@ -1,8 +1,13 @@
 import * as React from "react";
 
-const initialValue = {
-    locale: localStorage.getItem("locale") || "el-GR",
-};
+const initialValue = {};
+
+if (typeof window !== 'undefined') {
+    initialValue.locale = localStorage.getItem("locale");
+}
+else {
+    initialValue.locale = "el-GR";
+}
 
 const LocaleContext = React.createContext(initialValue);
 
@@ -17,7 +22,7 @@ const useLocaleContext = () => {
 }
 
 const LocaleContextProvider = ({ children }) => {
-    const [locale, setLocale] = React.useState(localStorage.getItem("locale"));
+    const [locale, setLocale] = React.useState(initialValue.locale);
     const changeLocale = () => locale === "el-GR" ? setLocale("en-US"):setLocale("el-GR");
 
     const value = {
