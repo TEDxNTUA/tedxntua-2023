@@ -5,7 +5,13 @@ const initialValue = {
 };
 
 if (typeof window !== 'undefined') {
-    initialValue.locale = localStorage.getItem("locale");
+    const storedLocale = localStorage.getItem("locale");
+    if (!storedLocale) {
+        localStorage.setItem("locale", initialValue.locale);
+    }
+    else {
+        initialValue.locale = storedLocale;
+    }
 }
 
 const LocaleContext = React.createContext(initialValue);
