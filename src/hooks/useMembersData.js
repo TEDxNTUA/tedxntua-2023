@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const useMembersData = () => {
+const useMembersData = (locale) => {
     return useStaticQuery(graphql`
     query {
         allContentfulMembers {
@@ -13,10 +13,11 @@ const useMembersData = () => {
             image {
               gatsbyImageData(width: 250, height: 250)
             }
+            node_locale
           }
         }
       }`
-    ).allContentfulMembers.nodes;
+    ).allContentfulMembers.nodes.filter(node => node.node_locale === locale);
 }
 
 export default useMembersData;

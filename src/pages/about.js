@@ -2,6 +2,7 @@ import React from 'react';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { useMembersData, useAboutInfo } from '../hooks';
+import { useLocaleContext } from '../contexts/LanguageContext';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
@@ -11,9 +12,9 @@ import InfoPanel from '../components/InfoPanel';
 const pageTitle = 'About Us';
 
 const About = () => {
-    
-    const aboutInfo = useAboutInfo();
-    const membersData = useMembersData();
+    const { locale, _ } = useLocaleContext();
+    const aboutInfo = useAboutInfo(locale);
+    const membersData = useMembersData(locale);
     const teams = [
         {
             code: "DEV",
