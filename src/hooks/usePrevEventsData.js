@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const usePrevEventsData = () => {
+const usePrevEventsData = (locale) => {
     return useStaticQuery(graphql`
         query {
             allContentfulPreviousEvents {
@@ -10,10 +10,11 @@ const usePrevEventsData = () => {
                     }
                     url
                     year
+                    node_locale
                 }
             }
         }
-    `).allContentfulPreviousEvents.nodes;
+    `).allContentfulPreviousEvents.nodes.filter(node => node.node_locale === locale);
 };
 
 export default usePrevEventsData;

@@ -16,7 +16,7 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
         return (
             <Link
             key={key}
-            to={paths[key]}
+            to={paths[key].path}
             style={{
                 opacity: (open || permanentActive) ? ((capitalize(currentPage) === key) ? 1:.6):0,
                 height: (open || permanentActive) ? `100%`:`0`,
@@ -30,7 +30,7 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
             ${(open || permanentActive) ? "":styles.hideLink}
             ${(open || permanentActive) ? headerStyles.slideInLeft:""}
             `}>
-                {key.toUpperCase()}
+                {paths[key].name}
             </Link>
         );
     });

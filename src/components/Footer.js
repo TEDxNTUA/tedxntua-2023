@@ -11,6 +11,7 @@ import {
  import { Link } from "gatsby";
  import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
  
+ import { useLocaleContext } from "../contexts/LanguageContext";
  import { usePrevEventsData } from "../hooks";
 
 import * as styles from "../styles/main.module.css";
@@ -18,13 +19,11 @@ import * as footerStyles from "../styles/footer.module.css";
 
 
 const Footer = () => {
-    
-    const items = usePrevEventsData();
+    const {locale, _} = useLocaleContext();
+    const items = usePrevEventsData(locale);
 
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [animating, setAnimating] = React.useState(false);
-    // var animating;
-    // const setAnimating = (val) => animating = val;
 
     const onExiting = () => setAnimating(true);
     const onExited = () => setAnimating(false);

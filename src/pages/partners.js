@@ -6,21 +6,25 @@ import * as PartnersStyles from "../styles/partners.module.css"
 import { Container } from 'reactstrap';
 import * as Styles from "../styles/main.module.css"
 import { usePartnersData } from '../hooks';
+import { useLocaleContext } from '../contexts/LanguageContext';
 
 const pageTitle = 'Partners';
 
 const Partners = () => {
-const partnersData = usePartnersData();
+    const {locale, _} = useLocaleContext();
+const partnersData = usePartnersData(locale);
 
 const KnowledgePartners = partnersData.map(type=>{
     if(type.sponsorLevel === "knowledge"){
         return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerUrl} image={type.image}/>
     }
+    return;
 })
 const PlatinumSponsors = partnersData.map(type=>{
     if(type.sponsorLevel === "platinum"){
         return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerUrl} image={type.image}/>
     }
+    return;
 })
 const GrandSponsors = partnersData.map(type=>{
     if(type.sponsorLevel === "grand"){
@@ -31,11 +35,13 @@ const Partners = partnersData.map(type=>{
     if(type.sponsorLevel === "partners"){
         return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerUrl} image={type.image}/>
     }
+    return;
 })
 const Supporters = partnersData.map(type=>{
     if(type.sponsorLevel === "supporters"){
         return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerUrl} image={type.image}/>
     }
+    return;
 })
     return (
         <Page currentPage={`partners`}>
