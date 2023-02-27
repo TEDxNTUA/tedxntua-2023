@@ -32,6 +32,6 @@
     }
 
     .canvas-3d {
-        width: 100vw;
+        width: 100vw !important;
     }
 }

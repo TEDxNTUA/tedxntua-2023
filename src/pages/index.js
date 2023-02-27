@@ -16,38 +16,51 @@ import * as homeStyles from "../styles/home.module.css";
 const pageTitle = 'Home';
 
 const HomePage = () => {
-    const [mousePos, setMousePos] = React.useState({x: 0, y: 0});
+    // store mouse position as ref instead of state to prevent
+    // re-rendering which stops touch detection and leads to
+    // improper "ontouchmove" behaviour
+    const mousePos = React.useRef({x: 0, y: 0});
+
     const updateMousePos = (e) => {
-        console.log(1);
+
+        if (!e.touches) return;
+
         const client = {
             x: isMobile ? e.touches[0].clientX : e.clientX,
             y: isMobile ? e.touches[0].clientY : e.clientY,
         };
-        console.log(client);
+
         const rect = e.target.getBoundingClientRect();
         const x_rel = (client.x - rect.x) - rect.width/2;
         const y_rel = (client.y - rect.y) - rect.height/2;
-        setMousePos({x: x_rel, y: y_rel});
+        mousePos.current.x += x_rel - mousePos.current.x;
+        mousePos.current.y += y_rel - mousePos.current.y;
     };
-    const MouseDetector = () =>
-    <div 
-    onMouseMove={updateMousePos}
-    onTouchMove={(e) => {console.log({x: e.touches[0].clientX, y: e.touches[0].clientY}); setMousePos({x: e.touches[0].clientX, y: e.touches[0].clientY});}}
-    className={homeStyles.detectMouseMovement}
-    ></div>;
 
-    console.log(mousePos);
+    const MouseDetector = () => {
+        console.log("re-rendered!");
+        return (
+            <div 
+            onMouseMove={updateMousePos}
+            onTouchMove={updateMousePos}
+            className={homeStyles.detectMouseMovement}
+            ></div>
+        );
+    };
+
+    console.log(mousePos.current);
 
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
+                <span>{mousePos.x}</span>
                 <Canvas className={homeStyles.canvas3d}>
                     <React.Suspense fallback={null}>
                         <CanvasText>
                             MNEME
                         </CanvasText>
                         <ambientLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                        <ModelLoader url={GLB} mousePos={mousePos} />
+                        <ModelLoader url={GLB} mousePos={mousePos.current}  />
                     </React.Suspense>
                     <OrbitControls />
                 </Canvas>

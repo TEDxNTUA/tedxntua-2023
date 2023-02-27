@@ -10,8 +10,6 @@ function ModelLoader ({ url, mousePos }) {
 
     useFrame(() => {
         if (ref.current) {
-            // ref.current.rotation.y += .005;
-            // console.log(ref.current.rotation.y);
             ref.current.rotation.y = mousePos.x/300;
         }
     });
