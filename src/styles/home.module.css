@@ -1,0 +1,37 @@
+.title-section-container {
+    height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.canvas-3d {
+    background-color: var(--primary-bg);
+    /* background-color: white; */
+    position: absolute !important;
+    z-index: -1;
+}
+
+.detect-mouse-movement {
+    position: absolute;
+    border: 2px white solid;
+    top: 20%;
+    z-index: 1;
+    width: 40%;
+    height: 65%;
+    left: 30%;
+}
+
+@media only screen and (max-width: 900px) {
+    .detect-mouse-movement {
+        width: 100%;
+        left: 0;
+    }
+
+    .canvas-3d {
+        width: 100vw;
+    }
+}
