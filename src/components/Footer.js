@@ -82,18 +82,18 @@ const Footer = () => {
                     Find us on social
                 </h4>
                 <div className={footerStyles.socialContainer}>
-                    <Link to="https://www.instagram.com/tedxntua/">
+                    <a href="https://www.instagram.com/tedxntua/">
                         <i className="fa fa-instagram fa-3x"></i>
-                    </Link>
-                    <Link to="https://www.facebook.com/tedxntua/">
+                    </a>
+                    <a href="https://www.facebook.com/tedxntua/">
                         <i className="fa fa-facebook fa-3x"></i>
-                    </Link>
-                    <Link to="https://www.facebook.com/tedxntua/">
+                    </a>
+                    <a href="https://www.facebook.com/tedxntua/">
                         <i className="fa fa-linkedin fa-3x"></i>
-                    </Link>
-                    <Link to="https://www.youtube.com/channel/UCVtjgrrBdSPZERmdso2o0dw/featured">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCVtjgrrBdSPZERmdso2o0dw/featured">
                         <i className="fa fa-youtube fa-3x"></i>
-                    </Link>
+                    </a>
                 </div>
                 <h4>
                     Newsletter
@@ -104,17 +104,17 @@ const Footer = () => {
                     More stuff from Us
                 </h4>
                 <div className={footerStyles.actionContainer}>
-                    <Link to="https://blog.tedxntua.com/">
+                    <a href="https://blog.tedxntua.com/">
                         <StaticImage src="../images/blog.png" alt="Blog" className={footerStyles.actionImage} />
-                    </Link>
+                    </a>
                     <div className={footerStyles.actionBorder}>
                         <h4 className={styles.textShadowPrimary}>Blog</h4>
                     </div>
                 </div>
                 <div className={footerStyles.actionContainer}>
-                    <Link to="https://www.youtube.com/watch?v=IzTNuWGnKrs&list=PLd7-PjFC85gxOG7Ou-H_DjIFGLHpPYqy2">
+                    <a href="https://www.youtube.com/watch?v=IzTNuWGnKrs&list=PLd7-PjFC85gxOG7Ou-H_DjIFGLHpPYqy2">
                         <StaticImage src="../images/dialogues.png" alt="Dialogues"  className={footerStyles.actionImage} />
-                    </Link>
+                    </a>
                     <div className={footerStyles.actionBorder}>
                         <h4 className={styles.textShadowPrimary}>Dialogues</h4>
                     </div>

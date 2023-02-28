@@ -12,7 +12,7 @@ import * as styles from "../styles/main.module.css";
 
 const Page = ({ currentPage, children }) => {
     return (
-        <main>
+        <main className={styles.globalContainer}>
             <LocaleContextProvider>
                 <Header currentPage={currentPage} />
 
