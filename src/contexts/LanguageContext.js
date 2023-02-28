@@ -1,11 +1,17 @@
 import * as React from "react";
 
-const initialValue = {};
+const initialValue = {
+    locale: "el-GR",
+};
+
 if (typeof window !== 'undefined') {
-    initialValue.locale = localStorage.getItem("locale");
-}
-else {
-    initialValue.locale = "el-GR";
+    const storedLocale = localStorage.getItem("locale");
+    if (!storedLocale) {
+        localStorage.setItem("locale", initialValue.locale);
+    }
+    else {
+        initialValue.locale = storedLocale;
+    }
 }
 
 const LocaleContext = React.createContext(initialValue);

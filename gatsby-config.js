@@ -6,6 +6,9 @@ module.exports = {
     title: `TEDxNTUA 2023`,
     siteUrl: `https://www.yourdomain.tld`,
   },
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     {
       resolve: `gatsby-source-contentful`,
