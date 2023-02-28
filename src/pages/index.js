@@ -34,10 +34,6 @@ const HomePage = () => {
             y: isMobile ? e.touches[0].clientY : e.clientY,
         };
 
-        // TODO
-        // take initial click position into consideration to fix
-        // steep changes right at the start of the touch swipe
-
         if (isMobile) {
             const sensitivity = 5;
             const dx = client.x - initPos.current.x;
