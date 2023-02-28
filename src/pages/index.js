@@ -7,11 +7,8 @@ import Page from '../components/Page';
 import PageHead from '../components/PageHead';
 import GLB from "../components/scene.glb";
 import ModelLoader from '../components/ModelLoader';
-import CanvasText from "../components/CanvasText";
 import { isMobile } from 'react-device-detect';
-import Loading from '../components/Loading';
 
-import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";
 
 const pageTitle = 'Home';
@@ -72,11 +69,8 @@ const HomePage = () => {
             <Row className={homeStyles.titleSectionContainer}>
                 <span>{mousePos.x}</span>
                 <Canvas className={homeStyles.canvas3d}>
-                        {/* <CanvasText>
-                            MNEME
-                        </CanvasText> */}
                         <ambientLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                    <React.Suspense fallback={<Loading />}>
+                    <React.Suspense fallback={null}>
                         <ModelLoader
                         url={GLB}
                         mousePos={mousePos.current}
