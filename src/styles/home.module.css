@@ -18,10 +18,10 @@
 
 .detect-mouse-movement {
     position: absolute;
-    border: 2px white;
+    border: 2px white solid;
     z-index: 1;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     left: 0;
     top: 0;
     z-index: 0;
@@ -74,6 +74,39 @@
         transform: translateX(4px) translateY(4px);
         text-shadow: 1px 1px var(--primary-shadow);
     }
+}
+
+.info-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    margin-left: 10em;
+    margin-bottom: 15em;
+
+    width: fit-content;
+
+    z-index: 0;
+}
+
+.booking-button {
+    margin-top: .5em;
+    padding: .1em .5em;
+    border-radius: 5px;
+
+    font-size: 25px;
+    color: var(--primary-bg) !important;
+    background-color: var(--primary-text);
+    box-shadow: 4px 4px var(--primary-shadow);
+
+    width: fit-content;
+
+    transition: all .2s ease-in-out;
+}
+
+.booking-button:hover {
+    transform: translateX(3px) translateY(3px);
+    box-shadow: 1px 1px var(--primary-shadow);
 }
 
 @media only screen and (max-width: 900px) {

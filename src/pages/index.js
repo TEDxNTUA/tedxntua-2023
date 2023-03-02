@@ -2,18 +2,22 @@ import * as React from 'react';
 import { Row } from 'reactstrap';
 import { Canvas } from "react-three-fiber";
 import { OrbitControls } from '@react-three/drei';
+import { isMobile } from 'react-device-detect';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
 import GLB from "../components/scene.glb";
 import ModelLoader from '../components/ModelLoader';
-import { isMobile } from 'react-device-detect';
+import { useLocaleContext } from '../contexts/LanguageContext';
 
+import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";
 
 const pageTitle = 'Home';
 
 const HomePage = () => {
+
+    const { locale } = useLocaleContext();
 
     // store mouse position as ref instead of state to prevent
     // re-rendering which stops touch detection and leads to
@@ -56,12 +60,20 @@ const HomePage = () => {
         return (
             <div 
             onMouseMove={(e) => {active.current.active = true; updateMousePos(e);}}
+            onMouseLeave={() => active.current.active = false}
             onTouchMove={(e) => {active.current.active = true; updateMousePos(e);}}
             onTouchCancel={() => {active.current.active = false;}}
             onTouchEnd={() => {active.current.active = false;}}
             className={homeStyles.detectMouseMovement}
             ></div>
         );
+    };
+
+    const infoData = {
+        location: (locale === "el-GR") ? "Ίδρυμα Μιχάλης Κακογιάννης":"Michael Cacoyiannis Foundation",
+        date: (locale === "el-GR") ? "21 Μαίου 2021":"21 May 2021",
+        bookingUrl: "#",
+        bookingText: (locale === "el-GR") ? "ΚΡΑΤΗΣΤΕ ΕΙΣΗΤΗΡΙΟ":"BOOK YOUR TICKET NOW",
     };
 
     return (
@@ -89,6 +101,19 @@ const HomePage = () => {
                     <span>M</span>
                     <span>E</span>
                 </h1>
+                <div className={homeStyles.infoContainer}>
+                    <h3 className={styles.textShadowPrimary}>
+                        { infoData.location }
+                    </h3>
+                    <h3 className={styles.textShadowPrimary}>
+                        { infoData.date }
+                    </h3>
+                    <a href={ infoData.bookingUrl } className={`text-reset text-decoration-none`}>
+                        <div className={homeStyles.bookingButton}>
+                            { infoData.bookingText }
+                        </div>
+                    </a>
+                </div>
             </Row>
         </Page>
     );
