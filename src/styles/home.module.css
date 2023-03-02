@@ -18,7 +18,7 @@
 
 .detect-mouse-movement {
     position: absolute;
-    border: 2px white solid;
+    /* border: 2px white solid; */
     z-index: 1;
     width: 100%;
     height: 100vh;
@@ -109,7 +109,17 @@
     box-shadow: 1px 1px var(--primary-shadow);
 }
 
+.info-section-container {
+    height: 100vh;
+}
+
+/* Responsive */
 @media only screen and (max-width: 900px) {
+    .title-section-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
     .detect-mouse-movement {
         width: 100%;
         left: 0;
@@ -124,5 +134,23 @@
     .mneme-label {
         font-size: 65px;
         text-shadow: 4px 4px var(--primary-shadow);
+    }
+
+    .info-container {
+        margin: 0 0 3em 0;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mneme-label {
+        position: absolute;
+    }
+
+    .booking-button:hover {
+        transform: translateX(0);
+        box-shadow: 4px 4px var(--primary-shadow);
     }
 }

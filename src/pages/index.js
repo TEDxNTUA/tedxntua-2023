@@ -115,6 +115,9 @@ const HomePage = () => {
                     </a>
                 </div>
             </Row>
+            <Row className={homeStyles.infoSectionContainer}>
+
+            </Row>
         </Page>
     );
 };
