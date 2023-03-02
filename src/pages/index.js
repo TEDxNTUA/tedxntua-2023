@@ -9,6 +9,7 @@ import Page from '../components/Page';
 import PageHead from '../components/PageHead';
 import GLB from "../components/scene.glb";
 import ModelLoader from '../components/ModelLoader';
+
 import { useLocaleContext } from '../contexts/LanguageContext';
 
 import * as styles from "../styles/main.module.css";
@@ -81,19 +82,19 @@ const HomePage = () => {
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
                 <span>{mousePos.x}</span>
-                <Canvas className={homeStyles.canvas3d}>
-                        <ambientLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                    <React.Suspense fallback={null}>
-                        <ModelLoader
-                        url={GLB}
-                        mousePos={mousePos.current}
-                        rotationSensitivity={isMobile ? 1:10}
-                        active={active.current}
-                        passiveRotation={isMobile ? 1:5}
-                        />
-                    </React.Suspense>
-                    <OrbitControls />
-                </Canvas>
+                    <Canvas className={homeStyles.canvas3d}>
+                            <ambientLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
+                        <React.Suspense fallback={null}>
+                            <ModelLoader
+                            url={GLB}
+                            mousePos={mousePos.current}
+                            rotationSensitivity={isMobile ? 1:10}
+                            active={active.current}
+                            passiveRotation={isMobile ? 1:5}
+                            />
+                        </React.Suspense>
+                        <OrbitControls />
+                    </Canvas>
                 <MouseDetector />
                 <h1 className={`${homeStyles.mnemeLabel}`}>
                     <span>M</span>
@@ -119,20 +120,20 @@ const HomePage = () => {
             <Row className={homeStyles.infoSectionContainer}>
                 <Row className={homeStyles.infoSectionRow}>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} />
-                    <h1 className={styles.textShadowPrimary}>
-                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>6</span>WORKSHOPS
+                    <h1>
+                        <span>6</span>WORKSHOPS
                     </h1>
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
-                    <h1 className={styles.textShadowPrimary}>
-                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>9</span>TALKS
+                    <h1>
+                        <span>9</span>TALKS
                     </h1>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage}/>
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage}/>
-                    <h1 className={styles.textShadowPrimary}>
-                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>4</span>PERFORMERS
+                    <h1>
+                        <span>4</span>PERFORMERS
                     </h1>
                 </Row>
             </Row>
