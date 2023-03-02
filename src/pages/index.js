@@ -3,6 +3,7 @@ import { Row } from 'reactstrap';
 import { Canvas } from "react-three-fiber";
 import { OrbitControls } from '@react-three/drei';
 import { isMobile } from 'react-device-detect';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
@@ -116,7 +117,24 @@ const HomePage = () => {
                 </div>
             </Row>
             <Row className={homeStyles.infoSectionContainer}>
-
+                <Row className={homeStyles.infoSectionRow}>
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} />
+                    <h1 className={styles.textShadowPrimary}>
+                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>6</span>WORKSHOPS
+                    </h1>
+                </Row>
+                <Row className={homeStyles.infoSectionRow}>
+                    <h1 className={styles.textShadowPrimary}>
+                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>9</span>TALKS
+                    </h1>
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage}/>
+                </Row>
+                <Row className={homeStyles.infoSectionRow}>
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage}/>
+                    <h1 className={styles.textShadowPrimary}>
+                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>4</span>PERFORMERS
+                    </h1>
+                </Row>
             </Row>
         </Page>
     );
