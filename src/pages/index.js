@@ -2,14 +2,14 @@ import * as React from 'react';
 import { Row } from 'reactstrap';
 import { Canvas } from "react-three-fiber";
 import { OrbitControls } from '@react-three/drei';
+import { isMobile } from 'react-device-detect';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
 import GLB from "../components/scene.glb";
 import ModelLoader from '../components/ModelLoader';
-import CanvasText from "../components/CanvasText";
-import { isMobile } from 'react-device-detect';
-import Loading from '../components/Loading';
+import { useLocaleContext } from '../contexts/LanguageContext';
 
 import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";
@@ -17,6 +17,8 @@ import * as homeStyles from "../styles/home.module.css";
 const pageTitle = 'Home';
 
 const HomePage = () => {
+
+    const { locale } = useLocaleContext();
 
     // store mouse position as ref instead of state to prevent
     // re-rendering which stops touch detection and leads to
@@ -59,6 +61,7 @@ const HomePage = () => {
         return (
             <div 
             onMouseMove={(e) => {active.current.active = true; updateMousePos(e);}}
+            onMouseLeave={() => active.current.active = false}
             onTouchMove={(e) => {active.current.active = true; updateMousePos(e);}}
             onTouchCancel={() => {active.current.active = false;}}
             onTouchEnd={() => {active.current.active = false;}}
@@ -67,16 +70,20 @@ const HomePage = () => {
         );
     };
 
+    const infoData = {
+        location: (locale === "el-GR") ? "Ίδρυμα Μιχάλης Κακογιάννης":"Michael Cacoyiannis Foundation",
+        date: (locale === "el-GR") ? "21 Μαίου 2021":"21 May 2021",
+        bookingUrl: "#",
+        bookingText: (locale === "el-GR") ? "ΚΡΑΤΗΣΤΕ ΕΙΣΗΤΗΡΙΟ":"BOOK YOUR TICKET NOW",
+    };
+
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
                 <span>{mousePos.x}</span>
                 <Canvas className={homeStyles.canvas3d}>
-                        {/* <CanvasText>
-                            MNEME
-                        </CanvasText> */}
                         <ambientLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                    <React.Suspense fallback={<Loading />}>
+                    <React.Suspense fallback={null}>
                         <ModelLoader
                         url={GLB}
                         mousePos={mousePos.current}
@@ -95,6 +102,39 @@ const HomePage = () => {
                     <span>M</span>
                     <span>E</span>
                 </h1>
+                <div className={homeStyles.infoContainer}>
+                    <h3 className={styles.textShadowPrimary}>
+                        { infoData.location }
+                    </h3>
+                    <h3 className={styles.textShadowPrimary}>
+                        { infoData.date }
+                    </h3>
+                    <a href={ infoData.bookingUrl } className={`text-reset text-decoration-none`}>
+                        <div className={homeStyles.bookingButton}>
+                            { infoData.bookingText }
+                        </div>
+                    </a>
+                </div>
+            </Row>
+            <Row className={homeStyles.infoSectionContainer}>
+                <Row className={homeStyles.infoSectionRow}>
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} />
+                    <h1 className={styles.textShadowPrimary}>
+                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>6</span>WORKSHOPS
+                    </h1>
+                </Row>
+                <Row className={homeStyles.infoSectionRow}>
+                    <h1 className={styles.textShadowPrimary}>
+                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>9</span>TALKS
+                    </h1>
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage}/>
+                </Row>
+                <Row className={homeStyles.infoSectionRow}>
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage}/>
+                    <h1 className={styles.textShadowPrimary}>
+                        <span className={`${homeStyles.latinNumber} ${styles.textShadowSecondary}`}>4</span>PERFORMERS
+                    </h1>
+                </Row>
             </Row>
         </Page>
     );

@@ -4,7 +4,6 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { isMobile } from "react-device-detect";
 
 function ModelLoader ({ url, mousePos, rotationSensitivity, active, passiveRotation }) {
-    // const [active, setActive] = React.useState(false);
     const [gltf, set] = React.useState();
     const ref = useRef();
     const rotation = useRef({rotation: 0});
