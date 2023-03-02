@@ -95,9 +95,9 @@ const Footer = () => {
                         <i className="fa fa-youtube fa-3x"></i>
                     </a>
                 </div>
-                <h4>
+                {/* <h4>
                     Newsletter
-                </h4>
+                </h4> */}
             </Col>
             <Col md={{size: 4}} className={footerStyles.footerCol}>
                 <h4>

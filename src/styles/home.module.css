@@ -18,13 +18,13 @@
 
 .detect-mouse-movement {
     position: absolute;
-    border: 2px white;
+    /* border: 2px white solid; */
     z-index: 1;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     left: 0;
     top: 0;
-    z-index: -1;
+    z-index: 0;
 }
 
 .mneme-label {
@@ -76,7 +76,100 @@
     }
 }
 
+.info-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    margin-left: 10em;
+    margin-bottom: 15em;
+
+    width: fit-content;
+
+    z-index: 0;
+}
+
+.booking-button {
+    margin-top: .5em;
+    padding: .1em .5em;
+    border-radius: 5px;
+
+    font-size: 25px;
+    color: var(--primary-bg) !important;
+    background-color: var(--primary-text);
+    box-shadow: 4px 4px var(--primary-shadow);
+
+    width: fit-content;
+
+    transition: all .2s ease-in-out;
+}
+
+.booking-button:hover {
+    transform: translateX(3px) translateY(3px);
+    box-shadow: 1px 1px var(--primary-shadow);
+}
+
+.info-section-container {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.info-section-container h1 {
+    font-weight: bold;
+    font-size: 160px;
+
+    text-align: center;
+    width: fit-content;
+
+    text-shadow: 4px 4px var(--primary-shadow);
+
+    transition: all .2s ease-in-out;
+}
+
+.info-section-container h1 span {
+    font-size: 200px;
+    font-family: 'Caudex';
+    text-shadow: 4px 4px var(--secondary-shadow);
+
+    margin: 0 .1em;
+    transition: all .2s ease-in-out;
+}
+
+.info-section-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.info-section-image {
+    max-width: 300px;
+    margin: 0 .5em;
+
+    border-radius: 15px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1400px) {
+    .info-section-container h1 {
+        font-size: 100px;
+    }
+
+    .info-section-container h1 span {
+        font-size: 140px;
+    }
+}
+
 @media only screen and (max-width: 900px) {
+    .title-section-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
     .detect-mouse-movement {
         width: 100%;
         left: 0;
@@ -92,4 +185,41 @@
         font-size: 65px;
         text-shadow: 4px 4px var(--primary-shadow);
     }
+
+    .info-container {
+        margin: 0 0 3em 0;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mneme-label {
+        position: absolute;
+    }
+
+    .booking-button:hover {
+        transform: translateX(0);
+        box-shadow: 4px 4px var(--primary-shadow);
+    }
+
+    .info-section-container {
+        justify-content: center;
+
+        height: 70vh;
+    }
+
+    .info-section-image {
+        display: none !important;
+    }
+
+    .info-section-container h1 {
+        font-size: 50px;
+    }
+
+    .info-section-container h1 span {
+        font-size: 60px;
+    }
+
 }

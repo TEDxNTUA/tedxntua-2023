@@ -15,7 +15,7 @@ import { useLocaleContext } from '../contexts/LanguageContext';
 
 const Header = ({ currentPage }) => {
 
-    const { locale, _ } = useLocaleContext();
+    const { locale } = useLocaleContext();
     const [open, setOpen] = useState(!isMobile);
     const [dropClicked, setDropClicked] = useState(false);
 
