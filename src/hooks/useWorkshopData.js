@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const useWorkshopData = (locale) => {
+const useWorkshopData = () => {
     return useStaticQuery(graphql`
     query {
         allContentfulWorkshops {
@@ -18,11 +18,10 @@ const useWorkshopData = (locale) => {
             sideEventDescription {
               raw
             }
-            node_locale
           }
         }
       }
-    `).allContentfulWorkshops.nodes.filter(node => node.node_locale === locale);
+    `).allContentfulWorkshops.nodes;
 }
 
 export default useWorkshopData;
