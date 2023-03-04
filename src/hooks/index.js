@@ -6,6 +6,7 @@ import useWorkshopData from "./useWorkshopData";
 import usePerformerData from "./usePerformerData";
 import usePartnersData from "./usePartnersData";
 import usePrevEventsData from "./usePrevEventsData";
+import useHomeInfo from "./useHomeInfo";
 
 export {
     useMembersData,
@@ -15,4 +16,5 @@ export {
     usePerformerData,
     usePartnersData,
     usePrevEventsData,
+    useHomeInfo
 };
