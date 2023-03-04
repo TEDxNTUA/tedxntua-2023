@@ -3,7 +3,7 @@ import { Row } from 'reactstrap';
 import { Canvas } from "react-three-fiber";
 import { OrbitControls } from '@react-three/drei';
 import { isMobile } from 'react-device-detect';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Page from '../components/Page';
@@ -23,7 +23,9 @@ const HomePage = () => {
 
     const { locale } = useLocaleContext();
     const homeInfo = useHomeInfo(locale);
-    console.log(homeInfo);
+    const locationImage = getImage(homeInfo.locationImage);
+    const mapsHtml = JSON.parse(homeInfo.mapsHtml.raw).content[0].content[0].value;
+    const locationInstructionsHeader = (locale === 'el-GR' ? 'Πώς να έρθεις εδώ':'How to get here');
 
     // store mouse position as ref instead of state to prevent
     // re-rendering which stops touch detection and leads to
@@ -141,6 +143,17 @@ const HomePage = () => {
                         <span>4</span>PERFORMERS
                     </h1>
                 </Row>
+            </Row>
+            <Row>
+                <div className={homeStyles.locationInfoContainer}>
+                    <GatsbyImage image={locationImage} className={homeStyles.locationImage} />
+                    <div dangerouslySetInnerHTML={{__html: mapsHtml }} />
+                </div>
+                <div className={homeStyles.locationInstructions}>
+                    <h1 className={styles.textShadowPrimary}>{ locationInstructionsHeader }</h1>
+                    <hr />
+                    { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
+                </div>
             </Row>
         </Page>
     );

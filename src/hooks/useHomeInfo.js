@@ -18,6 +18,9 @@ const useHomeInfo = (locale) => {
               raw
             }
             ticketUrl
+            locationImage {
+              gatsbyImageData(width: 600, height: 450)
+            }
           }
         }
       }`
