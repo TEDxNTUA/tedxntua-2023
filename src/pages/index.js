@@ -4,6 +4,7 @@ import { Canvas } from "react-three-fiber";
 import { OrbitControls } from '@react-three/drei';
 import { isMobile } from 'react-device-detect';
 import { StaticImage } from 'gatsby-plugin-image';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
@@ -11,6 +12,7 @@ import GLB from "../components/scene.glb";
 import ModelLoader from '../components/ModelLoader';
 
 import { useLocaleContext } from '../contexts/LanguageContext';
+import { useHomeInfo } from '../hooks';
 
 import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";
@@ -20,6 +22,8 @@ const pageTitle = 'Home';
 const HomePage = () => {
 
     const { locale } = useLocaleContext();
+    const homeInfo = useHomeInfo(locale);
+    console.log(homeInfo);
 
     // store mouse position as ref instead of state to prevent
     // re-rendering which stops touch detection and leads to
@@ -71,13 +75,6 @@ const HomePage = () => {
         );
     };
 
-    const infoData = {
-        location: (locale === "el-GR") ? "Ίδρυμα Μιχάλης Κακογιάννης":"Michael Cacoyiannis Foundation",
-        date: (locale === "el-GR") ? "21 Μαίου 2021":"21 May 2021",
-        bookingUrl: "#",
-        bookingText: (locale === "el-GR") ? "ΚΡΑΤΗΣΤΕ ΕΙΣΗΤΗΡΙΟ":"BOOK YOUR TICKET NOW",
-    };
-
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
@@ -105,16 +102,24 @@ const HomePage = () => {
                 </h1>
                 <div className={homeStyles.infoContainer}>
                     <h3 className={styles.textShadowPrimary}>
-                        { infoData.location }
+                        { homeInfo.location }
                     </h3>
                     <h3 className={styles.textShadowPrimary}>
-                        { infoData.date }
+                        { homeInfo.date }
                     </h3>
-                    <a href={ infoData.bookingUrl } className={`text-reset text-decoration-none`}>
+                    <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
                         <div className={homeStyles.bookingButton}>
-                            { infoData.bookingText }
+                            { (locale === 'el-GR') ? 'ΚΡΑΤΗΣΤΕ ΕΙΣΗΤΗΡΙΟ':'BOOK YOUR TICKET NOW' }
                         </div>
                     </a>
+                </div>
+            </Row>
+            <Row className={homeStyles.themeInfoRow}>
+                <div className={homeStyles.themeInfoContainer}>
+                    <div className={homeStyles.themeInfoBackground}></div>
+                    <div className={homeStyles.themeInfoBackground}></div>
+                    <div className={homeStyles.themeInfoBackground}></div>
+                    {documentToReactComponents(JSON.parse(homeInfo.themeInfo.raw))}
                 </div>
             </Row>
             <Row className={homeStyles.infoSectionContainer}>
