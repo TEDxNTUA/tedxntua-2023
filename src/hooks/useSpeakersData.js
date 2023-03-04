@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const useSpeakersData = (locale) => {
+const useSpeakersData = () => {
     return useStaticQuery(graphql`
     query {
         allContentfulSpeakers {
@@ -15,11 +15,10 @@ const useSpeakersData = (locale) => {
             image {
               gatsbyImageData(width: 450, height: 450)
             }
-            node_locale
           }
         }
       }`
-    ).allContentfulSpeakers.nodes.filter(node => node.node_locale === locale);
+    ).allContentfulSpeakers.nodes;
 }
 
 export default useSpeakersData;

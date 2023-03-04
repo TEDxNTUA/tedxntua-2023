@@ -3,10 +3,12 @@ import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import * as styles from "../styles/main.module.css";
-import * as speakerStyles from "../styles/speaker.module.css";
+import * as speakerStyles from "../styles/data.module.css";
 
-const Speaker = ({ fullName, picture, slug, speciality }) => {
+const Data = ({ fullName, picture, slug, speciality, type }) => {
 
+    const url = type + 's';
+    console.log(url);
     const image = getImage(picture);
     
     return (
@@ -15,7 +17,7 @@ const Speaker = ({ fullName, picture, slug, speciality }) => {
         text-reset text-decoration-none
         ${speakerStyles.linkContainer}
         `}
-        to={`/speakers/${slug}`}>
+        to={`/${url}/${fullName.toLowerCase()}`}>
             <div className={`
                 ${speakerStyles.container}
             `}>
@@ -42,4 +44,4 @@ const Speaker = ({ fullName, picture, slug, speciality }) => {
     );
 }
 
-export default Speaker;
+export default Data;
