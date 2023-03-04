@@ -1,0 +1,37 @@
+.titles{
+    display: flex;
+    flex-direction: column;
+}
+.modal {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    font-size: 72px;
+    font-weight: 800;
+}
+
+.section{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.container{
+    margin-top: 15vh;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
