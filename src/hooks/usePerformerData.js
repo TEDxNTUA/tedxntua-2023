@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const usePerformerData = (locale) => {
+const usePerformerData = () => {
     return useStaticQuery(graphql`
     query {
         allContentfulPerformers {
@@ -15,11 +15,10 @@ const usePerformerData = (locale) => {
             name
             socialMediaUrl
             subtitle
-            node_locale
           }
         }
       }
-    `).allContentfulPerformers.nodes.filter(node => node.node_locale === locale);
+    `).allContentfulPerformers.nodes;
 }
 
 export default usePerformerData;
