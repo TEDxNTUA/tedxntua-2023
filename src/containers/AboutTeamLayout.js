@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Container, Row } from "reactstrap";
+import { isMobile } from "react-device-detect";
 
 import Member from "../components/Member";
 import DissapearingText from "../components/DissapearringText";
@@ -21,8 +22,8 @@ const AboutTeamLayout = ({ teamName, members }) => {
             imageData={ member.image }
             name={ member.name }
             linkedInUrl={ member.linkedInUrl }
-            onMouseEnter={() => setActive( { id: member.id, order: member.order } )}
-            onMouseLeave={() => setActive({})}
+            onMouseEnter={(!isMobile) ? () => setActive( { id: member.id, order: member.order } ):null}
+            onMouseLeave={(!isMobile) ? () => setActive({}):null}
             className={`
             ${(active.id === member.id) && teamLayoutStyles.scale}
             ${((member.order < active.order) && ((member.order < max && active.order <= max) || (member.order > max && active.order > max))) ? teamLayoutStyles.rotateRight:""}
