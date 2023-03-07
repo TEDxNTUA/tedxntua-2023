@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Row } from 'reactstrap';
 import { Canvas } from "react-three-fiber";
-import { OrbitControls } from '@react-three/drei';
 import { isMobile } from 'react-device-detect';
 import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -92,7 +91,6 @@ const HomePage = () => {
                             passiveRotation={isMobile ? 1:5}
                             />
                         </React.Suspense>
-                        <OrbitControls />
                     </Canvas>
                 <MouseDetector />
                 <h1 className={`${homeStyles.mnemeLabel}`}>

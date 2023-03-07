@@ -7,6 +7,8 @@
 
     transition: .5s;
     transform-style: preserve-3d;
+
+    margin-bottom: .5em;
 }
 
 .name {
@@ -21,6 +23,17 @@
     align-items: baseline;
 
     margin-top: .5em;
+}
+
+.caption:hover {
+    cursor: pointer;
+}
+
+.caption-inner-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
 }
 
 @media only screen and (max-width: 900px) {
