@@ -10,8 +10,8 @@
 }
 
 .canvas-3d {
-    background-color: var(--primary-bg);
-    /* background-color: white; */
+    background-color: rgba(0, 0, 0, 0);
+
     position: absolute !important;
     z-index: -1;
 }
