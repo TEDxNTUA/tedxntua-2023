@@ -18,7 +18,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap !important;
-    justify-content: space-between;
+    justify-content: space-around;
 
     padding-top: 1em;
 }
@@ -58,7 +58,7 @@
 }
 
 .image img {
-    height: 60px;
+    height: 60px !important;
     width: auto;
 }
 
@@ -137,19 +137,19 @@
 /* Fix logo size for different screen sizes */
 @media only screen and (max-width: 400px) {
     .image img {
-        height: 50px;
+        height: 50px !important;
     }
 }
 
 @media only screen and (max-width: 370px) {
     .image img {
-        height: 45px;
+        height: 45px !important;
     }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 350px) {
     .image img {
-        height: 30px;
+        height: 35px !important; 
     }
 
     .image-container {

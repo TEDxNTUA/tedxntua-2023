@@ -21,6 +21,8 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
     <Button onClick={handleOpen} className={partnerStyles.button}>
         <GatsbyImage className={partnerStyles.image} image={myImage}/> 
         <span className={`${partnerStyles.learnMore} ${Styles.textShadowPrimary}`}>Learn More</span>
+        <div className={partnerStyles.imageBorder}>
+        </div>
     </Button>
     <Modal open={open} onClose={handleClose}>
         <div className={partnerStyles.modalContainer}>
