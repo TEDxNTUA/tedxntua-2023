@@ -58,7 +58,9 @@ const Header = ({ currentPage }) => {
         <div className={headerStyles.headerContainer}>
             <Row className={headerStyles.itemContainer}>
                 <Col xs={{size: 0}} md={{size: 3}} className={headerStyles.imageContainer}>
-                    <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
+                    <Link to='/'>
+                        <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
+                    </Link>                    
                 </Col>
                     {
                     !isMobile &&
