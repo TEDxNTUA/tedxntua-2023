@@ -4,7 +4,7 @@ import { useSpeakersData } from '../hooks';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
-import SpeakerLayout from '../containers/SpeakerLayout';
+import DataLayout from '../containers/DataLayout';
 
 const pageTitle = 'Speakers';
 
@@ -13,7 +13,7 @@ const Speakers = () => {
 
     return (
         <Page currentPage={`speakers`}>
-            <SpeakerLayout speakerData={speakersData} />
+            <DataLayout dataProp={speakersData} type="speaker" />
         </Page>
     )
 }

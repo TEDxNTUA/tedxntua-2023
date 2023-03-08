@@ -4,17 +4,16 @@ import { useWorkshopData } from '../hooks';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
-import SpeakerLayout from '../containers/SpeakerLayout';
+import DataLayout from '../containers/DataLayout';
 
 const pageTitle = 'Workshops';
 
 const Workshops = () => {
-
     const workshopData = useWorkshopData();
 
     return (
         <Page currentPage={`workshops`}>
-            <SpeakerLayout speakerData={workshopData} />
+            <DataLayout dataProp={workshopData} type="workshop" />
         </Page>
     )
 }

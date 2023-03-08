@@ -73,4 +73,12 @@
         flex-wrap: wrap;
     }
 
+    .row div:hover {
+        transform: translateX(0);
+    }
+
+    .row div:hover ~ div {
+        transform: rotateY(0);
+    }
+
 }

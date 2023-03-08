@@ -4,17 +4,16 @@ import { usePerformerData } from '../hooks';
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
-import SpeakerLayout from '../containers/SpeakerLayout';
+import DataLayout from '../containers/DataLayout';
 
 const pageTitle = 'Performers';
 
 const Performers = () => {
-    
     const performerData = usePerformerData();
     
     return (
         <Page currentPage={`performers`}>
-            <SpeakerLayout speakerData={performerData} />
+            <DataLayout dataProp={performerData} type="performer" />
         </Page>
     )
 }
