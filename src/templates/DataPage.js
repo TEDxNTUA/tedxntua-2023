@@ -4,12 +4,15 @@ import { Container } from 'reactstrap';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Link } from 'gatsby';
+import PageHead from '../components/PageHead';
+import Page from '../components/Page';
+import { useLocaleContext } from '../contexts/LanguageContext';
 
 import * as dataPageStyles from "../styles/dataPage.module.css";
 import * as dataStyles from "../styles/data.module.css";
-import Page from '../components/Page';
 
 function DataPage(props) {
+    const { locale } = useLocaleContext();
     const url = props.pageContext.type + 's';
     const image = getImage(props.pageContext.image);
     let socialMediaUrl,
@@ -20,23 +23,24 @@ function DataPage(props) {
         case 'speaker':
         case 'performer':
             socialMediaUrl = props.pageContext.socialMediaUrl;
-            altText = 'LinkedIn';
+            altText = 'LINKEDIN';
             break;
         case 'workshop':
             socialMediaUrl = props.pageContext.websiteUrl;
-            altText = 'Website';
+            altText = (locale === 'el-GR') ? 'ΙΣΤΟΣΕΛΊΔΑ':'WEBSITE';
             appFormUrl = props.pageContext.applicationFormUrl;
             break;
     }
 
     return (
-        <Page currentPage={`/${url}/${props.pageContext.pageName}`}>   
+        <Page currentPage={`/${url}/${props.pageContext.pageName}`}>
+            <PageHead pageTitle={props.pageContext.name} /> 
             <Container className={dataPageStyles.dataPageContainer}>
                 <Link to={`/${url}`}
                     className={`
                     ${dataPageStyles.dataPageBackButton}
                     ${dataPageStyles.dataPageButton}`}>
-                        Back
+                        { (locale === 'el-GR') ? 'ΠΊΣΩ':'BACK' }
                 </Link>
                 <GatsbyImage image={image}
                             className={`
@@ -56,7 +60,7 @@ function DataPage(props) {
                         className={`
                         ${dataPageStyles.dataPageButton}
                         ${dataPageStyles.dataPageSocialButton}`}>
-                            {'Application Form'}
+                            {(locale === 'el-GR') ? 'ΔΙΕΚΔΊΚΗΣΕ ΤΗΝ ΘΈΣΗ ΣΟΥ':'CLAIM YOUR SPOT'}
                         </Link>
                     }
                 </div>
@@ -68,16 +72,23 @@ function DataPage(props) {
                 className={dataPageStyles.dataPageMeta}>
                     {props.pageContext.speciality}
                 </h4>
-                <p
-                className={dataPageStyles.dataPageBody}>
-                    {documentToReactComponents(JSON.parse(props.pageContext.bio.raw))}
-                </p>
+                <div
+                    className={dataPageStyles.dataPageSection}>
+                    <h3
+                    className={dataPageStyles.dataPageSectionMeta}>
+                        {(locale === 'el-GR') ? 'Βιογραφικό:':'Bio:'}
+                    </h3>
+                    <p
+                    className={dataPageStyles.dataPageBody}>
+                        {documentToReactComponents(JSON.parse(props.pageContext.bio.raw))}
+                    </p>
+                </div>
                 {appFormUrl != undefined &&
                     <div
-                    className={dataPageStyles.dataPageSideEvent}>
+                    className={dataPageStyles.dataPageSection}>
                         <h3
-                        className={dataPageStyles.dataPageMeta}>
-                            Workshop Description
+                        className={dataPageStyles.dataPageSectionMeta}>
+                            Workshop Description:
                         </h3>
                         <p
                         className={dataPageStyles.dataPageBody}>

@@ -5,11 +5,13 @@ import { usePerformerData } from '../hooks';
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
 import DataLayout from '../containers/DataLayout';
+import { useLocaleContext } from '../contexts/LanguageContext';
 
 const pageTitle = 'Performers';
 
 const Performers = () => {
-    const performerData = usePerformerData();
+    const { locale, _ } = useLocaleContext();
+    const performerData = usePerformerData(locale);
     
     return (
         <Page currentPage={`performers`}>
