@@ -8,7 +8,6 @@ import * as speakerStyles from "../styles/data.module.css";
 const Data = ({ fullName, picture, slug, speciality, type }) => {
 
     const url = type + 's';
-    console.log(url);
     const image = getImage(picture);
     
     return (
@@ -17,7 +16,7 @@ const Data = ({ fullName, picture, slug, speciality, type }) => {
         text-reset text-decoration-none
         ${speakerStyles.linkContainer}
         `}
-        to={`/${url}/${fullName.toLowerCase()}`}>
+        to={`/${url}/${fullName.toLowerCase().replace(/ /g, '-')}`}>
             <div className={`
                 ${speakerStyles.container}
             `}>

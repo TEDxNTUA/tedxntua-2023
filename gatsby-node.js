@@ -30,7 +30,7 @@ const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
-    const template = path.resolve(`src/templates/DataTemplate.js`);
+    const template = path.resolve(`src/templates/DataPage.js`);
 
     const speakers = graphql(`
         query {
@@ -56,12 +56,14 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       result.data.allContentfulSpeakers.nodes.forEach(node => {
+          const urlAddress = node.name.toLowerCase().replace(/ /g, '-');
           createPage({
-              path: `/speakers/${node.name.toLowerCase()}/`,
+              path: `/speakers/${urlAddress}/`,
               component: template,
               context: {
                   ...node,
-                  type: 'speaker'
+                  type: 'speaker',
+                  pageName: urlAddress
               },
           });
       });
@@ -91,12 +93,14 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         result.data.allContentfulPerformers.nodes.forEach(node => {
+            const urlAddress = node.name.toLowerCase().replace(/ /g, '-');
             createPage({
-                path: `/performers/${node.name.toLowerCase()}/`,
+                path: `/performers/${urlAddress}/`,
                 component: template,
                 context: {
                     ...node,
-                    type: 'performer'
+                    type: 'performer',
+                    pageName: urlAddress
                 },
             });
         });
@@ -129,12 +133,14 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       result.data.allContentfulWorkshops.nodes.forEach(node => {
+          const urlAddress = node.name.toLowerCase().replace(/ /g, '-');
           createPage({
-              path: `/workshops/${node.name.toLowerCase()}/`,
+              path: `/workshops/${urlAddress}/`,
               component: template,
               context: {
                   ...node,
-                  type: 'workshop'
+                  type: 'workshop',
+                  pageName: urlAddress
               },
           });
       });
