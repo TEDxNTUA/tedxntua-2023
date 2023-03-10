@@ -11,7 +11,7 @@ import { useLocaleContext } from '../contexts/LanguageContext';
 const pageTitle = 'Partners';
 
 const Partners = () => {
-    const {locale, _} = useLocaleContext();
+    const {locale} = useLocaleContext();
 const partnersData = usePartnersData(locale);
 
 const KnowledgePartners = partnersData.map(type=>{

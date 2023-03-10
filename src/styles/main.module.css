@@ -13,6 +13,20 @@
     --header-height: 100px;
 }
 
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 h1, h2, h3, h4, h5, div, a, span, p {
     font-family: "GFS Neohellenic", sans-serif;
     color: var(--primary-text) !important;
@@ -23,7 +37,13 @@ b {
 }
 
 body {
-    background-color: var(--primary-bg) !important;
+    /* background: rgb(45,52,54); */
+    /* background: linear-gradient(200deg, rgba(45,52,54,1) 0%, rgba(0,0,0,1) 100%) !important; */
+
+    background-color: var(--primary-bg);
+
+    height: 100%;
+    overflow: auto;
 }
 
 .text-shadow-primary {

@@ -17,8 +17,8 @@
 .item-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    flex-wrap: nowrap !important;
+    justify-content: space-around;
 
     padding-top: 1em;
 }
@@ -50,17 +50,25 @@
 .image-container {
     padding-top: .5em;
     height: 60px;
-    width: 258px;
     width: fit-content !important;
 }
 
 .image-container div {
-    width: 258px;
+    width: fit-content;
 }
 
 .image img {
-    height: 60px;
+    height: 60px !important;
     width: auto;
+}
+
+.brand-container {
+    display: flex;
+    width: fit-content;
+}
+
+.locale-button {
+    margin-left: 2em;
 }
 
 .toggler svg:hover {
@@ -123,6 +131,33 @@
 
     .slide-in-left {
         animation: .3s slide-in-left-animation ease-in-out forwards;
+    }
+}
+
+/* Fix logo size for different screen sizes */
+@media only screen and (max-width: 400px) {
+    .image img {
+        height: 50px !important;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .image img {
+        height: 45px !important;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .image img {
+        height: 35px !important; 
+    }
+
+    .image-container {
+        height: fit-content;
+    }
+
+    .item-container {
+        align-items: center;
     }
 }
 

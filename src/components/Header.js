@@ -78,10 +78,14 @@ const Header = ({ currentPage }) => {
     return (
         <div className={headerStyles.headerContainer}>
             <Row className={headerStyles.itemContainer}>
-                <Col xs={{size: 0}} md={{size: 3}} className={headerStyles.imageContainer}>
-                    <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
+                <Col className={headerStyles.brandContainer} >
+                    <div className={headerStyles.imageContainer}>
+                        <Link to='/'>
+                            <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
+                        </Link> 
+                    </div>
+                    <LocaleButton className={headerStyles.localeButton}  />
                 </Col>
-                <LocaleButton />
                     {
                     !isMobile &&
                     <Col style={{display: (!isMobile) ? "flex":"none"}} className={headerStyles.linkContainer}>
