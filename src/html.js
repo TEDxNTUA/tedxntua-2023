@@ -17,14 +17,14 @@ export default function HTML(props) {
       </head>
       <body {...props.bodyAttributes}
         style={{
-        backgroundColor: "black"}}>
+        backgroundColor: "var(--primary-bg)"}}>
         {props.preBodyComponents}
         <div
           key={`loader`}
           id="___loader"
           style={{
             alignItems: "center",
-            backgroundColor: "rgb(45,52,54)",
+            backgroundColor: "var(--primary-bg)",
             display: "flex",
             justifyContent: "center",
             position: "absolute",
