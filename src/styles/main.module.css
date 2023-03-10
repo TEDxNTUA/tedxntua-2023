@@ -37,18 +37,13 @@ b {
 }
 
 body {
-    background: rgb(45,52,54);
-    background: linear-gradient(200deg, rgba(45,52,54,1) 0%, rgba(0,0,0,1) 100%) !important;
+    /* background: rgb(45,52,54); */
+    /* background: linear-gradient(200deg, rgba(45,52,54,1) 0%, rgba(0,0,0,1) 100%) !important; */
+
+    background-color: var(--primary-bg);
 
     height: 100%;
     overflow: auto;
-}
-
-/* detect Safari */
-@media not all and (min-resolution: 0.001dpcm) {
-    body {
-        background: var(--primary-bg) !important;
-    }
 }
 
 .text-shadow-primary {
