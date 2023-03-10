@@ -10,7 +10,7 @@ import { useLocaleContext } from '../contexts/LanguageContext';
 const pageTitle = 'Speakers';
 
 const Speakers = () => {
-    const { locale, _ } = useLocaleContext();
+    const { locale } = useLocaleContext();
     const speakersData = useSpeakersData(locale);
 
     return (

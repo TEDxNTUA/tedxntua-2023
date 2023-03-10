@@ -12,7 +12,7 @@ import InfoPanel from '../components/InfoPanel';
 const pageTitle = 'About Us';
 
 const About = () => {
-    const { locale, _ } = useLocaleContext();
+    const { locale } = useLocaleContext();
     const aboutInfo = useAboutInfo(locale);
     const membersData = useMembersData(locale);
     const teams = [

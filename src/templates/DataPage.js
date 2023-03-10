@@ -30,6 +30,8 @@ function DataPage(props) {
             altText = (locale === 'el-GR') ? 'ΙΣΤΟΣΕΛΊΔΑ':'WEBSITE';
             appFormUrl = props.pageContext.applicationFormUrl;
             break;
+        default:
+            throw new Error(`Type ${props.pageContext.type} is invalid. Must be one of the following: speaker, performer, workshop`);
     }
 
     return (
@@ -46,7 +48,8 @@ function DataPage(props) {
                             className={`
                             ${dataPageStyles.dataPageImage}
                             ${dataStyles.image}
-                            `} />
+                            `}
+                            alt={altText} />
                 <div
                 className={dataPageStyles.dataPageSocialLinks}>
                     <Link to={socialMediaUrl}

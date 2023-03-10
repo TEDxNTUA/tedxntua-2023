@@ -45,20 +45,16 @@ const HomePage = () => {
         if (isMobile) {
             const sensitivity = 5;
             const dx = client.x - initPos.current.x;
-            const dy = client.y - initPos.current.y;
             
             mousePos.current.x += sensitivity * ((dx > 0) ? 1:-1);
 
             initPos.current.x = client.x;
-            initPos.current.y = client.y;
         }
         else {
             const rect = e.target.getBoundingClientRect();
             const dx = (client.x - rect.x) - rect.width/2;
-            const dy = (client.y - rect.y) - rect.height/2;
 
             mousePos.current.x += dx - mousePos.current.x;
-            mousePos.current.y += dy - mousePos.current.y;
         }
 
     };
@@ -124,7 +120,7 @@ const HomePage = () => {
             </Row>
             <Row className={homeStyles.infoSectionContainer}>
                 <Row className={homeStyles.infoSectionRow}>
-                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} />
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Workshops Image' />
                     <h1>
                         <span>6</span>WORKSHOPS
                     </h1>
@@ -133,10 +129,10 @@ const HomePage = () => {
                     <h1>
                         <span>9</span>TALKS
                     </h1>
-                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage}/>
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Talks Image'/>
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
-                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage}/>
+                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Performers Image'/>
                     <h1>
                         <span>4</span>PERFORMERS
                     </h1>
@@ -144,7 +140,7 @@ const HomePage = () => {
             </Row>
             <Row>
                 <div className={homeStyles.locationInfoContainer}>
-                    <GatsbyImage image={locationImage} className={homeStyles.locationImage} />
+                    <GatsbyImage image={locationImage} className={homeStyles.locationImage} alt={ homeInfo.location }/>
                     <div dangerouslySetInnerHTML={{__html: mapsHtml }} />
                 </div>
                 <div className={homeStyles.locationInstructions}>
