@@ -44,6 +44,9 @@
 
 .action-image {
     border-radius: 15px;
+
+    /* border-radius bug in Safari */
+    transform: translateZ(0);
 }
 
 .action-border {
