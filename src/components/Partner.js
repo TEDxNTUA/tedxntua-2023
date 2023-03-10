@@ -19,7 +19,7 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
  return(
     <>
     <Button onClick={handleOpen} className={partnerStyles.button}>
-        <GatsbyImage className={partnerStyles.image} image={myImage}/> 
+        <GatsbyImage className={partnerStyles.image} image={myImage} alt={ name }/> 
         <span className={`${partnerStyles.learnMore} ${Styles.textShadowPrimary}`}>Learn More</span>
         <div className={partnerStyles.imageBorder}>
         </div>
@@ -31,7 +31,7 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
               <span onClick={handleClose} className={partnerStyles.closeButton}>
                 &times;
               </span>
-              <GatsbyImage className={partnerStyles.image} image={myImage}/>  
+              <GatsbyImage className={partnerStyles.image} image={myImage} alt={ name }/>  
               <h2  className={`${Styles.textShadowPrimary} ${partnerStyles.title}`}>{name}</h2>
               <h5>{bioText}</h5>
             </div>

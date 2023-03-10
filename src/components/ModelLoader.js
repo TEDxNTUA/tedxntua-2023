@@ -6,7 +6,6 @@ import { isMobile } from "react-device-detect";
 function ModelLoader ({ url, mousePos, rotationSensitivity, active, passiveRotation }) {
     const [gltf, set] = React.useState();
     const ref = useRef();
-    const rotation = useRef({rotation: 0});
 
     const trueSensitivity = rotationSensitivity * 100;
 

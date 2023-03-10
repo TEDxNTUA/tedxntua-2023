@@ -8,7 +8,6 @@ import {
     CarouselIndicators,
     CarouselCaption,
  } from "reactstrap";
- import { Link } from "gatsby";
  import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
  
  import { useLocaleContext } from "../contexts/LanguageContext";
@@ -19,7 +18,7 @@ import * as footerStyles from "../styles/footer.module.css";
 
 
 const Footer = () => {
-    const {locale, _} = useLocaleContext();
+    const {locale } = useLocaleContext();
     const items = usePrevEventsData(locale);
 
     const [activeIndex, setActiveIndex] = React.useState(0);
@@ -53,7 +52,7 @@ const Footer = () => {
                 onExited={onExited}
             >
                 <GatsbyImage image={image} alt={`${item.year}`} className={footerStyles.carouselImage} />
-                <CarouselCaption className={`${styles.textShadowPrimary} ${footerStyles.carouselCaption}`} captionHeader={item.year} />
+                <CarouselCaption className={`${styles.textShadowPrimary} ${footerStyles.carouselCaption}`} captionHeader={item.year} captionText='' />
             </CarouselItem>
         );
     });
