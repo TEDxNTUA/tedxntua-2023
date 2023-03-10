@@ -35,8 +35,6 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
         );
     });
 
-    const backgroundStyle = { backgroundColor: (open) ? "var(--secondary-bg)":"rgba(30, 30, 30, .8)" };
-
     return (
         <div onClick={() => {
             if (onClick) {onClick()};
