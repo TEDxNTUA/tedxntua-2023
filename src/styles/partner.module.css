@@ -66,7 +66,9 @@
   border-radius: .8rem;
 
   position: relative;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: var(--light);
   background: var(--background);
   background-color: #1E1E1E;
@@ -89,13 +91,23 @@
 }
 
 .link-buttons{
-  display: flex;
-  justify-content:space-evenly ;
-  margin-top: 30px;
+    margin-top: .5em;
+    padding: .1em .5em;
+    border-radius: 5px;
+
+    font-size: 25px;
+    color: var(--primary-bg) !important;
+    background-color: var(--primary-text);
+    box-shadow: 4px 4px var(--primary-shadow);
+
+    width: fit-content;
+
+    transition: all .2s ease-in-out;
 }
 
-.button-container a {
-  text-shadow: 1px 1px black;
+.link-buttons:hover{
+  transform: translateX(3px) translateY(3px);
+  box-shadow: 1px 1px var(--primary-shadow);
 }
 
 .close-button {

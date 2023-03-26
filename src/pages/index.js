@@ -105,7 +105,7 @@ const HomePage = () => {
                     </h3>
                     <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
                         <div className={homeStyles.bookingButton}>
-                            { (locale === 'el-GR') ? 'ΚΡΑΤΗΣΤΕ ΕΙΣΗΤΗΡΙΟ':'BOOK YOUR TICKET NOW' }
+                            { (locale === 'el-GR') ? 'ΚΡΑΤΗΣΤΕ ΕΙΣΙΤΗΡΙΟ':'BOOK YOUR TICKET NOW' }
                         </div>
                     </a>
                 </div>

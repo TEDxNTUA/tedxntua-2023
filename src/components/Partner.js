@@ -5,6 +5,7 @@ import * as partnersStyles from "../styles/partners.module.css";
 import * as Styles from "../styles/main.module.css";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { GatsbyImage , getImage} from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 
 export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
@@ -35,10 +36,18 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
               <h2  className={`${Styles.textShadowPrimary} ${partnerStyles.title}`}>{name}</h2>
               <h5>{bioText}</h5>
             </div>
-            <div className={partnerStyles.linkButtons}>
-              {websiteUrl&& <Button variant="contained" style={{backgroundColor:"#F06427"}} href={websiteUrl} >WEBSITE</Button>}
-              {careerUrl&& <Button variant="contained" style={{backgroundColor:"#F06427"}} href={careerUrl} >Career Site</Button>}
-            </div> 
+            {websiteUrl &&
+              <Link href={websiteUrl}>
+                <div className={partnerStyles.linkButtons}>WEBSITE</div>
+              </Link>
+            }
+            {careerUrl &&
+              <Link href={careerUrl}>
+                <div className={partnerStyles.linkButtons}>Career Site</div>
+            </Link>
+            }
+            
+            
           </div>
         </div>
     </Modal>       
