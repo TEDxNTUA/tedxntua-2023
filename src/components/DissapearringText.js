@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import { getRandomInteger } from "../utils";
-
 import * as disTextStyles from "../styles/dissapearingText.module.css";
 
 const DissapearingText = ({ text, className, style }) => {

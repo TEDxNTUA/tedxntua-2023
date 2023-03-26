@@ -7,7 +7,6 @@ import * as layoutStyles from "../styles/dataLayout.module.css";
 
 const DataLayout = ({ dataProp, type }) => {
 
-    console.log(type);
     const data = dataProp.map(s => (
         <Data key={s.id} fullName={s.name} picture={s.image} speciality={s.speciality} type={type} />
     ));

@@ -227,6 +227,10 @@
 
 .location-image {
     border-radius: 15px;
+
+    /* border-radius bug in Safari */
+    transform: translateZ(0);
+
     box-shadow: 4px 4px var(--primary-shadow);
     margin-top: 1em;
 }
