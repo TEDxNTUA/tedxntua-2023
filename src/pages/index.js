@@ -82,7 +82,7 @@ const HomePage = () => {
                             <ModelLoader
                             url={GLB}
                             mousePos={mousePos.current}
-                            rotationSensitivity={isMobile ? 1:10}
+                            rotationSensitivity={isMobile ? .7:10}
                             active={active.current}
                             passiveRotation={isMobile ? 1:5}
                             />
