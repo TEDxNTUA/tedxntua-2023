@@ -37,14 +37,14 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
               <h5>{bioText}</h5>
             </div>
             {websiteUrl &&
-              <Link href={websiteUrl}>
+              <a href={websiteUrl}>
                 <div className={partnerStyles.linkButtons}>WEBSITE</div>
-              </Link>
+              </a>
             }
             {careerUrl &&
-              <Link href={careerUrl}>
+              <a href={careerUrl}>
                 <div className={partnerStyles.linkButtons}>Career Site</div>
-            </Link>
+            </a>
             }
             
             
