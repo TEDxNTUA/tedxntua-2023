@@ -59,26 +59,30 @@ const HomePage = () => {
 
     };
 
-    const MouseDetector = () => {
-        return (
-            <div 
-            onMouseMove={(e) => {active.current.active = true; updateMousePos(e);}}
-            onMouseLeave={() => active.current.active = false}
-            onTouchMove={(e) => {active.current.active = true; updateMousePos(e);}}
-            onTouchCancel={() => {active.current.active = false;}}
-            onTouchEnd={() => {active.current.active = false;}}
-            className={homeStyles.detectMouseMovement}
-            ></div>
-        );
-    };
+    // const MouseDetector = () => {
+    //     return (
+    //         <div 
+    //         onMouseMove={(e) => {active.current.active = true; updateMousePos(e);}}
+    //         onMouseLeave={() => active.current.active = false}
+    //         onTouchMove={(e) => {active.current.active = true; updateMousePos(e);}}
+    //         onTouchCancel={() => {active.current.active = false;}}
+    //         onTouchEnd={() => {active.current.active = false;}}
+    //         className={homeStyles.detectMouseMovement}
+    //         ></div>
+    //     );
+    // };
 
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
                 <span>{mousePos.x}</span>
+                <div className={styles.mnemeLogoImage}>
+                    <StaticImage src='../images/MNEMElogo.png'></StaticImage>
+                    <h1 style={{marginTop:"35px" , fontSize:50}}>13<span style={{color: 'var(--primary-orange) !important'}}>.</span>05<span style={{color: 'var(--primary-orange) !important'}}>.</span>2023</h1>
+                </div>
                     <Canvas className={homeStyles.canvas3d}>
                             <ambientLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                        <React.Suspense fallback={null}>
+                        {/* <React.Suspense fallback={null}>
                             <ModelLoader
                             url={GLB}
                             mousePos={mousePos.current}
@@ -86,16 +90,9 @@ const HomePage = () => {
                             active={active.current}
                             passiveRotation={isMobile ? 1:5}
                             />
-                        </React.Suspense>
+                        </React.Suspense> */}
                     </Canvas>
-                <MouseDetector />
-                <h1 className={`${homeStyles.mnemeLabel}`}>
-                    <span>M</span>
-                    <span>N</span>
-                    <span>E</span>
-                    <span>M</span>
-                    <span>E</span>
-                </h1>
+                {/* <MouseDetector /> */}
                 <div className={homeStyles.infoContainer}>
                     <h3 className={styles.textShadowPrimary}>
                         { homeInfo.location }
@@ -105,20 +102,20 @@ const HomePage = () => {
                     </h3>
                     <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
                         <div className={homeStyles.bookingButton}>
-                            { (locale === 'el-GR') ? 'ΚΡΑΤΗΣΤΕ ΕΙΣΙΤΗΡΙΟ':'BOOK YOUR TICKET NOW' }
+                            { (locale === 'el-GR') ? 'BOOK YOUR TICKETS NOW':'BOOK YOUR TICKETS NOW' }
                         </div>
                     </a>
                 </div>
             </Row>
             <Row className={homeStyles.themeInfoRow}>
-                <div className={homeStyles.themeInfoContainer}>
+                {/* <div className={homeStyles.themeInfoContainer}>
                     <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div>
                     {documentToReactComponents(JSON.parse(homeInfo.themeInfo.raw))}
-                </div>
+                </div> */}
             </Row>
-            <Row className={homeStyles.infoSectionContainer}>
+            {/* <Row className={homeStyles.infoSectionContainer}>
                 <Row className={homeStyles.infoSectionRow}>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Workshops Image' />
                     <h1>
@@ -137,17 +134,17 @@ const HomePage = () => {
                         <span>4</span>PERFORMERS
                     </h1>
                 </Row>
-            </Row>
+            </Row> */}
             <Row>
                 <div className={homeStyles.locationInfoContainer}>
                     <GatsbyImage image={locationImage} className={homeStyles.locationImage} alt={ homeInfo.location }/>
                     <div dangerouslySetInnerHTML={{__html: mapsHtml }} />
                 </div>
-                <div className={homeStyles.locationInstructions}>
+                {/* <div className={homeStyles.locationInstructions}>
                     <h1 className={styles.textShadowPrimary}>{ locationInstructionsHeader }</h1>
                     <hr />
                     { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
-                </div>
+                </div> */}
             </Row>
         </Page>
     );

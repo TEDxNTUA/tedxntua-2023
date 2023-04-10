@@ -15,7 +15,6 @@ const Page = ({ currentPage, children }) => {
         <main className={styles.globalContainer}>
             <LocaleContextProvider>
                 <Header currentPage={currentPage} />
-
                 <div>
                     { children }
                 </div>

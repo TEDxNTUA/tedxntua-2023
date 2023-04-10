@@ -81,7 +81,7 @@ const Header = ({ currentPage }) => {
                 <Col className={headerStyles.brandContainer} >
                     <div className={headerStyles.imageContainer}>
                         <Link to='/'>
-                            <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
+                            <StaticImage src="../images/tedxntua_logo.png" alt="TEDxNTUA event" className={headerStyles.image} />
                         </Link> 
                     </div>
                     <LocaleButton className={headerStyles.localeButton}  />
