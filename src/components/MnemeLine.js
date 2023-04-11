@@ -2,9 +2,13 @@ import React from 'react';
 
 import * as mnemeLineStyles from '../styles/mnemeLine.module.css'
 
-const MnemeLine = () => {
+const MnemeLine = ({ reverse }) => {
     return (
-        <div className={mnemeLineStyles.mnemeLineContainer}>
+        <div
+        style={{
+            flexDirection: reverse ? 'row-reverse':'row',
+        }}
+        className={mnemeLineStyles.mnemeLineContainer}>
             <div className={mnemeLineStyles.mnemeLine}></div>
             <div className={mnemeLineStyles.mnemeLineInfo}>
                 <div className={mnemeLineStyles.mnemeLineTitle}>

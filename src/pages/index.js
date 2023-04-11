@@ -89,6 +89,7 @@ const HomePage = () => {
                     {/* <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div> */}
+                    <MnemeLine reverse />
                     <StaticImage style={{ width: '20vw', display: isMobile ? 'none':'' }} src='../images/MNEMElogo.png' />
                     {documentToReactComponents(JSON.parse(homeInfo.themeInfo.raw))}
                     <StaticImage className={homeStyles.infoImage} src='../images/mneme_with_flowers_2.jpg' />
