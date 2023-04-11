@@ -39,7 +39,7 @@ body {
 
     z-index: -1;
 
-    background-color: var(--primary-shadow);
+    background-color: var(--secondary-shadow);
 }
 
 @media only screen and (max-width: 900px) {

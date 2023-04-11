@@ -21,7 +21,7 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
     <>
     <Button onClick={handleOpen} className={partnerStyles.button}>
         <GatsbyImage className={partnerStyles.image} image={myImage} alt={ name }/> 
-        <span className={`${partnerStyles.learnMore} ${Styles.textShadowPrimary}`}>Learn More</span>
+        <span className={`${partnerStyles.learnMore}`}>Learn More</span>
         <div className={partnerStyles.imageBorder}>
         </div>
     </Button>

@@ -65,7 +65,7 @@ const HomePage = () => {
                 <span>{mousePos.x}</span>
                 <div className={styles.mnemeLogoImage}>
                     <StaticImage src='../images/MNEMElogo.png' />
-                    <h1 style={{marginTop:"35px" , fontSize:50}}>13<span style={{color: 'var(--primary-highlight) !important'}}>.</span>05<span style={{color: 'var(--primary-highlight) !important'}}>.</span>2023</h1>
+                    <h1 style={{marginTop:"35px" , fontSize:50, textShadow: '2px 2px var(--primary-bg)'}}>13<span style={{color: 'var(--primary-highlight) !important'}}>.</span>05<span style={{color: 'var(--primary-highlight) !important'}}>.</span>2023</h1>
                 </div>
                 <div className={homeStyles.flowerImage}>
                     <StaticImage src='../images/flower.png' />
@@ -79,7 +79,7 @@ const HomePage = () => {
                     </h3>
                     <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
                         <div className={homeStyles.bookingButton}>
-                            { (locale === 'el-GR') ? 'BOOK YOUR TICKETS NOW':'BOOK YOUR TICKETS NOW' }
+                            BOOK YOUR TICKETS NOW
                         </div>
                     </a>
                 </div>

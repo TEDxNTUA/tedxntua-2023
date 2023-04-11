@@ -51,8 +51,10 @@ const Footer = () => {
                 onExiting={onExiting}
                 onExited={onExited}
             >
-                <GatsbyImage image={image} alt={`${item.year}`} className={footerStyles.carouselImage} />
-                <CarouselCaption className={`${styles.textShadowPrimary} ${footerStyles.carouselCaption}`} captionHeader={item.year} captionText='' />
+                <a href={item.url}>
+                    <GatsbyImage image={image} alt={`${item.year}`} className={footerStyles.carouselImage} />
+                    <CarouselCaption className={`${footerStyles.carouselCaption}`} captionHeader={item.year} captionText='' />
+                </a>
             </CarouselItem>
         );
     });
@@ -107,7 +109,7 @@ const Footer = () => {
                         <StaticImage src="../images/blog.png" alt="Blog" className={footerStyles.actionImage} />
                     </a>
                     <div className={footerStyles.actionBorder}>
-                        <h4 className={styles.textShadowPrimary}>Blog</h4>
+                        <h4>Blog</h4>
                     </div>
                 </div>
                 <div className={footerStyles.actionContainer}>
@@ -115,7 +117,7 @@ const Footer = () => {
                         <StaticImage src="../images/dialogues.png" alt="Dialogues"  className={footerStyles.actionImage} />
                     </a>
                     <div className={footerStyles.actionBorder}>
-                        <h4 className={styles.textShadowPrimary}>Dialogues</h4>
+                        <h4>Dialogues</h4>
                     </div>
                 </div>
             </Col>

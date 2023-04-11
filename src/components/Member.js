@@ -23,11 +23,11 @@ const Member = ({ imageData, name="", linkedInUrl="", style, className, onMouseE
                 <GatsbyImage alt={ name } image={ image } />
             </a>
             <div className={memberStyles.caption}>
-                <h5 className={`${styles.textShadowPrimary} ${memberStyles.name}`}>
+                <h5 className={`${memberStyles.name}`}>
                     { firstName }
                 </h5>
                 <div className={memberStyles.captionInnerContainer}>
-                    <h5 className={`${styles.textShadowPrimary} ${memberStyles.name}`}>
+                    <h5 className={`${memberStyles.name}`}>
                         { lastName }
                     </h5>
                     {linkedInUrl && <LinkedInIcon />}
