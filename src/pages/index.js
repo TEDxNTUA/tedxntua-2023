@@ -15,6 +15,7 @@ import { useHomeInfo } from '../hooks';
 
 import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";
+import MnemeLine from '../components/MnemeLine';
 
 const pageTitle = 'Home';
 
@@ -24,7 +25,7 @@ const HomePage = () => {
     const homeInfo = useHomeInfo(locale);
     const locationImage = getImage(homeInfo.locationImage);
     const mapsHtml = JSON.parse(homeInfo.mapsHtml.raw).content[0].content[0].value;
-    const locationInstructionsHeader = (locale === 'el-GR' ? 'Πώς να έρθεις εδώ':'How to get here');
+    const locationInstructionsHeader = (locale === 'el-GR' ? 'ΩΔΕΙΟΝ ΑΘΗΝΩΝ':'ATHENS CONSERVATOIRE');
 
     // store mouse position as ref instead of state to prevent
     // re-rendering which stops touch detection and leads to
@@ -59,63 +60,39 @@ const HomePage = () => {
 
     };
 
-    const MouseDetector = () => {
-        return (
-            <div 
-            onMouseMove={(e) => {active.current.active = true; updateMousePos(e);}}
-            onMouseLeave={() => active.current.active = false}
-            onTouchMove={(e) => {active.current.active = true; updateMousePos(e);}}
-            onTouchCancel={() => {active.current.active = false;}}
-            onTouchEnd={() => {active.current.active = false;}}
-            className={homeStyles.detectMouseMovement}
-            ></div>
-        );
-    };
-
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
-                <span>{mousePos.x}</span>
-                    <Canvas className={homeStyles.canvas3d}>
-                            <ambientLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                        <React.Suspense fallback={null}>
-                            <ModelLoader
-                            url={GLB}
-                            mousePos={mousePos.current}
-                            rotationSensitivity={isMobile ? 1:10}
-                            active={active.current}
-                            passiveRotation={isMobile ? 1:5}
-                            />
-                        </React.Suspense>
-                    </Canvas>
-                <MouseDetector />
-                <h1 className={`${homeStyles.mnemeLabel}`}>
-                    <span>M</span>
-                    <span>N</span>
-                    <span>E</span>
-                    <span>M</span>
-                    <span>E</span>
-                </h1>
+                <div className={styles.mnemeLogoImage}>
+                    <StaticImage src='../images/MNEMElogo.png' />
+                    <h1 style={{marginTop:"35px" , fontSize:50, textShadow: '2px 2px var(--primary-bg)'}}>13<span>.</span>05<span>.</span>2023</h1>
+                </div>
+                <div className={homeStyles.flowerImage}>
+                    <StaticImage src='../images/flower.png' />
+                </div>
                 <div className={homeStyles.infoContainer}>
-                    <h3 className={styles.textShadowPrimary}>
+                    <h3>
                         { homeInfo.location }
                     </h3>
-                    <h3 className={styles.textShadowPrimary}>
+                    <h3>
                         { homeInfo.date }
                     </h3>
                     <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
                         <div className={homeStyles.bookingButton}>
-                            { (locale === 'el-GR') ? 'ΚΡΑΤΗΣΤΕ ΕΙΣΙΤΗΡΙΟ':'BOOK YOUR TICKET NOW' }
+                            BOOK YOUR TICKETS NOW
                         </div>
                     </a>
                 </div>
             </Row>
             <Row className={homeStyles.themeInfoRow}>
                 <div className={homeStyles.themeInfoContainer}>
+                    {/* <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div>
-                    <div className={homeStyles.themeInfoBackground}></div>
-                    <div className={homeStyles.themeInfoBackground}></div>
+                    <div className={homeStyles.themeInfoBackground}></div> */}
+                    <MnemeLine reverse />
+                    <StaticImage style={{ width: '20vw', display: isMobile ? 'none':'' }} src='../images/MNEMElogo.png' />
                     {documentToReactComponents(JSON.parse(homeInfo.themeInfo.raw))}
+                    <StaticImage className={homeStyles.infoImage} src='../images/mneme_with_flowers_2.jpg' />
                 </div>
             </Row>
             <Row className={homeStyles.infoSectionContainer}>
@@ -138,15 +115,31 @@ const HomePage = () => {
                     </h1>
                 </Row>
             </Row>
-            <Row>
-                <div className={homeStyles.locationInfoContainer}>
-                    <GatsbyImage image={locationImage} className={homeStyles.locationImage} alt={ homeInfo.location }/>
-                    <div dangerouslySetInnerHTML={{__html: mapsHtml }} />
-                </div>
-                <div className={homeStyles.locationInstructions}>
-                    <h1 className={styles.textShadowPrimary}>{ locationInstructionsHeader }</h1>
-                    <hr />
-                    { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
+            <Row className={homeStyles.locationRow}>
+                <StaticImage className={homeStyles.locationImage} src="../images/Odeon.png" />
+                <div className={homeStyles.locationInfoSuperContainer}>
+                    <div className={homeStyles.locationInfoContainer}>
+                        {/* <div className={homeStyles.locationInfoHead}>
+                            <div className={homeStyles.locationInfoLine}></div>
+                            <div className={homeStyles.locationInfo}>
+                                <div className={homeStyles.locationInfoTitle}>
+                                    MNEME
+                                </div>
+                                <div className={homeStyles.locationInfoDate}>
+                                    MAY 13
+                                </div>
+                            </div>
+                        </div> */}
+                        <MnemeLine />
+                        <div className={homeStyles.locationHeader}>
+                            <div className={homeStyles.locationLargeRect}></div>
+                            <div className={homeStyles.locationSmallRect}></div>
+                            <h3 className={homeStyles.locationHeaderText}>
+                                { locationInstructionsHeader }
+                            </h3>
+                        </div>
+                        { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
+                    </div>
                 </div>
             </Row>
         </Page>

@@ -14,7 +14,13 @@ const PageHead = ({ pageTitle }) => {
     `).site.siteMetadata.title;
 
     return (
+    <>
         <title>{ siteTitle } | { pageTitle }</title>
+        <meta property='og:type' content='website'/>
+        <meta property='og:image' content=''/>
+        <meta property='og:site_name' content='TEDXNTUA 2023'/>
+    </>
+           
     );
 }
 

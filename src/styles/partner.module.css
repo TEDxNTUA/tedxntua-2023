@@ -1,5 +1,9 @@
+.button span {
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
 
-.button:hover span{
+.button:hover span {
     opacity: 1;
     color: #F06427;
 }
@@ -31,18 +35,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  transition: all .2s ease-in-out;
 }
 
 .image-border:hover{
-  border:solid #F06427 5px;
+  border: solid var(--primary-shadow) 5px;
 }
 
-.learn-more{
+.learn-more {
     position: absolute;
     opacity: 0;
     font-size: 30px;
-    font-family: "GFS Neohellenic", sans-serif;
-    color: var(--primary-text);
+    color: var(--primary-highlight) !important;
+    text-shadow: 2px 2px #000;
 }
 
 .modal-container {

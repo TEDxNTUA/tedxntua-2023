@@ -63,8 +63,8 @@ const Header = ({ currentPage }) => {
                 animationDelay: `${index*.1}s`
             }}
             className={`
-            text-reset text-decoration-none
-            ${styles.textShadowPrimary}
+            ${(capitalize(currentPage) == key) ? headerStyles.active:""}
+            text-decoration-none
             ${headerStyles.link}
             ${(!open) ? styles.hideLink:""}
             ${(open) ? headerStyles.slideInLeft:""}
@@ -81,7 +81,7 @@ const Header = ({ currentPage }) => {
                 <Col className={headerStyles.brandContainer} >
                     <div className={headerStyles.imageContainer}>
                         <Link to='/'>
-                            <StaticImage src="../images/tedxntua_logo_whitetext.png" alt="TEDxNTUA logo" className={headerStyles.image} />
+                            <StaticImage src="../images/tedxntua_logo.png" alt="TEDxNTUA event" className={headerStyles.image} />
                         </Link> 
                     </div>
                     <LocaleButton className={headerStyles.localeButton}  />
@@ -100,8 +100,8 @@ const Header = ({ currentPage }) => {
                             >
                                 <span
                                 className={`
-                                ${styles.textShadowPrimary}
                                 ${headerStyles.link}
+                                ${(capitalize(currentPage) in dropdownPaths || dropClicked) ? headerStyles.active:''}
                                 `}
                                 style={{opacity: (capitalize(currentPage) in dropdownPaths || dropClicked) ? 1:.6}}
                                 >

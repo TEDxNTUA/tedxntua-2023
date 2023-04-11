@@ -23,19 +23,17 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
                 animationDelay: `${index*.1}s`,
             }}
             className={`
-            text-reset text-decoration-none
-            ${styles.textShadowPrimary}
+            text-decoration-none
             ${dropdownStyles.link}
             ${headerStyles.link}
             ${(open || permanentActive) ? "":styles.hideLink}
             ${(open || permanentActive) ? headerStyles.slideInLeft:""}
+            ${(capitalize(currentPage) == key) ? headerStyles.active:""}
             `}>
                 {paths[key].name}
             </Link>
         );
     });
-
-    const backgroundStyle = { backgroundColor: (open) ? "var(--secondary-bg)":"rgba(30, 30, 30, .8)" };
 
     return (
         <div onClick={() => {

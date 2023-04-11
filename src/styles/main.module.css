@@ -4,13 +4,26 @@
 :root {
     --primary-bg: #0B0B0B;
     --secondary-bg: #1e1e1e;
-    --primary-shadow: #C51731;
+    --primary-shadow: #47F0E6;
     --secondary-shadow: #546EA0;
-    --primary-text: #F6E9C7;
-    --primary-highlight: #7FB1BC;
-    --primary-orange: #F06427;
+    --primary-text: #FFFF;
+    --primary-highlight: #FF8A00;
+    --secondary-highlight: #ff0018;
+    --primary-orange: #FF8A00;
 
     --header-height: 100px;
+}
+
+.mneme-logo-image {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.mneme-logo-image span {
+    color: var(--primary-shadow) !important;
 }
 
 * {
@@ -28,7 +41,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, div, a, span, p {
-    font-family: "GFS Neohellenic", sans-serif;
+    font-family: "helvetica", sans-serif;
     color: var(--primary-text) !important;
 }
 
