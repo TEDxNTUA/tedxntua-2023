@@ -24,7 +24,7 @@ const HomePage = () => {
     const homeInfo = useHomeInfo(locale);
     const locationImage = getImage(homeInfo.locationImage);
     const mapsHtml = JSON.parse(homeInfo.mapsHtml.raw).content[0].content[0].value;
-    const locationInstructionsHeader = (locale === 'el-GR' ? 'Πώς να έρθεις εδώ':'How to get here');
+    const locationInstructionsHeader = (locale === 'el-GR' ? 'ΩΔΕΙΟΝ ΑΘΗΝΩΝ':'ATHENS CONSERVATOIRE');
 
     // store mouse position as ref instead of state to prevent
     // re-rendering which stops touch detection and leads to
@@ -59,45 +59,22 @@ const HomePage = () => {
 
     };
 
-    // const MouseDetector = () => {
-    //     return (
-    //         <div 
-    //         onMouseMove={(e) => {active.current.active = true; updateMousePos(e);}}
-    //         onMouseLeave={() => active.current.active = false}
-    //         onTouchMove={(e) => {active.current.active = true; updateMousePos(e);}}
-    //         onTouchCancel={() => {active.current.active = false;}}
-    //         onTouchEnd={() => {active.current.active = false;}}
-    //         className={homeStyles.detectMouseMovement}
-    //         ></div>
-    //     );
-    // };
-
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
                 <span>{mousePos.x}</span>
                 <div className={styles.mnemeLogoImage}>
-                    <StaticImage src='../images/MNEMElogo.png'></StaticImage>
-                    <h1 style={{marginTop:"35px" , fontSize:50}}>13<span style={{color: 'var(--primary-orange) !important'}}>.</span>05<span style={{color: 'var(--primary-orange) !important'}}>.</span>2023</h1>
+                    <StaticImage src='../images/MNEMElogo.png' />
+                    <h1 style={{marginTop:"35px" , fontSize:50}}>13<span style={{color: 'var(--primary-highlight) !important'}}>.</span>05<span style={{color: 'var(--primary-highlight) !important'}}>.</span>2023</h1>
                 </div>
-                    <Canvas className={homeStyles.canvas3d}>
-                            <ambientLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                        {/* <React.Suspense fallback={null}>
-                            <ModelLoader
-                            url={GLB}
-                            mousePos={mousePos.current}
-                            rotationSensitivity={isMobile ? .7:10}
-                            active={active.current}
-                            passiveRotation={isMobile ? 1:5}
-                            />
-                        </React.Suspense> */}
-                    </Canvas>
-                {/* <MouseDetector /> */}
+                <div className={homeStyles.flowerImage}>
+                    <StaticImage src='../images/flower.png' />
+                </div>
                 <div className={homeStyles.infoContainer}>
-                    <h3 className={styles.textShadowPrimary}>
+                    <h3>
                         { homeInfo.location }
                     </h3>
-                    <h3 className={styles.textShadowPrimary}>
+                    <h3>
                         { homeInfo.date }
                     </h3>
                     <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
@@ -108,14 +85,16 @@ const HomePage = () => {
                 </div>
             </Row>
             <Row className={homeStyles.themeInfoRow}>
-                {/* <div className={homeStyles.themeInfoContainer}>
+                <div className={homeStyles.themeInfoContainer}>
+                    {/* <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div>
-                    <div className={homeStyles.themeInfoBackground}></div>
-                    <div className={homeStyles.themeInfoBackground}></div>
+                    <div className={homeStyles.themeInfoBackground}></div> */}
+                    <StaticImage style={{ width: '20vw' }} src='../images/MNEMElogo.png' />
                     {documentToReactComponents(JSON.parse(homeInfo.themeInfo.raw))}
-                </div> */}
+                    <StaticImage className={homeStyles.infoImage} src='../images/mneme_with_flowers_2.jpg' />
+                </div>
             </Row>
-            {/* <Row className={homeStyles.infoSectionContainer}>
+            <Row className={homeStyles.infoSectionContainer}>
                 <Row className={homeStyles.infoSectionRow}>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Workshops Image' />
                     <h1>
@@ -134,17 +113,15 @@ const HomePage = () => {
                         <span>4</span>PERFORMERS
                     </h1>
                 </Row>
-            </Row> */}
-            <Row>
-                <div className={homeStyles.locationInfoContainer}>
-                    <GatsbyImage image={locationImage} className={homeStyles.locationImage} alt={ homeInfo.location }/>
-                    <div dangerouslySetInnerHTML={{__html: mapsHtml }} />
+            </Row>
+            <Row className={homeStyles.locationRow}>
+                <StaticImage className={homeStyles.locationImage} src="../images/Odeon.png" />
+                <div className={homeStyles.locationInfoSuperContainer}>
+                    <div className={homeStyles.locationInfoContainer}>
+                        <h3 className={homeStyles.locationHeader}>{ locationInstructionsHeader }</h3>
+                        { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
+                    </div>
                 </div>
-                {/* <div className={homeStyles.locationInstructions}>
-                    <h1 className={styles.textShadowPrimary}>{ locationInstructionsHeader }</h1>
-                    <hr />
-                    { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
-                </div> */}
             </Row>
         </Page>
     );

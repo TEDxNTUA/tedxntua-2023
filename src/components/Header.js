@@ -63,8 +63,8 @@ const Header = ({ currentPage }) => {
                 animationDelay: `${index*.1}s`
             }}
             className={`
-            text-reset text-decoration-none
-            ${styles.textShadowPrimary}
+            ${(capitalize(currentPage) == key) ? headerStyles.active:""}
+            text-decoration-none
             ${headerStyles.link}
             ${(!open) ? styles.hideLink:""}
             ${(open) ? headerStyles.slideInLeft:""}
@@ -100,8 +100,8 @@ const Header = ({ currentPage }) => {
                             >
                                 <span
                                 className={`
-                                ${styles.textShadowPrimary}
                                 ${headerStyles.link}
+                                ${(capitalize(currentPage) in dropdownPaths || dropClicked) ? headerStyles.active:''}
                                 `}
                                 style={{opacity: (capitalize(currentPage) in dropdownPaths || dropClicked) ? 1:.6}}
                                 >

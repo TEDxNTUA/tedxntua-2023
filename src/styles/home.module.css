@@ -79,14 +79,16 @@
 .info-container {
     position: absolute;
     bottom: 0;
-    left: 0;
-
-    margin-left: 10em;
-    margin-bottom: 15em;
+    right: 0;
 
     width: fit-content;
 
     z-index: 0;
+}
+
+
+.info-container h3 {
+    text-align: center;
 }
 
 .booking-button {
@@ -94,8 +96,9 @@
     padding: .1em .5em;
     border-radius: 5px;
 
-    font-size: 25px;
-    color: var(--primary-bg) !important;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--primary-orange) !important;
     background-color: var(--primary-text);
     box-shadow: 4px 4px var(--primary-shadow);
 
@@ -125,7 +128,7 @@
     text-align: center;
     width: fit-content;
 
-    text-shadow: 4px 4px var(--primary-shadow);
+    text-shadow: 4px 4px var(--secondary-shadow);
 
     transition: all .2s ease-in-out;
 }
@@ -162,22 +165,22 @@
 
 .theme-info-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     padding: 0 5em;
 
     position: relative;
+    height: 100vh;
 }
 
 .theme-info-container p {
-    padding: 0 1em;
-    text-align: center;
+    text-align: justify;
     font-size: 32px;
-
-    text-shadow: 2px 2px var(--primary-shadow);
+    width: 65%;
 }
 
-.theme-info-container p:nth-child(5) {
-    margin-top: 2em;
+.theme-info-container p:nth-child(2) {
+    margin-top: 1em;
 }
 
 .theme-info-background {
@@ -208,15 +211,33 @@
     left: 60%;
 }
 
+.info-image {
+    position: absolute !important;
+    z-index: -1;
+    filter: brightness(0.5);
+    height: 100vh;
+    top: 0;
+    width: 52em;
+    right: 0;
+}
+
+.location-info-super-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .location-info-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-end;
 
     margin: 2em 0;
+}
+
+.location-info-container p {
+    text-align: right;
+    width: 50%;
 }
 
 .location-info-container iframe {
@@ -225,7 +246,13 @@
     margin-top: 1em;
 }
 
+.location-row {
+    position: relative;
+    height: 100vh;
+}
+
 .location-image {
+    position: absolute !important;
     border-radius: 15px;
 
     /* border-radius bug in Safari */
@@ -233,6 +260,17 @@
 
     box-shadow: 4px 4px var(--primary-shadow);
     margin-top: 1em;
+
+    z-index: -1;
+
+    width: 100%;
+}
+
+.location-header {
+    margin-bottom: 1em;
+    font-weight: bold;
+    font-size: 32px;
+    letter-spacing: 10px;
 }
 
 .location-instructions {
@@ -253,6 +291,13 @@
 
 .location-instructions b {
     color: var(--primary-shadow) !important;
+}
+
+.flower-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
 }
 
 /* Responsive */
