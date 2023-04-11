@@ -20,7 +20,7 @@ const DataLayout = ({ dataProp, type }) => {
                 key={i}
                 className={layoutStyles.row}
                 >
-                    {!isMobile && <div className={layoutStyles.rowBackground}></div>}
+                    {/* {!isMobile && <div className={layoutStyles.rowBackground}></div>} */}
                     {data.slice(i*max, (i+1)*max)}
                 </div>
             );

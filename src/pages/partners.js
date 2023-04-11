@@ -48,27 +48,33 @@ const Supporters = partnersData.map(type=>{
             <Container className={PartnersStyles.container}>
                 <div className={PartnersStyles.titles}>
                     <div>
-                        <h1 className={`${PartnersStyles.title} ${Styles.textShadowPrimary}`}>Knowledge Partner</h1>
+                        <h1 className={`${PartnersStyles.title}`}>Knowledge Partner</h1>
                         <div className={PartnersStyles.section}>{KnowledgePartners}</div>
                     </div>
                     <div>
-                        <h1 className={`${PartnersStyles.title} ${Styles.textShadowPrimary}`}>Platinum Sponsors</h1>
+                        <h1 className={`${PartnersStyles.title}`}>Platinum Sponsors</h1>
                         <div className={PartnersStyles.section}>{PlatinumSponsors}</div>
                     </div>
                     <div>
-                        <h1 className={`${PartnersStyles.title} ${Styles.textShadowPrimary}`}>Grand Sponsors</h1>
+                        <h1 className={`${PartnersStyles.title}`}>Grand Sponsors</h1>
                         <div className={PartnersStyles.section}>{GrandSponsors}</div>
                     </div>
                     <div>
-                        <h1 className={`${PartnersStyles.title} ${Styles.textShadowPrimary}`}>Partners</h1>
+                        <h1 className={`${PartnersStyles.title}`}>Partners</h1>
                         <div className={PartnersStyles.section}>{Partners}</div>
                     </div>
                     <div>
-                        <h1 className={`${PartnersStyles.title} ${Styles.textShadowPrimary}`}>Supporters</h1>
+                        <h1 className={`${PartnersStyles.title}`}>Supporters</h1>
                         <div className={PartnersStyles.section}>{Supporters}</div>
                     </div>
-                    
-
+                    <div>
+                        <h1 className={`${PartnersStyles.title}`}>Media</h1>
+                        <div className={PartnersStyles.section}>{Supporters}</div>
+                    </div>
+                    <div>
+                        <h1 className={`${PartnersStyles.title}`}>Community</h1>
+                        <div className={PartnersStyles.section}>{Supporters}</div>
+                    </div>
                 </div>
             </Container>
         </Page>

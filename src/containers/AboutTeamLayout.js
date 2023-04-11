@@ -39,7 +39,7 @@ const AboutTeamLayout = ({ teamName, members }) => {
                 { memberComponents.slice(0, max) }
             </Row>
             <DissapearingText
-            className={ `${styles.textShadowPrimary} ${teamLayoutStyles.teamName}`}
+            className={ `${teamLayoutStyles.teamName}`}
             text={`${teamName} TEAM`}
             />
             <Row className={teamLayoutStyles.row}>

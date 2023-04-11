@@ -27,13 +27,11 @@ const Data = ({ fullName, picture, slug, speciality, type }) => {
                     ${speakerStyles.image}
                 `} />
                 <h1 className={`
-                ${styles.textShadowPrimary}
                 ${speakerStyles.caption}
                 `}>
                     { fullName }
                 </h1>
                 <h4 className={`
-                ${styles.textShadowPrimary}
                 ${speakerStyles.caption}
                 `}>
                     { speciality }

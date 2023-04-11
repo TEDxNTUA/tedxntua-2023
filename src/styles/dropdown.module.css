@@ -14,7 +14,7 @@
 }
 
 .link:hover {
-    transform: scale(1.1);
+    transform: scale(105%);
 }
 
 .dropdown-container {
@@ -22,7 +22,7 @@
     top: var(--header-height);
 
     z-index: 1;
-    background-color: rgba(30, 30, 30, .8);
+    background-color: rgba(30, 30, 30, .2);
     padding: 0 0.5em;
     border-radius: 0 0 5px 5px;
 
