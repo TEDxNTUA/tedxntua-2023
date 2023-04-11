@@ -236,7 +236,8 @@
 }
 
 .location-info-container p {
-    text-align: right;
+    text-align-last: right;
+    text-align: justify;
     width: 50%;
 }
 
@@ -249,24 +250,77 @@
 .location-row {
     position: relative;
     height: 100vh;
+    display: flex;
+    margin-right: 1vh;
 }
+
+/* .location-info-head {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 3vh;
+}
+
+.location-info-line {
+    width: 50%;
+    height: .5vh;
+    border-radius: 3vh;
+    background-color: white;
+}
+
+.location-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 2vh;
+}
+
+.location-info-date {
+    border: solid .25vh white;
+    border-radius: 5vh;
+    padding: .5vh;
+}
+
+.location-info-title {
+    padding: .5vh;
+    margin-right: 2vh;
+} */
 
 .location-image {
     position: absolute !important;
-    border-radius: 15px;
+    bottom: 0;
 
     /* border-radius bug in Safari */
     transform: translateZ(0);
 
-    box-shadow: 4px 4px var(--primary-shadow);
     margin-top: 1em;
 
     z-index: -1;
 
-    width: 100%;
+    width: 50%;
 }
 
 .location-header {
+    display: flex;
+    flex-direction: column
+}
+
+.location-large-rect {
+    width: 100%;
+    height: 3vh;
+    background-color: white;
+}
+
+.location-small-rect {
+    width: 100%;
+    margin: 2vh 0;
+    height: 1vh;
+    background-color: white;
+}
+
+.location-header-text {
     margin-bottom: 1em;
     font-weight: bold;
     font-size: 32px;

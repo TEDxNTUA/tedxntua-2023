@@ -1,0 +1,33 @@
+.mneme-line-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 3vh;
+}
+
+.mneme-line {
+    width: 50%;
+    height: .5vh;
+    border-radius: 3vh;
+    background-color: white;
+}
+
+.mneme-line-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 2vh;
+}
+
+.mneme-line-date {
+    border: solid .25vh white;
+    border-radius: 5vh;
+    padding: .5vh;
+}
+
+.mneme-line-title {
+    padding: .5vh;
+    margin-right: 2vh;
+}
