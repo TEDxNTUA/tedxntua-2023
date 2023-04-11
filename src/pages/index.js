@@ -63,10 +63,9 @@ const HomePage = () => {
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
-                <span>{mousePos.x}</span>
                 <div className={styles.mnemeLogoImage}>
                     <StaticImage src='../images/MNEMElogo.png' />
-                    <h1 style={{marginTop:"35px" , fontSize:50, textShadow: '2px 2px var(--primary-bg)'}}>13<span style={{color: 'var(--primary-highlight) !important'}}>.</span>05<span style={{color: 'var(--primary-highlight) !important'}}>.</span>2023</h1>
+                    <h1 style={{marginTop:"35px" , fontSize:50, textShadow: '2px 2px var(--primary-bg)'}}>13<span>.</span>05<span>.</span>2023</h1>
                 </div>
                 <div className={homeStyles.flowerImage}>
                     <StaticImage src='../images/flower.png' />
@@ -90,7 +89,7 @@ const HomePage = () => {
                     {/* <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div> */}
-                    <StaticImage style={{ width: '20vw' }} src='../images/MNEMElogo.png' />
+                    <StaticImage style={{ width: '20vw', display: isMobile ? 'none':'' }} src='../images/MNEMElogo.png' />
                     {documentToReactComponents(JSON.parse(homeInfo.themeInfo.raw))}
                     <StaticImage className={homeStyles.infoImage} src='../images/mneme_with_flowers_2.jpg' />
                 </div>

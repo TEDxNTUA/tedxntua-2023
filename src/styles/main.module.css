@@ -8,17 +8,22 @@
     --secondary-shadow: #546EA0;
     --primary-text: #FFFF;
     --primary-highlight: #FF8A00;
+    --secondary-highlight: #ff0018;
     --primary-orange: #FF8A00;
 
     --header-height: 100px;
 }
 
-.mneme-logo-image{
+.mneme-logo-image {
     display:flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     justify-content: center;
+}
+
+.mneme-logo-image span {
+    color: var(--primary-shadow) !important;
 }
 
 * {
