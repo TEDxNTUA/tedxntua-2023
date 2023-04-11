@@ -15,6 +15,7 @@ import { useHomeInfo } from '../hooks';
 
 import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";
+import MnemeLine from '../components/MnemeLine';
 
 const pageTitle = 'Home';
 
@@ -118,7 +119,25 @@ const HomePage = () => {
                 <StaticImage className={homeStyles.locationImage} src="../images/Odeon.png" />
                 <div className={homeStyles.locationInfoSuperContainer}>
                     <div className={homeStyles.locationInfoContainer}>
-                        <h3 className={homeStyles.locationHeader}>{ locationInstructionsHeader }</h3>
+                        {/* <div className={homeStyles.locationInfoHead}>
+                            <div className={homeStyles.locationInfoLine}></div>
+                            <div className={homeStyles.locationInfo}>
+                                <div className={homeStyles.locationInfoTitle}>
+                                    MNEME
+                                </div>
+                                <div className={homeStyles.locationInfoDate}>
+                                    MAY 13
+                                </div>
+                            </div>
+                        </div> */}
+                        <MnemeLine />
+                        <div className={homeStyles.locationHeader}>
+                            <div className={homeStyles.locationLargeRect}></div>
+                            <div className={homeStyles.locationSmallRect}></div>
+                            <h3 className={homeStyles.locationHeaderText}>
+                                { locationInstructionsHeader }
+                            </h3>
+                        </div>
                         { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
                     </div>
                 </div>
