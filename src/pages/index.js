@@ -27,39 +27,6 @@ const HomePage = () => {
     const mapsHtml = JSON.parse(homeInfo.mapsHtml.raw).content[0].content[0].value;
     const locationInstructionsHeader = (locale === 'el-GR' ? 'ΩΔΕΙΟΝ ΑΘΗΝΩΝ':'ATHENS CONSERVATOIRE');
 
-    // store mouse position as ref instead of state to prevent
-    // re-rendering which stops touch detection and leads to
-    // improper "ontouchmove" behaviour
-    const active = React.useRef({active: false});
-    const mousePos = React.useRef({x: 0, y: 0});
-    const initPos = React.useRef({x: 0, y: 0});
-
-    const updateMousePos = (e) => {
-
-        if (!e.touches && isMobile) return;
-
-        const client = {
-            x: isMobile ? e.touches[0].clientX : e.clientX,
-            y: isMobile ? e.touches[0].clientY : e.clientY,
-        };
-
-        if (isMobile) {
-            const sensitivity = 5;
-            const dx = client.x - initPos.current.x;
-            
-            mousePos.current.x += sensitivity * ((dx > 0) ? 1:-1);
-
-            initPos.current.x = client.x;
-        }
-        else {
-            const rect = e.target.getBoundingClientRect();
-            const dx = (client.x - rect.x) - rect.width/2;
-
-            mousePos.current.x += dx - mousePos.current.x;
-        }
-
-    };
-
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
@@ -139,6 +106,7 @@ const HomePage = () => {
                             </h3>
                         </div>
                         { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
+                        <div dangerouslySetInnerHTML={{__html: mapsHtml }} />
                     </div>
                 </div>
             </Row>
