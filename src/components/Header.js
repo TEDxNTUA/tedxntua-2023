@@ -118,8 +118,8 @@ const Header = ({ currentPage }) => {
                     onClick={() => setOpen(!open)}
                     style={{ transition: "all .2s", transform: (open) ? "rotate(360deg)":"rotate(0deg)" }}
                     className={headerStyles.toggler}
-                    stroke="#F6E9C7"
-                    shadow="#C51731"
+                    stroke="#fff"
+                    shadow="#FF8A00"
                     strokeWidth={12}
                     />
 
