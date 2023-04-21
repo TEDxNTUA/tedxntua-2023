@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Container } from 'reactstrap';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
@@ -33,6 +33,11 @@ function DataPage(props) {
         default:
             throw new Error(`Type ${props.pageContext.type} is invalid. Must be one of the following: speaker, performer, workshop`);
     }
+
+    useEffect(() => {
+        // scroll to top on initial render
+        document.body.scrollTo(0, 0);
+    })
 
     return (
         <Page currentPage={`/${url}/${props.pageContext.pageName}`}>
@@ -75,8 +80,7 @@ function DataPage(props) {
                 className={dataPageStyles.dataPageMeta}>
                     {props.pageContext.speciality}
                 </h4>
-                <div
-                    className={dataPageStyles.dataPageSection}>
+                <div>
                     <h3
                     className={dataPageStyles.dataPageSectionMeta}>
                         {(locale === 'el-GR') ? 'Βιογραφικό:':'Bio:'}
@@ -87,8 +91,7 @@ function DataPage(props) {
                     </p>
                 </div>
                 {appFormUrl != undefined &&
-                    <div
-                    className={dataPageStyles.dataPageSection}>
+                    <div>
                         <h3
                         className={dataPageStyles.dataPageSectionMeta}>
                             Workshop Description:
