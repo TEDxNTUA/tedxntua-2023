@@ -504,7 +504,7 @@
 
 @media only screen and (max-width: 450px) {
     .location-info-container iframe {
-        height: 30vh;
+        height: 26vh;
     }
 }
 
@@ -535,7 +535,7 @@
 
 @media only screen and (max-width: 380px) {
     .location-info-container iframe {
-        height: 25vh;
+        height: 23vh;
     }
 }
 
@@ -557,7 +557,7 @@
 
 @media only screen and (max-width: 365px) {
     .location-info-container iframe {
-        height: 22vh;
+        height: 20vh;
     }
 }
 
@@ -579,13 +579,13 @@
 
 @media only screen and (max-width: 335px) {
     .location-info-container iframe {
-        height: 20vh;
+        height: 18vh;
     }
 }
 
 @media only screen and (max-width: 305px) {
     .location-info-container iframe {
-        height: 15vh;
+        height: 13vh;
     }
 }
 

@@ -11,7 +11,7 @@ import GLB from "../components/scene.glb";
 import ModelLoader from '../components/ModelLoader';
 
 import { useLocaleContext } from '../contexts/LanguageContext';
-import { useHomeInfo } from '../hooks';
+import { useHomeInfo, usePerformerData, useSpeakersData, useWorkshopData } from '../hooks';
 
 import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";
@@ -26,6 +26,10 @@ const HomePage = () => {
     const locationImage = getImage(homeInfo.locationImage);
     const mapsHtml = JSON.parse(homeInfo.mapsHtml.raw).content[0].content[0].value;
     const locationInstructionsHeader = (locale === 'el-GR' ? 'ΩΔΕΙΟΝ ΑΘΗΝΩΝ':'ATHENS CONSERVATOIRE');
+
+    const workshopsNumber = useWorkshopData(locale).length
+    const speakersNumber = useSpeakersData(locale).length
+    const performersNumber = usePerformerData(locale).length
 
     return (
         <Page currentPage={`home`}>
@@ -66,19 +70,19 @@ const HomePage = () => {
                 <Row className={homeStyles.infoSectionRow}>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Workshops Image' />
                     <h1>
-                        <span>6</span>WORKSHOPS
+                        <span>{ workshopsNumber }</span>WORKSHOPS
                     </h1>
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
                     <h1>
-                        <span>9</span>TALKS
+                        <span>{ speakersNumber }</span>TALKS
                     </h1>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Talks Image'/>
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Performers Image'/>
                     <h1>
-                        <span>4</span>PERFORMERS
+                        <span>{ performersNumber }</span>PERFORMERS
                     </h1>
                 </Row>
             </Row>
