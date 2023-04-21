@@ -24,6 +24,8 @@
     border: solid .25vh white;
     border-radius: 5vh;
     padding: .5vh;
+
+    white-space: nowrap;
 }
 
 .mneme-line-title {

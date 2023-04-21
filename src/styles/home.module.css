@@ -88,7 +88,6 @@
 
 .info-container h3 {
     text-align: center;
-    text-shadow: 2px 2px var(--primary-bg);
 }
 
 .booking-button {
@@ -245,6 +244,9 @@
     border-radius: 15px;
     box-shadow: 4px 4px var(--primary-shadow);
     margin-top: 1em;
+
+    /* height: 100%; */
+    transition: all .2s ease-in-out;
 }
 
 .location-row {
@@ -444,7 +446,7 @@
 
     .theme-info-container p {
         padding: 0;
-        font-size: 26px;
+        font-size: 22px;
 
         margin-top: .5em;
         width: 100%;
@@ -481,8 +483,6 @@
     .location-info-container p {
         width: 100%;
         text-align: right;
-
-        text-shadow: 2px 2px var(--primary-bg);
     }
 
     .location-header-text {
@@ -491,8 +491,21 @@
 
     .location-info-container iframe {
         width: 80vw;
+        height: 35vh;
     }
 
+}
+
+@media only screen and (max-width: 600px) {
+    .location-info-container {
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .location-info-container iframe {
+        height: 26vh;
+    }
 }
 
 @media only screen and (max-width: 412px) {
@@ -514,6 +527,16 @@
         padding: 0 4em;
     }
 
+    .theme-info-container p {
+        font-size: 18px;
+    }
+
+}
+
+@media only screen and (max-width: 380px) {
+    .location-info-container iframe {
+        height: 23vh;
+    }
 }
 
 @media only screen and (max-width: 370px) {
@@ -527,9 +550,15 @@
     }
 
     .theme-info-container p {
-        font-size: 20px;
+        font-size: 16px;
     }
 
+}
+
+@media only screen and (max-width: 365px) {
+    .location-info-container iframe {
+        height: 20vh;
+    }
 }
 
 @media only screen and (max-width: 360px) {
@@ -548,6 +577,18 @@
 
 }
 
+@media only screen and (max-width: 335px) {
+    .location-info-container iframe {
+        height: 18vh;
+    }
+}
+
+@media only screen and (max-width: 305px) {
+    .location-info-container iframe {
+        height: 13vh;
+    }
+}
+
 @media only screen and (max-width: 280px) {
     .theme-info-container p {
         font-size: 15px;
@@ -559,5 +600,11 @@
 
     .info-section-container h1 span {
         font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 262px) {
+    .location-info-container iframe {
+        height: 10vh;
     }
 }

@@ -11,7 +11,7 @@ import GLB from "../components/scene.glb";
 import ModelLoader from '../components/ModelLoader';
 
 import { useLocaleContext } from '../contexts/LanguageContext';
-import { useHomeInfo } from '../hooks';
+import { useHomeInfo, usePerformerData, useSpeakersData, useWorkshopData } from '../hooks';
 
 import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";
@@ -27,45 +27,16 @@ const HomePage = () => {
     const mapsHtml = JSON.parse(homeInfo.mapsHtml.raw).content[0].content[0].value;
     const locationInstructionsHeader = (locale === 'el-GR' ? 'ΩΔΕΙΟΝ ΑΘΗΝΩΝ':'ATHENS CONSERVATOIRE');
 
-    // store mouse position as ref instead of state to prevent
-    // re-rendering which stops touch detection and leads to
-    // improper "ontouchmove" behaviour
-    const active = React.useRef({active: false});
-    const mousePos = React.useRef({x: 0, y: 0});
-    const initPos = React.useRef({x: 0, y: 0});
-
-    const updateMousePos = (e) => {
-
-        if (!e.touches && isMobile) return;
-
-        const client = {
-            x: isMobile ? e.touches[0].clientX : e.clientX,
-            y: isMobile ? e.touches[0].clientY : e.clientY,
-        };
-
-        if (isMobile) {
-            const sensitivity = 5;
-            const dx = client.x - initPos.current.x;
-            
-            mousePos.current.x += sensitivity * ((dx > 0) ? 1:-1);
-
-            initPos.current.x = client.x;
-        }
-        else {
-            const rect = e.target.getBoundingClientRect();
-            const dx = (client.x - rect.x) - rect.width/2;
-
-            mousePos.current.x += dx - mousePos.current.x;
-        }
-
-    };
+    const workshopsNumber = useWorkshopData(locale).length
+    const speakersNumber = useSpeakersData(locale).length
+    const performersNumber = usePerformerData(locale).length
 
     return (
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
                 <div className={styles.mnemeLogoImage}>
                     <StaticImage src='../images/MNEMElogo.png' />
-                    <h1 style={{marginTop:"35px" , fontSize:50, textShadow: '2px 2px var(--primary-bg)'}}>13<span>.</span>05<span>.</span>2023</h1>
+                    <h1 style={{marginTop:"35px" , fontSize:50 }}>13<span>.</span>05<span>.</span>2023</h1>
                 </div>
                 <div className={homeStyles.flowerImage}>
                     <StaticImage src='../images/flower.png' />
@@ -99,19 +70,19 @@ const HomePage = () => {
                 <Row className={homeStyles.infoSectionRow}>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Workshops Image' />
                     <h1>
-                        <span>6</span>WORKSHOPS
+                        <span>{ workshopsNumber }</span>WORKSHOPS
                     </h1>
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
                     <h1>
-                        <span>9</span>TALKS
+                        <span>{ speakersNumber }</span>TALKS
                     </h1>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Talks Image'/>
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
                     <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Performers Image'/>
                     <h1>
-                        <span>4</span>PERFORMERS
+                        <span>{ performersNumber }</span>PERFORMERS
                     </h1>
                 </Row>
             </Row>
@@ -139,6 +110,7 @@ const HomePage = () => {
                             </h3>
                         </div>
                         { documentToReactComponents(JSON.parse(homeInfo.howToGetThere.raw)) }
+                        <div dangerouslySetInnerHTML={{__html: mapsHtml }} />
                     </div>
                 </div>
             </Row>

@@ -36,8 +36,8 @@ export default function HTML(props) {
           }}>
             <Flower
               className={flowerStyles.loaderRotate}
-              stroke="#F6E9C7"
-              shadow="#C51731"
+              stroke="#fff"
+              shadow="#FF8A00"
               strokeWidth={12}
               />
           </div>
