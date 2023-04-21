@@ -52,7 +52,7 @@ body {
     }
 
     .info {
-        background-color: var(--primary-shadow);
+        background-color: var(--secondary-shadow);
         padding: .5em;
     }
 

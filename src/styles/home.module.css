@@ -533,6 +533,12 @@
 
 }
 
+@media only screen and (max-width: 380px) {
+    .location-info-container iframe {
+        height: 25vh;
+    }
+}
+
 @media only screen and (max-width: 370px) {
 
     .mneme-label {
@@ -547,10 +553,12 @@
         font-size: 16px;
     }
 
-    .location-info-container iframe {
-        height: 25vh;
-    }
+}
 
+@media only screen and (max-width: 365px) {
+    .location-info-container iframe {
+        height: 22vh;
+    }
 }
 
 @media only screen and (max-width: 360px) {
@@ -567,19 +575,15 @@
         font-size: 20px;
     }
 
-    .location-info-container iframe {
-        height: 22vh;
-    }
-
 }
 
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 335px) {
     .location-info-container iframe {
         height: 20vh;
     }
 }
 
-@media only screen and (max-width: 290px) {
+@media only screen and (max-width: 305px) {
     .location-info-container iframe {
         height: 15vh;
     }
@@ -599,7 +603,7 @@
     }
 }
 
-@media only screen and (max-width: 260px) {
+@media only screen and (max-width: 262px) {
     .location-info-container iframe {
         height: 10vh;
     }
