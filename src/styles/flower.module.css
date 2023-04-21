@@ -29,6 +29,20 @@
     transition: all .2s ease-in-out;
 }
 
+.image {
+    position: absolute;
+    left: 0;
+
+    height: 60px;
+    width: 60px;
+
+    filter: brightness(0) invert(1);
+}
+
+.shadow-image {
+    transform: translateX(2px) translateY(2px);
+}
+
 .container:hover .front {
     transform: scale(1.3);
 }
