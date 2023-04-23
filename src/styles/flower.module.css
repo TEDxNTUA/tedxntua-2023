@@ -54,3 +54,13 @@
 .loader-rotate {
     animation: rotation 1s infinite linear;
 }
+
+@media only screen and (max-width: 900px) {
+    /* disable hover effect for mobile */
+    .container:hover .front {
+        transform: scale(1);
+    }
+    .container:hover .shadow {
+        transform: scale(1);
+    }
+}
