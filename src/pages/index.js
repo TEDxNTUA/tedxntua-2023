@@ -26,6 +26,8 @@ const HomePage = () => {
     const locationImage = getImage(homeInfo.locationImage);
     const mapsHtml = JSON.parse(homeInfo.mapsHtml.raw).content[0].content[0].value;
     const locationInstructionsHeader = (locale === 'el-GR' ? 'ΩΔΕΙΟΝ ΑΘΗΝΩΝ':'ATHENS CONSERVATOIRE');
+    const MnemeLineText = (locale === 'el-GR' ? 'ΜΝΗΜΗ':'ΜΝΕΜΕ')
+    const MnemeLineBorderText = (locale === 'el-GR' ? '13 ΜΑΙΟΥ':'MAY 13')
 
     const workshopsNumber = useWorkshopData(locale).length
     const speakersNumber = useSpeakersData(locale).length
@@ -37,17 +39,14 @@ const HomePage = () => {
                 <div className={styles.mnemeLogoImage}>
                     <StaticImage src='../images/MNEMElogo.png' />
                     <h1 style={{marginTop:"35px" , fontSize:50 }}>13<span>.</span>05<span>.</span>2023</h1>
-                </div>
-                <div className={homeStyles.flowerImage}>
-                    <StaticImage src='../images/flower.png' />
-                </div>
-                <div className={homeStyles.infoContainer}>
                     <h3>
                         { homeInfo.location }
                     </h3>
-                    <h3>
-                        { homeInfo.date }
-                    </h3>
+                </div>
+                <div className={homeStyles.flowerImage} style={{ display: isMobile ? 'none':'auto' }}>
+                    <StaticImage src='../images/flower.png' />
+                </div>
+                <div className={homeStyles.infoContainer}>
                     <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
                         <div className={homeStyles.bookingButton}>
                             BOOK YOUR TICKETS NOW
@@ -60,30 +59,26 @@ const HomePage = () => {
                     {/* <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div>
                     <div className={homeStyles.themeInfoBackground}></div> */}
-                    <MnemeLine reverse />
+                    <MnemeLine reverse text={MnemeLineText} borderText={MnemeLineBorderText} />
                     <StaticImage style={{ width: '20vw', display: isMobile ? 'none':'' }} src='../images/MNEMElogo.png' />
                     {documentToReactComponents(JSON.parse(homeInfo.themeInfo.raw))}
-                    <StaticImage className={homeStyles.infoImage} src='../images/mneme_with_flowers_2.jpg' />
+                    {
+                        isMobile ?
+                        <StaticImage className={homeStyles.infoImageMobile} src='../images/flower.png' />
+                        :
+                        <StaticImage className={homeStyles.infoImage} src='../images/mneme_with_flowers_2.jpg' />
+                    }
                 </div>
             </Row>
             <Row className={homeStyles.infoSectionContainer}>
                 <Row className={homeStyles.infoSectionRow}>
-                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Workshops Image' />
-                    <h1>
-                        <span>{ workshopsNumber }</span>WORKSHOPS
-                    </h1>
+                    <MnemeLine text='WORKSHOPS' borderText={workshopsNumber} className={homeStyles.infoSectionLine} />
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
-                    <h1>
-                        <span>{ speakersNumber }</span>TALKS
-                    </h1>
-                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Talks Image'/>
+                    <MnemeLine text='SPEAKERS' borderText={speakersNumber} reverse className={homeStyles.infoSectionLine} />
                 </Row>
                 <Row className={homeStyles.infoSectionRow}>
-                    <StaticImage src={"../images/placeholder.png"} className={homeStyles.infoSectionImage} alt='Performers Image'/>
-                    <h1>
-                        <span>{ performersNumber }</span>PERFORMERS
-                    </h1>
+                    <MnemeLine text='PERFORMERS' borderText={performersNumber} className={homeStyles.infoSectionLine} />
                 </Row>
             </Row>
             <Row className={homeStyles.locationRow}>
@@ -101,7 +96,7 @@ const HomePage = () => {
                                 </div>
                             </div>
                         </div> */}
-                        <MnemeLine />
+                        <MnemeLine text={MnemeLineText} borderText={MnemeLineBorderText} />
                         <div className={homeStyles.locationHeader}>
                             <div className={homeStyles.locationLargeRect}></div>
                             <div className={homeStyles.locationSmallRect}></div>

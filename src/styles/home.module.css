@@ -118,6 +118,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+
+    padding: 0 15%;
 }
 
 .info-section-container h1 {
@@ -153,6 +155,10 @@
     margin: 0 .5em;
 
     border-radius: 15px;
+}
+
+.info-section-line {
+    font-size: 100px;
 }
 
 .theme-info-row {
@@ -220,6 +226,14 @@
     right: 0;
 }
 
+.info-image-mobile {
+    position: absolute !important;
+    z-index: -1;
+    filter: brightness(0.5);
+    right: 0;
+    bottom: 0;
+}
+
 .location-info-super-container {
     display: flex;
     justify-content: center;
@@ -251,7 +265,7 @@
 
 .location-row {
     position: relative;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     margin-right: 1vh;
 }
@@ -365,6 +379,10 @@
     .info-section-container h1 span {
         font-size: 140px;
     }
+
+    .info-section-line {
+        font-size: 60px;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -396,7 +414,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        bottom: 0;
+        bottom: 6%;
         margin-bottom: 0;
 
         width: 100%;
@@ -411,6 +429,11 @@
         
     .mneme-label {
         position: absolute;
+    }
+
+    .booking-button {
+        font-size: 20px;
+        padding: 0.5em 1em;
     }
 
     .booking-button:hover {
@@ -434,6 +457,10 @@
 
     .info-section-container h1 span {
         font-size: 60px;
+    }
+
+    .info-section-line {
+        font-size: 40px;
     }
 
     .theme-info-row {
@@ -508,12 +535,16 @@
     }
 }
 
-@media only screen and (max-width: 412px) {
+@media only screen and (max-width: 425px) {
 
     .mneme-label {
         font-size: 60px;
     }
 
+
+    .info-section-container {
+        padding: 0 5%;
+    }
 
     .info-section-container h1 {
         font-size: 30px;
@@ -521,6 +552,10 @@
 
     .info-section-container h1 span {
         font-size: 50px;
+    }
+
+    .info-section-line {
+        font-size: 30px;
     }
 
     .theme-info-container {
@@ -539,7 +574,7 @@
     }
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 375px) {
 
     .mneme-label {
         font-size: 55px;
@@ -551,6 +586,10 @@
 
     .theme-info-container p {
         font-size: 16px;
+    }
+
+    .info-section-line {
+        font-size: 25px;
     }
 
 }
@@ -580,6 +619,14 @@
 @media only screen and (max-width: 335px) {
     .location-info-container iframe {
         height: 18vh;
+    }
+
+    .info-section-container {
+        padding: 0;
+    }
+
+    .info-section-line {
+        font-size: 20px;
     }
 }
 

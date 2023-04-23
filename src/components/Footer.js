@@ -15,7 +15,8 @@ import {
 
 import * as styles from "../styles/main.module.css";
 import * as footerStyles from "../styles/footer.module.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
     const {locale } = useLocaleContext();
@@ -94,6 +95,9 @@ const Footer = () => {
                     </a>
                     <a href="https://www.youtube.com/channel/UCVtjgrrBdSPZERmdso2o0dw/featured">
                         <i className="fa fa-youtube fa-3x"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@tedxntua">
+                        <FontAwesomeIcon icon={faTiktok} size="3x" />
                     </a>
                 </div>
                 {/* <h4>
