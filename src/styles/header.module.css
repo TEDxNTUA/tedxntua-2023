@@ -1,8 +1,7 @@
 .header-container {
     position: fixed;
     
-    /* background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(27,27,27,0.6776291167664671) 53%, rgba(27,27,27,0.6506830089820359) 100%); */
-    background-color: rgba(30, 30, 30, .2);
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(43,43,43,0.8664565058479532) 0%, rgba(28,28,28,1) 100%);
 
     padding: 0 .5em;
     margin-bottom: 1.5em;
@@ -117,7 +116,7 @@
 
         padding: .5em .5em .5em .5em;
 
-        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(27,27,27,0.6027788173652695) 57%, rgba(27,27,27,0.6506830089820359) 100%);
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(43,43,43,0.8664565058479532) 24%, rgba(28,28,28,1) 100%);
     }
 
     .mobile-link-container .link {

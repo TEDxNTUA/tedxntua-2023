@@ -37,17 +37,14 @@ const HomePage = () => {
                 <div className={styles.mnemeLogoImage}>
                     <StaticImage src='../images/MNEMElogo.png' />
                     <h1 style={{marginTop:"35px" , fontSize:50 }}>13<span>.</span>05<span>.</span>2023</h1>
-                </div>
-                <div className={homeStyles.flowerImage}>
-                    <StaticImage src='../images/flower.png' />
-                </div>
-                <div className={homeStyles.infoContainer}>
                     <h3>
                         { homeInfo.location }
                     </h3>
-                    <h3>
-                        { homeInfo.date }
-                    </h3>
+                </div>
+                <div className={homeStyles.flowerImage} style={{ display: isMobile ? 'none':'auto' }}>
+                    <StaticImage src='../images/flower.png' />
+                </div>
+                <div className={homeStyles.infoContainer}>
                     <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
                         <div className={homeStyles.bookingButton}>
                             BOOK YOUR TICKETS NOW
@@ -63,7 +60,12 @@ const HomePage = () => {
                     <MnemeLine reverse />
                     <StaticImage style={{ width: '20vw', display: isMobile ? 'none':'' }} src='../images/MNEMElogo.png' />
                     {documentToReactComponents(JSON.parse(homeInfo.themeInfo.raw))}
-                    <StaticImage className={homeStyles.infoImage} src='../images/mneme_with_flowers_2.jpg' />
+                    {
+                        isMobile ?
+                        <StaticImage className={homeStyles.infoImageMobile} src='../images/flower.png' />
+                        :
+                        <StaticImage className={homeStyles.infoImage} src='../images/mneme_with_flowers_2.jpg' />
+                    }
                 </div>
             </Row>
             <Row className={homeStyles.infoSectionContainer}>
