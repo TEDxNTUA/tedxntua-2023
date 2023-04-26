@@ -37,7 +37,7 @@ const HomePage = () => {
         <Page currentPage={`home`}>
             <Row className={homeStyles.titleSectionContainer}>
                 <div className={styles.mnemeLogoImage}>
-                    <StaticImage src='../images/MNEMElogo.png' />
+                    <StaticImage className={homeStyles.fadeIn} src='../images/MNEMElogo.png' />
                     <h1 style={{marginTop:"35px" , fontSize:50 }}>13<span>.</span>05<span>.</span>2023</h1>
                     <h3>
                         { homeInfo.location }

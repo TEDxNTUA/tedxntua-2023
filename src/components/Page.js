@@ -9,11 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 import * as styles from "../styles/main.module.css";
+import { StaticImage } from 'gatsby-plugin-image';
 
 const Page = ({ currentPage, children }) => {
     return (
         <main className={styles.globalContainer}>
             <LocaleContextProvider>
+                <StaticImage className={styles.backgroundImage} src='../images/BG.png' />
                 <Header currentPage={currentPage} />
                 <div>
                     { children }

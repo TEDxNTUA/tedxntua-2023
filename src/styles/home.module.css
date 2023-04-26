@@ -27,6 +27,15 @@
     z-index: 0;
 }
 
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .mneme-label {
     letter-spacing: .5em;
     font-size: 100px;
@@ -251,7 +260,8 @@
 .location-info-container p {
     text-align-last: right;
     text-align: justify;
-    width: 50%;
+    width: 65%;
+    font-size: 32px;
 }
 
 .location-info-container iframe {
@@ -510,6 +520,7 @@
     .location-info-container p {
         width: 100%;
         text-align: right;
+        font-size: 22px;
     }
 
     .location-header-text {
@@ -566,6 +577,10 @@
         font-size: 18px;
     }
 
+    .location-info-container p {
+        font-size: 18px;
+    }
+
 }
 
 @media only screen and (max-width: 380px) {
@@ -585,6 +600,10 @@
     }
 
     .theme-info-container p {
+        font-size: 16px;
+    }
+
+    .location-info-container p {
         font-size: 16px;
     }
 
@@ -638,6 +657,10 @@
 
 @media only screen and (max-width: 280px) {
     .theme-info-container p {
+        font-size: 15px;
+    }
+
+    .location-info-container p {
         font-size: 15px;
     }
 

@@ -17,32 +17,32 @@ const About = () => {
     const membersData = useMembersData(locale);
     const teams = [
         {
-            code: "DEV",
-            name: "DEVELOPER",
-        },
-        {
-            code: "MEDIA",
-            name: "MEDIA",
-        },
-        {
             code: "DESIGN",
             name: "DESIGN",
-        },
-        {
-            code: "PRODUCTION",
-            name: "PRODUCTION",
         },
         {
             code: "FUNDRAISING",
             name: "FUNDRAISING",
         },
         {
+            code: "EXPERIENCE",
+            name: "EXPERIENCE"
+        },
+        {
+            code: "MEDIA",
+            name: "MEDIA",
+        },
+        {
+            code: "PRODUCTION",
+            name: "PRODUCTION",
+        },
+        {
             code: "SPEAKERS",
             name: "SPEAKERS",
         },
         {
-            code: "EXPERIENCE",
-            name: "EXPERIENCE"
+            code: "DEV",
+            name: "DEVELOPER",
         },
     ];
 
@@ -59,7 +59,9 @@ const About = () => {
 
     return (
         <Page currentPage={`about`}>
-            { layouts }
+            <div style={{ padding: '.5em' }}>
+                { layouts }
+            </div>
             { infoPanels }
         </Page>
     )
