@@ -23,8 +23,8 @@
     justify-content: center;
 }
 
-.mneme-logo-image span {
-    color: var(--primary-shadow) !important;
+.mneme-centered-image{
+    margin-left: 45px;
 }
 
 * {
