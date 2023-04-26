@@ -40,7 +40,6 @@ const HomePage = () => {
                     <StaticImage className={styles.mnemeCenteredImage} src='../images/MNEMElogo.png' />
                     <h1 className={homeStyles.eventDate}>13<span>.</span>05<span>.</span>2023</h1>
                     <h3>{ homeInfo.location }</h3> 
-                    
                 </div>
                 <div className={homeStyles.flowerImage} style={{ display: isMobile ? 'none':'auto' }}>
                     <StaticImage src='../images/flower.png' />
