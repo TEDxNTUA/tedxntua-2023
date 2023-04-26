@@ -27,7 +27,7 @@ function DataPage(props) {
             break;
         case 'workshop':
             socialMediaUrl = props.pageContext.websiteUrl;
-            altText = (locale === 'el-GR') ? 'ΙΣΤΟΣΕΛΊΔΑ':'WEBSITE';
+            altText = (locale === 'el-GR') ? 'ΙΣΤΟΣΕΛΙΔΑ':'WEBSITE';
             appFormUrl = props.pageContext.applicationFormUrl;
             break;
         default:
@@ -47,7 +47,7 @@ function DataPage(props) {
                     className={`
                     ${dataPageStyles.dataPageBackButton}
                     ${dataPageStyles.dataPageButton}`}>
-                        { (locale === 'el-GR') ? 'ΠΊΣΩ':'BACK' }
+                        { (locale === 'el-GR') ? 'ΠΙΣΩ':'BACK' }
                 </Link>
                 <GatsbyImage image={image}
                             className={`
@@ -68,7 +68,7 @@ function DataPage(props) {
                         className={`
                         ${dataPageStyles.dataPageButton}
                         ${dataPageStyles.dataPageSocialButton}`}>
-                            {(locale === 'el-GR') ? 'ΔΙΕΚΔΊΚΗΣΕ ΤΗΝ ΘΈΣΗ ΣΟΥ':'CLAIM YOUR SPOT'}
+                            {(locale === 'el-GR') ? 'ΔΙΕΚΔΙΚΗΣΕ ΤΗΝ ΘΕΣΗ ΣΟΥ':'CLAIM YOUR SPOT'}
                         </Link>
                     }
                 </div>
