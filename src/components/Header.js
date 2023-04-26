@@ -116,7 +116,7 @@ const Header = ({ currentPage }) => {
                 <Col xs={{size: 3}} md={{size: 1}} className={headerStyles.mobileMenuContainer}>
                     <Flower
                     onClick={() => setOpen(!open)}
-                    style={{ transition: "all .2s", transform: (open) ? "rotate(360deg)":"rotate(0deg)" }}
+                    style={{ transition: "all .3s", transform: (open) ? "rotate(360deg)":"rotate(0deg)" }}
                     className={headerStyles.toggler}
                     stroke="#fff"
                     shadow="#FF8A00"

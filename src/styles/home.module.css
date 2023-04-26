@@ -27,6 +27,15 @@
     z-index: 0;
 }
 
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .mneme-label {
     letter-spacing: .5em;
     font-size: 100px;
@@ -251,7 +260,8 @@
 .location-info-container p {
     text-align-last: right;
     text-align: justify;
-    width: 50%;
+    width: 65%;
+    font-size: 32px;
 }
 
 .location-info-container iframe {
@@ -270,6 +280,10 @@
     margin-right: 1vh;
 }
 
+.event-date{
+    margin-top:45px;  
+    font-size:50px;
+}
 /* .location-info-head {
     display: flex;
     flex-direction: row;
@@ -307,6 +321,7 @@
 .location-image {
     position: absolute !important;
     bottom: 0;
+    opacity: 0.8;
 
     /* border-radius bug in Safari */
     transform: translateZ(0);
@@ -510,6 +525,7 @@
     .location-info-container p {
         width: 100%;
         text-align: right;
+        font-size: 22px;
     }
 
     .location-header-text {
@@ -565,6 +581,13 @@
     .theme-info-container p {
         font-size: 18px;
     }
+    .event-date{
+        font-size: 30px;
+    }
+
+    .location-info-container p {
+        font-size: 18px;
+    }
 
 }
 
@@ -585,6 +608,10 @@
     }
 
     .theme-info-container p {
+        font-size: 16px;
+    }
+
+    .location-info-container p {
         font-size: 16px;
     }
 
@@ -613,7 +640,9 @@
     .info-container h3 {
         font-size: 20px;
     }
-
+    .event-date{
+        font-size: 30px;
+    }
 }
 
 @media only screen and (max-width: 335px) {
@@ -628,6 +657,9 @@
     .info-section-line {
         font-size: 20px;
     }
+    .event-date{
+        font-size: 30px;
+    }
 }
 
 @media only screen and (max-width: 305px) {
@@ -638,6 +670,10 @@
 
 @media only screen and (max-width: 280px) {
     .theme-info-container p {
+        font-size: 15px;
+    }
+
+    .location-info-container p {
         font-size: 15px;
     }
 
