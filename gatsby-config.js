@@ -4,10 +4,9 @@
 module.exports = {
   siteMetadata: {
     title: `TEDxNTUA 2023`,
-    siteUrl: `https://www.yourdomain.tld`,
-  },
-  flags: {
-    DEV_SSR: true,
+    description: `TEDxNTUA 2023 is held this year, on Saturday, May 13th, at Athens Conservatoire. The theme of the event is MNEME. Join us in this journey, full of intriguing scientific talks, engaging performances and multifaceted workshops.`,
+    image: `/seo_image.png`,
+    siteUrl: `https://www.2023tedxntua.com`,
   },
   plugins: [
     {

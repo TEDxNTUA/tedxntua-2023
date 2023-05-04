@@ -81,7 +81,7 @@ const Footer = () => {
             </Col>
             <Col md={{size: 4}} className={footerStyles.footerCol}>
                 <h4>
-                    Find us on social
+                    Find us on social media
                 </h4>
                 <div className={footerStyles.socialContainer}>
                     <a href="https://www.instagram.com/tedxntua/">

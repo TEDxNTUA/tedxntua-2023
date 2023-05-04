@@ -9,7 +9,6 @@ const InfoPanel = ({ header, formattedText }) => {
     return (
         <Row className={infoPanelStyles.container}>
             <h1 className={`
-            ${styles.textShadowSecondary}
             ${infoPanelStyles.infoHeader}
             `}>
                 { header }
