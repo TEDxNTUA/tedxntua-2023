@@ -98,7 +98,7 @@ const HomePage = () => {
                         <div className={homeStyles.locationHeader}>
                             <div className={homeStyles.locationLargeRect}></div>
                             <div className={homeStyles.locationSmallRect}></div>
-                            <h3 className={homeStyles.locationHeaderText}>
+                            <h3 className={homeStyles.locationHeaderText} style={{ letterSpacing: (locale == 'el-GR') ? '10px':'2px' }}>
                                 { locationInstructionsHeader }
                             </h3>
                         </div>
