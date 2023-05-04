@@ -90,7 +90,7 @@ const Footer = () => {
                     <a href="https://www.facebook.com/tedxntua/">
                         <i className="fa fa-facebook fa-3x"></i>
                     </a>
-                    <a href="https://www.facebook.com/tedxntua/">
+                    <a href="https://www.linkedin.com/company/tedxntua/">
                         <i className="fa fa-linkedin fa-3x"></i>
                     </a>
                     <a href="https://www.youtube.com/channel/UCVtjgrrBdSPZERmdso2o0dw/featured">
