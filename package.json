@@ -35,7 +35,6 @@
     "react-colorful": "^5.6.1",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
-    "react-three-fiber": "^6.0.13",
     "reactstrap": "^9.1.5",
     "three": "^0.150.1",
     "url-loader": "^4.1.1",

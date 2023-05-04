@@ -1,14 +1,11 @@
 import * as React from 'react';
 import { Row } from 'reactstrap';
-import { Canvas } from "react-three-fiber";
 import { isMobile } from 'react-device-detect';
-import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
+import { StaticImage, getImage } from 'gatsby-plugin-image';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Page from '../components/Page';
 import PageHead from '../components/PageHead';
-import GLB from "../components/scene.glb";
-import ModelLoader from '../components/ModelLoader';
 
 import { useLocaleContext } from '../contexts/LanguageContext';
 import { useHomeInfo, usePerformerData, useSpeakersData, useWorkshopData } from '../hooks';
@@ -23,7 +20,7 @@ const HomePage = () => {
 
     const { locale } = useLocaleContext();
     const homeInfo = useHomeInfo(locale);
-    const locationImage = getImage(homeInfo.locationImage);
+    
     const mapsHtml = JSON.parse(homeInfo.mapsHtml.raw).content[0].content[0].value;
     const locationInstructionsHeader = (locale === 'el-GR' ? 'ΩΔΕΙΟΝ ΑΘΗΝΩΝ':'ATHENS CONSERVATOIRE');
     const MnemeLineText = (locale === 'el-GR' ? 'ΜΝΗΜΗ':'ΜΝΕΜΕ')
@@ -32,6 +29,8 @@ const HomePage = () => {
     const workshopsNumber = useWorkshopData(locale).length
     const speakersNumber = useSpeakersData(locale).length
     const performersNumber = usePerformerData(locale).length
+
+    const buttonText = (locale == 'el-GR') ? 'Μάθε πως να κλείσεις το εισιτήριο σου' : 'Find out how to book your ticket';
 
     return (
         <Page currentPage={`home`}>
@@ -45,9 +44,9 @@ const HomePage = () => {
                     <StaticImage src='../images/flower.png' />
                 </div>
                 <div className={homeStyles.infoContainer}>
-                    <a href={ homeInfo.ticketUrl } className={`text-reset text-decoration-none`}>
+                    <a href="https://www.instagram.com/tedxntua/" className={`text-reset text-decoration-none`}>
                         <div className={homeStyles.bookingButton}>
-                            BOOK YOUR TICKETS NOW
+                            { buttonText }
                         </div>
                     </a>
                 </div>
