@@ -15,30 +15,6 @@
     margin-top: calc(var(--header-height) - 1em);
 }
 
-.container:nth-child(even) {
-    background-color: var(--primary-highlight);
-}
-
-.container:nth-child(even) h5 {
-    color: black !important;
-}
-
-.container:nth-child(even) span {
-    color: black !important;
-}
-
-.container:nth-child(odd) {
-    background-color: var(--primary-highlight);
-}
-
-.container:nth-child(odd) h5 {
-    color: black !important;
-}
-
-.container:nth-child(odd) span {
-    color: black !important;
-}
-
 .row {
     display: flex;
     flex-direction: row;
