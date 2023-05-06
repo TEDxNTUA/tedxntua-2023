@@ -16,42 +16,42 @@ const partnersData = usePartnersData(locale);
 
 const KnowledgePartners = partnersData.map(type=>{
     if(type.sponsorLevel === "knowledge"){
-        return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
+        return <Partner key={type.id} name={type.name} bio={type.bio} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
     }
     return;
 })
 const PlatinumSponsors = partnersData.map(type=>{
     if(type.sponsorLevel === "platinum"){
-        return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
+        return <Partner key={type.id} name={type.name} bio={type.bio} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
     }
     return;
 })
 const GrandSponsors = partnersData.map(type=>{
     if(type.sponsorLevel === "grand"){
-        return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
+        return <Partner key={type.id} name={type.name} bio={type.bio} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
     }
 })
 const Partners = partnersData.map(type=>{
     if(type.sponsorLevel === "partner"){
-        return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
+        return <Partner key={type.id} name={type.name} bio={type.bio} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
     }
     return;
 })
 const Supporters = partnersData.map(type=>{
     if(type.sponsorLevel === "supporter"){
-        return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
+        return <Partner key={type.id} name={type.name} bio={type.bio} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
     }
     return;
 })
 const Media = partnersData.map(type=>{
     if(type.sponsorLevel === "media"){
-        return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
+        return <Partner key={type.id} name={type.name} bio={type.bio} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
     }
     return;
 })
 const Community = partnersData.map(type=>{
     if(type.sponsorLevel === "community"){
-        return <Partner key={type.id} name={type.name} bio={type.bio.raw} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
+        return <Partner key={type.id} name={type.name} bio={type.bio} websiteUrl={type.websiteUrl} careerUrl={type.careerSiteUrl} image={type.image}/>
     }
     return;
 })
