@@ -12,7 +12,6 @@ import * as dataPageStyles from "../styles/dataPage.module.css";
 import * as dataStyles from "../styles/data.module.css";
 
 function DataPage(props) {
-    console.log(props.pageContext);
 
     const { locale } = useLocaleContext();
     const url = props.pageContext.type + 's';
