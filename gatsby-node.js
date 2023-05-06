@@ -46,6 +46,9 @@ exports.createPages = ({ graphql, actions }) => {
                 image {
                   gatsbyImageData(width: 450, height: 450)
                 }
+                node_locale
+                matchId
+                slug
               }
             }
         }
@@ -55,18 +58,44 @@ exports.createPages = ({ graphql, actions }) => {
           throw result.errors;
       }
 
-      result.data.allContentfulSpeakers.nodes.forEach(node => {
-          const urlAddress = node.name.toLowerCase().replace(/ /g, '-');
+      const seenNodes = []
+      for (const node of result.data.allContentfulSpeakers.nodes) {
+        // check if node has been seen again -> meaning data
+        // for both versions have been collected
+        const prevNode = seenNodes.find(prevNode => prevNode.matchId === node.matchId)
+        if (prevNode) {
+          
+          const data = {
+            socialMediaUrl: node.socialMediaUrl,
+            image: node.image,
+            [node.node_locale]: {
+              name: node.name,
+              speciality: node.speciality,
+              bio: node.bio,
+            },
+            [prevNode.node_locale]: {
+              name: prevNode.name,
+              speciality: prevNode.speciality,
+              bio: prevNode.bio,
+            }
+          }
+          
+          const urlAddress = node.slug;
           createPage({
               path: `/speakers/${urlAddress}/`,
               component: template,
               context: {
-                  ...node,
+                  ...data,
                   type: 'speaker',
                   pageName: urlAddress
               },
           });
-      });
+          
+          continue;
+        }
+
+        seenNodes.push(node)
+      }
     });
 
     const performers = graphql(`
@@ -83,6 +112,9 @@ exports.createPages = ({ graphql, actions }) => {
             name
             socialMediaUrl
             subtitle
+            node_locale
+            matchId
+            slug
           }
         }
       }
@@ -92,21 +124,48 @@ exports.createPages = ({ graphql, actions }) => {
             throw result.errors;
         }
 
-        result.data.allContentfulPerformers.nodes.forEach(node => {
-            const urlAddress = node.name.toLowerCase().replace(/ /g, '-');
+        const seenNodes = []
+        for (const node of result.data.allContentfulPerformers.nodes) {
+          // check if node has been seen again -> meaning data
+          // for both versions have been collected
+          const prevNode = seenNodes.find(prevNode => prevNode.matchId === node.matchId)
+          if (prevNode) {
+            
+            const data = {
+              socialMediaUrl: node.socialMediaUrl,
+              image: node.image,
+              [node.node_locale]: {
+                name: node.name,
+                subtitle: node.subtitle,
+                bio: node.bio,
+              },
+              [prevNode.node_locale]: {
+                name: prevNode.name,
+                subtitle: prevNode.subtitle,
+                bio: prevNode.bio,
+              }
+            }
+            
+            const urlAddress = node.slug;
             createPage({
                 path: `/performers/${urlAddress}/`,
                 component: template,
                 context: {
-                    ...node,
+                    ...data,
                     type: 'performer',
                     pageName: urlAddress
                 },
             });
-        });
-    });
+            
+            continue;
+          }
+  
+          seenNodes.push(node)
+        }
 
-    const worksops = graphql(`
+      });
+
+    const workshops = graphql(`
       query {
         allContentfulWorkshops {
           nodes {
@@ -123,6 +182,9 @@ exports.createPages = ({ graphql, actions }) => {
             sideEventDescription {
               raw
             }
+            node_locale
+            matchId
+            slug
           }
         }
       }
@@ -132,19 +194,47 @@ exports.createPages = ({ graphql, actions }) => {
           throw result.errors;
       }
 
-      result.data.allContentfulWorkshops.nodes.forEach(node => {
-          const urlAddress = node.name.toLowerCase().replace(/ /g, '-');
+      const seenNodes = []
+      for (const node of result.data.allContentfulWorkshops.nodes) {
+        // check if node has been seen again -> meaning data
+        // for both versions have been collected
+        const prevNode = seenNodes.find(prevNode => prevNode.matchId === node.matchId)
+        if (prevNode) {
+          
+          const data = {
+            applicationFormUrl: node.applicationFormUrl,
+            websiteUrl: node.websiteUrl,
+            image: node.image,
+            [node.node_locale]: {
+              name: node.name,
+              sideEventDescription: node.sideEventDescription,
+              bio: node.bio,
+            },
+            [prevNode.node_locale]: {
+              name: prevNode.name,
+              sideEventDescription: prevNode.sideEventDescription,
+              bio: prevNode.bio,
+            }
+          }
+          
+          const urlAddress = node.slug;
           createPage({
               path: `/workshops/${urlAddress}/`,
               component: template,
               context: {
-                  ...node,
+                  ...data,
                   type: 'workshop',
                   pageName: urlAddress
               },
           });
-      });
-  });
+          
+          continue;
+        }
+
+        seenNodes.push(node)
+      }
+
+    });
     
-  return Promise.all([speakers, performers, worksops]);
+  return Promise.all([speakers, performers, workshops]);
 }

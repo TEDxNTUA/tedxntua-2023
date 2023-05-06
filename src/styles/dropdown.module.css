@@ -22,7 +22,7 @@
     top: var(--header-height);
 
     z-index: 1;
-    background-color: rgba(30, 30, 30, .2);
+    background: var(--header-background);
     padding: 0 0.5em;
     border-radius: 0 0 5px 5px;
 

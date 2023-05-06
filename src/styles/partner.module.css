@@ -25,6 +25,10 @@
   position: relative;
 }
 
+.image {
+  background-color: white;
+}
+
 .image-border{
   top: 0;
   position: absolute;

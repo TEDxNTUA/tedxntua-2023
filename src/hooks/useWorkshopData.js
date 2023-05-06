@@ -19,6 +19,7 @@ const useWorkshopData = (locale) => {
               raw
             }
             node_locale
+            slug
           }
         }
       }

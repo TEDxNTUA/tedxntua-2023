@@ -16,6 +16,7 @@ const usePerformerData = (locale) => {
             socialMediaUrl
             subtitle
             node_locale
+            slug
           }
         }
       }

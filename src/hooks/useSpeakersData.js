@@ -16,6 +16,7 @@ const useSpeakersData = (locale) => {
               gatsbyImageData(width: 450, height: 450)
             }
             node_locale
+            slug
           }
         }
       }`
