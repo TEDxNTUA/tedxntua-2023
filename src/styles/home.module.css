@@ -184,7 +184,7 @@
     padding: 0 5em;
 
     position: relative;
-    height: 100vh;
+    height: fit-content;
 }
 
 .theme-info-container p {
@@ -662,6 +662,12 @@
     }
 }
 
+@media only screen and (max-width: 319px) {
+    .theme-info-container p {
+        font-size: 14px;
+    }
+}
+
 @media only screen and (max-width: 305px) {
     .location-info-container iframe {
         height: 13vh;
@@ -669,13 +675,6 @@
 }
 
 @media only screen and (max-width: 280px) {
-    .theme-info-container p {
-        font-size: 15px;
-    }
-
-    .location-info-container p {
-        font-size: 15px;
-    }
 
     .info-section-container h1 {
         font-size: 20px;

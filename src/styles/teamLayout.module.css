@@ -1,6 +1,6 @@
 .container {
     padding: 1.5em 0;
-    margin-top: 20vh;
+    /* margin-top: 20vh; */
     margin-bottom: 20vh;
 
     display: flex;
@@ -8,7 +8,7 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    height: fit-content;
 }
 
 .container:nth-child(1) {
@@ -81,8 +81,14 @@
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 350px) {
     .team-name {
         font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .team-name {
+        font-size: 30px;
     }
 }
