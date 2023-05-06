@@ -1,9 +1,11 @@
 .data-page-container {
-    margin-top: 15vh;
+    padding-top: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: justify;
+
+    position: relative;
 }
 
 .data-page-image {
@@ -13,6 +15,8 @@
 }
 
 .data-page-back-button {
+    position: absolute;
+    left: 0;
     margin-right: auto;
 }
 

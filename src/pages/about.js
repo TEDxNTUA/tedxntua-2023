@@ -44,6 +44,11 @@ const About = () => {
             code: "DEV",
             name: "DEVELOPER",
         },
+        {
+            code: "THANKS",
+            name: "SCPECIAL_THANKS",
+            team: false,
+        }
     ];
 
     const layouts = teams.map(team => {
@@ -51,7 +56,7 @@ const About = () => {
         const members = membersData.filter(member => member.team === team.code);
         members.sort((a, b) => a.order - b.order);
         return (
-            <AboutTeamLayout key={team.code} members={members} teamName={team.name} />
+            <AboutTeamLayout key={team.code} members={members} teamName={team.name} showTeam={team.team} />
         );
     });
 

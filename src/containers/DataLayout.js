@@ -8,7 +8,7 @@ import * as layoutStyles from "../styles/dataLayout.module.css";
 const DataLayout = ({ dataProp, type }) => {
 
     const data = dataProp.map(s => (
-        <Data key={s.id} fullName={s.name} picture={s.image} speciality={s.speciality} type={type} />
+        <Data key={s.id} fullName={s.name} picture={s.image} speciality={s.speciality} slug={ s.slug } type={type} />
     ));
     
     const max = 3;
