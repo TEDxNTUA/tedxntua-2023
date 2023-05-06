@@ -13,8 +13,8 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   var bioText;
-  if(bio){
-    bioText = documentToReactComponents(JSON.parse(bio));
+  if (bio) {
+    bioText = documentToReactComponents(JSON.parse(bio.raw));
   }
   const myImage = getImage(image);
  return(
