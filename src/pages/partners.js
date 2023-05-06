@@ -59,10 +59,10 @@ const Community = partnersData.map(type=>{
         <Page currentPage={`partners`}>
             <Container className={PartnersStyles.container}>
                 <div className={PartnersStyles.titles}>
-                    <div>
+                    {/* <div>
                         <h1 className={`${PartnersStyles.title}`}>Knowledge Partner</h1>
                         <div className={PartnersStyles.section}>{KnowledgePartners}</div>
-                    </div>
+                    </div> */}
                     <div>
                         <h1 className={`${PartnersStyles.title}`}>Platinum Sponsors</h1>
                         <div className={PartnersStyles.section}>{PlatinumSponsors}</div>

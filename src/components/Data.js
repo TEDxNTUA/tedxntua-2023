@@ -16,7 +16,7 @@ const Data = ({ fullName, picture, slug, speciality, type }) => {
         text-reset text-decoration-none
         ${speakerStyles.linkContainer}
         `}
-        to={`/${url}/${fullName.toLowerCase().replace(/ /g, '-')}`}>
+        to={`/${url}/${slug}`}>
             <div className={`
                 ${speakerStyles.container}
             `}>

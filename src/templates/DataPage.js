@@ -12,6 +12,8 @@ import * as dataPageStyles from "../styles/dataPage.module.css";
 import * as dataStyles from "../styles/data.module.css";
 
 function DataPage(props) {
+    console.log(props.pageContext);
+
     const { locale } = useLocaleContext();
     const url = props.pageContext.type + 's';
     const image = getImage(props.pageContext.image);
@@ -41,7 +43,7 @@ function DataPage(props) {
 
     return (
         <Page currentPage={`/${url}/${props.pageContext.pageName}`}>
-            <PageHead pageTitle={props.pageContext.name} /> 
+            <PageHead pageTitle={props.pageContext[locale].name} /> 
             <Container className={dataPageStyles.dataPageContainer}>
                 <Link to={`/${url}`}
                     className={`
@@ -57,12 +59,15 @@ function DataPage(props) {
                             alt={altText} />
                 <div
                 className={dataPageStyles.dataPageSocialLinks}>
-                    <Link to={socialMediaUrl}
-                        className={`
-                        ${dataPageStyles.dataPageButton}
-                        ${dataPageStyles.dataPageSocialButton}`}>
-                            {altText}
-                    </Link>
+                    {
+                        socialMediaUrl &&
+                        <Link to={socialMediaUrl}
+                            className={`
+                            ${dataPageStyles.dataPageButton}
+                            ${dataPageStyles.dataPageSocialButton}`}>
+                                {altText}
+                        </Link>
+                    }
                     {appFormUrl != undefined &&
                         <Link to={appFormUrl}
                         className={`
@@ -74,11 +79,11 @@ function DataPage(props) {
                 </div>
                 <h3
                 className={dataPageStyles.dataPageMeta}>
-                    {props.pageContext.name}
+                    {props.pageContext[locale].name}
                 </h3>
                 <h4
                 className={dataPageStyles.dataPageMeta}>
-                    {props.pageContext.speciality}
+                    {props.pageContext[locale].speciality}
                 </h4>
                 <div>
                     <h3
@@ -87,7 +92,7 @@ function DataPage(props) {
                     </h3>
                     <p
                     className={dataPageStyles.dataPageBody}>
-                        {documentToReactComponents(JSON.parse(props.pageContext.bio.raw))}
+                        {documentToReactComponents(JSON.parse(props.pageContext[locale].bio.raw))}
                     </p>
                 </div>
                 {appFormUrl != undefined &&
@@ -98,7 +103,7 @@ function DataPage(props) {
                         </h3>
                         <p
                         className={dataPageStyles.dataPageBody}>
-                            {documentToReactComponents(JSON.parse(props.pageContext.sideEventDescription.raw))}
+                            {documentToReactComponents(JSON.parse(props.pageContext[locale].sideEventDescription.raw))}
                         </p>
                     </div>
                 }
