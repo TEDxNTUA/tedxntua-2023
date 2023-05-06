@@ -26,11 +26,11 @@ const HomePage = () => {
     const MnemeLineText = (locale === 'el-GR' ? 'ΜΝΗΜΗ':'ΜΝΕΜΕ')
     const MnemeLineBorderText = (locale === 'el-GR' ? '13 ΜΑΙΟΥ':'MAY 13')
 
-    const workshopsNumber = useWorkshopData(locale).length
-    const speakersNumber = useSpeakersData(locale).length
-    const performersNumber = usePerformerData(locale).length
+    const workshopsNumber = 4;
+    const speakersNumber = 10;
+    const performersNumber = 3;
 
-    const buttonText = (locale == 'el-GR') ? 'Μάθε πως να κλείσεις το εισιτήριο σου' : 'Find out how to book your ticket';
+    const buttonText = (locale == 'el-GR') ? 'Μάθε πώς να κλείσεις το εισιτήριο σου' : 'Find out how to book your ticket';
 
     return (
         <Page currentPage={`home`}>

@@ -16,11 +16,13 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
   if (bio) {
     bioText = documentToReactComponents(JSON.parse(bio.raw));
   }
+  
   const myImage = getImage(image);
+  if (!myImage) return <></>
  return(
     <>
     <Button onClick={handleOpen} className={partnerStyles.button}>
-        <GatsbyImage className={partnerStyles.image} image={myImage} alt={ name }/> 
+        <GatsbyImage className={partnerStyles.image} image={myImage} alt={ name }/>
         <span className={`${partnerStyles.learnMore}`}>Learn More</span>
         <div className={partnerStyles.imageBorder}>
         </div>

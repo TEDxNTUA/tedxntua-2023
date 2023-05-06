@@ -13,6 +13,7 @@ const pageTitle = 'Partners';
 const Partners = () => {
     const {locale} = useLocaleContext();
 const partnersData = usePartnersData(locale);
+console.log(partnersData);
 
 const KnowledgePartners = partnersData.map(type=>{
     if(type.sponsorLevel === "knowledge"){
