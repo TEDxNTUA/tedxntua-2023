@@ -182,14 +182,14 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 5em;
-
+    
     position: relative;
     height: fit-content;
 }
 
 .theme-info-container p {
     text-align: justify;
-    font-size: 32px;
+    font-size: 26px;
     width: 65%;
 }
 
@@ -368,7 +368,7 @@
 }
 
 .location-instructions p {
-    font-size: 26px;
+    font-size: 22px;
     width: fit-content;
 
     margin-left: 1em;
@@ -525,7 +525,7 @@
     .location-info-container p {
         width: 100%;
         text-align: right;
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .location-header-text {
@@ -664,7 +664,7 @@
 
 @media only screen and (max-width: 319px) {
     .theme-info-container p {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
