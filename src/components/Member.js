@@ -19,7 +19,7 @@ const Member = ({ imageData, name="", linkedInUrl="", style, className, onMouseE
         onMouseLeave={onMouseLeave}
         className={ `${className} ${memberStyles.container}` }
         style={ style } >
-            <a href={ linkedInUrl }>
+            <a href={ linkedInUrl } target="_blank">
                 <GatsbyImage alt={ name } image={ image } />
             </a>
             <div className={memberStyles.caption}>

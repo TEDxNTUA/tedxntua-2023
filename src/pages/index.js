@@ -44,7 +44,7 @@ const HomePage = () => {
                     <StaticImage src='../images/flower.png' />
                 </div>
                 <div className={homeStyles.infoContainer}>
-                    <a href="https://www.instagram.com/tedxntua/" className={`text-reset text-decoration-none`}>
+                    <a href="https://www.instagram.com/tedxntua/" className={`text-reset text-decoration-none`} target="_blank">
                         <div className={homeStyles.bookingButton}>
                             { buttonText }
                         </div>
