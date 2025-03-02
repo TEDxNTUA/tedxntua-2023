@@ -13,7 +13,6 @@ import {
  import { useLocaleContext } from "../contexts/LanguageContext";
  import { usePrevEventsData } from "../hooks";
 
-import * as styles from "../styles/main.module.css";
 import * as footerStyles from "../styles/footer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";

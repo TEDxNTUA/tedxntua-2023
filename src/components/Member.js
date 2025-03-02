@@ -3,7 +3,6 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import LinkedInIcon from './LinkedInIcon';
 
-import * as styles from "../styles/main.module.css";
 import * as memberStyles from "../styles/member.module.css";
 
 const Member = ({ imageData, name="", linkedInUrl="", style, className, onMouseEnter, onMouseLeave }) => {
