@@ -28,7 +28,7 @@ const DropDownLinks = ({ paths, children, style, className, permanentActive = fa
             ${headerStyles.link}
             ${(open || permanentActive) ? "":styles.hideLink}
             ${(open || permanentActive) ? headerStyles.slideInLeft:""}
-            ${(capitalize(currentPage) == key) ? headerStyles.active:""}
+            ${(capitalize(currentPage) === key) ? headerStyles.active:""}
             `}>
                 {paths[key].name}
             </Link>

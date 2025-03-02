@@ -5,14 +5,13 @@ import { isMobile } from "react-device-detect";
 import Member from "../components/Member";
 import DissapearingText from "../components/DissapearringText";
 
-import * as styles from "../styles/main.module.css";
 import * as teamLayoutStyles from "../styles/teamLayout.module.css";
 
-const AboutTeamLayout = ({ teamName, members }) => {
+const AboutTeamLayout = ({ teamName, members, showTeam }) => {
     
     const [active, setActive] = React.useState({});
     // const max = (!isMobile) ? 3:4;
-    const max = 4;
+    const max = 3;
 
     const memberComponents = members.map(member => {
         
@@ -40,7 +39,7 @@ const AboutTeamLayout = ({ teamName, members }) => {
             </Row>
             <DissapearingText
             className={ `${teamLayoutStyles.teamName}`}
-            text={`${teamName} TEAM`}
+            text={`${teamName} ${(showTeam === false) ? '':'TEAM'}`}
             />
             <Row className={teamLayoutStyles.row}>
                 { memberComponents.slice(max) }

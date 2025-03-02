@@ -5,7 +5,6 @@ import * as partnersStyles from "../styles/partners.module.css";
 import * as Styles from "../styles/main.module.css";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { GatsbyImage , getImage} from "gatsby-plugin-image";
-import { Link } from "gatsby";
 
 
 export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
@@ -13,14 +12,16 @@ export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   var bioText;
-  if(bio){
-    bioText = documentToReactComponents(JSON.parse(bio));
+  if (bio) {
+    bioText = documentToReactComponents(JSON.parse(bio.raw));
   }
+  
   const myImage = getImage(image);
+  if (!myImage) return <></>
  return(
     <>
     <Button onClick={handleOpen} className={partnerStyles.button}>
-        <GatsbyImage className={partnerStyles.image} image={myImage} alt={ name }/> 
+        <GatsbyImage className={partnerStyles.image} image={myImage} alt={ name }/>
         <span className={`${partnerStyles.learnMore}`}>Learn More</span>
         <div className={partnerStyles.imageBorder}>
         </div>
