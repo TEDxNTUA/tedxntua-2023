@@ -8,7 +8,7 @@ import Page from '../components/Page';
 import PageHead from '../components/PageHead';
 
 import { useLocaleContext } from '../contexts/LanguageContext';
-import { useHomeInfo, usePerformerData, useSpeakersData, useWorkshopData } from '../hooks';
+import { useHomeInfo } from '../hooks';
 
 import * as styles from "../styles/main.module.css";
 import * as homeStyles from "../styles/home.module.css";

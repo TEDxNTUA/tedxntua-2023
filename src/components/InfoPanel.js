@@ -2,7 +2,6 @@ import * as React from "react";
 import { Row } from "reactstrap";
 import { isMobile } from "react-device-detect";
 
-import * as styles from "../styles/main.module.css";
 import * as infoPanelStyles from "../styles/infoPanel.module.css";
 
 const InfoPanel = ({ header, formattedText }) => {

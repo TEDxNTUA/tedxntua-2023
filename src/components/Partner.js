@@ -5,7 +5,6 @@ import * as partnersStyles from "../styles/partners.module.css";
 import * as Styles from "../styles/main.module.css";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { GatsbyImage , getImage} from "gatsby-plugin-image";
-import { Link } from "gatsby";
 
 
 export const Partner = ({bio,careerUrl , image , name, websiteUrl}) => {
